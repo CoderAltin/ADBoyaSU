@@ -7,7 +7,8 @@ namespace ADBoyaSU
 {
     public partial class Form1 : Form
     {
-        
+        public int imageIndex = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -64,7 +65,22 @@ namespace ADBoyaSU
                 imageList.Add(System.Drawing.Image.FromFile(openFileDialog.FileNames[i]));
 
             // Dispaly images in the picuteBox1
-            pictureBox1.Image = imageList[0];
+            ShowSelectedFiles("", imageList);
+            //pictureBox1.Image = imageList[0];
+        }
+
+        public void ShowSelectedFiles(string direction, List<System.Drawing.Image> imageList)
+        {
+            int i;
+
+            if (direction == "")
+            {
+                i = 0;
+                pictureBox1.Image = imageList[i];
+                seePreviousFile.Enabled = false;
+            }
+            if (direction == "right")
+                pictureBox1.Image = imageList[imageIndex];
         }
     }
 }

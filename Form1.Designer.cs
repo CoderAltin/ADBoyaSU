@@ -49,8 +49,8 @@
             textBox5 = new TextBox();
             dontConsiderThese = new Label();
             textBox6 = new TextBox();
-            button2 = new Button();
-            button4 = new Button();
+            seePreviousFile = new Button();
+            seeNextFile = new Button();
             menuStrip1 = new MenuStrip();
             helpToolStripMenuItem = new ToolStripMenuItem();
             licenceToolStripMenuItem = new ToolStripMenuItem();
@@ -63,7 +63,7 @@
             label10 = new Label();
             textBox8 = new TextBox();
             label11 = new Label();
-            imageList1 = new ImageList(components);
+            imageList = new ImageList(components);
             label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -272,23 +272,23 @@
             textBox6.Size = new Size(137, 23);
             textBox6.TabIndex = 1001;
             // 
-            // button2
+            // seePreviousFile
             // 
-            button2.Location = new Point(603, 356);
-            button2.Name = "button2";
-            button2.Size = new Size(22, 23);
-            button2.TabIndex = 1002;
-            button2.Text = "<";
-            button2.UseVisualStyleBackColor = true;
+            seePreviousFile.Location = new Point(603, 356);
+            seePreviousFile.Name = "seePreviousFile";
+            seePreviousFile.Size = new Size(22, 23);
+            seePreviousFile.TabIndex = 1002;
+            seePreviousFile.Text = "<";
+            seePreviousFile.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // seeNextFile
             // 
-            button4.Location = new Point(637, 356);
-            button4.Name = "button4";
-            button4.Size = new Size(22, 23);
-            button4.TabIndex = 1002;
-            button4.Text = ">";
-            button4.UseVisualStyleBackColor = true;
+            seeNextFile.Location = new Point(637, 356);
+            seeNextFile.Name = "seeNextFile";
+            seeNextFile.Size = new Size(22, 23);
+            seeNextFile.TabIndex = 1002;
+            seeNextFile.Text = ">";
+            seeNextFile.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -396,9 +396,9 @@
             // 
             // imageList1
             // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageSize = new Size(16, 16);
-            imageList1.TransparentColor = Color.Transparent;
+            imageList.ColorDepth = ColorDepth.Depth32Bit;
+            imageList.ImageSize = new Size(16, 16);
+            imageList.TransparentColor = Color.Transparent;
             // 
             // label12
             // 
@@ -418,8 +418,8 @@
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(checkBox1);
-            Controls.Add(button4);
-            Controls.Add(button2);
+            Controls.Add(seeNextFile);
+            Controls.Add(seePreviousFile);
             Controls.Add(textBox3);
             Controls.Add(textBox6);
             Controls.Add(textBox8);
@@ -477,8 +477,8 @@
         private TextBox textBox5;
         private Label dontConsiderThese;
         private TextBox textBox6;
-        private Button button2;
-        private Button button4;
+        private Button seePreviousFile;
+        private Button seeNextFile;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem licenceToolStripMenuItem;
@@ -492,7 +492,7 @@
         private TextBox textBox8;
         private Label label11;
         public Button browsImages;
-        private ImageList imageList1;
+        private ImageList imageList;
         private Label label12;
         public PictureBox pictureBox1;
     }
