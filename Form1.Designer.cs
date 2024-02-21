@@ -28,12 +28,404 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            components = new System.ComponentModel.Container();
+            selectPics = new Label();
+            textBox1 = new TextBox();
+            button1 = new Button();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
+            okButton = new Button();
+            button3 = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            textBox2 = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            textBox3 = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            textBox4 = new TextBox();
+            textBox5 = new TextBox();
+            dontConsiderThese = new Label();
+            textBox6 = new TextBox();
+            toolTip1 = new ToolTip(components);
+            button2 = new Button();
+            button4 = new Button();
+            menuStrip1 = new MenuStrip();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            licenceToolStripMenuItem = new ToolStripMenuItem();
+            yardımToolStripMenuItem = new ToolStripMenuItem();
+            harHarHarToolStripMenuItem = new ToolStripMenuItem();
+            label9 = new Label();
+            textBox7 = new TextBox();
+            button5 = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // selectPics
+            // 
+            selectPics.Font = new Font("Segoe UI", 12F);
+            selectPics.ForeColor = Color.Black;
+            selectPics.Location = new Point(33, 38);
+            selectPics.Name = "selectPics";
+            selectPics.Size = new Size(100, 20);
+            selectPics.TabIndex = 0;
+            selectPics.Text = "Əkızlərin Seç";
+            selectPics.Click += label1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(33, 74);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(680, 23);
+            textBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.DeepSkyBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(725, 67);
+            button1.Name = "button1";
+            button1.Size = new Size(90, 35);
+            button1.TabIndex = 1;
+            button1.Text = "Gəz";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(432, 134);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(383, 216);
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Location = new Point(62, 115);
+            label1.Name = "label1";
+            label1.Size = new Size(700, 1);
+            label1.TabIndex = 999;
+            label1.Click += label1_Click_1;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Location = new Point(62, 395);
+            label2.Name = "label2";
+            label2.Size = new Size(700, 1);
+            label2.TabIndex = 999;
+            label2.Click += label1_Click_1;
+            // 
+            // okButton
+            // 
+            okButton.BackColor = Color.Chartreuse;
+            okButton.FlatAppearance.BorderColor = Color.Chartreuse;
+            okButton.FlatAppearance.BorderSize = 0;
+            okButton.FlatStyle = FlatStyle.Flat;
+            okButton.Font = new Font("Segoe UI", 11F);
+            okButton.Location = new Point(725, 486);
+            okButton.Name = "okButton";
+            okButton.Size = new Size(90, 45);
+            okButton.TabIndex = 1000;
+            okButton.Text = "Oldu, Yaxçı";
+            okButton.UseVisualStyleBackColor = false;
+            okButton.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.OrangeRed;
+            button3.FlatAppearance.BorderColor = Color.OrangeRed;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 11F);
+            button3.Location = new Point(620, 486);
+            button3.Name = "button3";
+            button3.Size = new Size(100, 45);
+            button3.TabIndex = 1000;
+            button3.Text = "Bırx, İstəmır";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(33, 135);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Seçimlər";
+            label3.Click += label1_Click;
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(62, 172);
+            label4.Name = "label4";
+            label4.Size = new Size(121, 20);
+            label4.TabIndex = 0;
+            label4.Text = "Başlamak Yerı:";
+            label4.Click += label1_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(237, 172);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(47, 23);
+            textBox2.TabIndex = 1001;
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(214, 172);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 20);
+            label5.TabIndex = 0;
+            label5.Text = "X";
+            label5.Click += label1_Click;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 12F);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(304, 172);
+            label6.Name = "label6";
+            label6.Size = new Size(17, 20);
+            label6.TabIndex = 0;
+            label6.Text = "Y";
+            label6.Click += label1_Click;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(327, 172);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(47, 23);
+            textBox3.TabIndex = 1001;
+            // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(62, 212);
+            label7.Name = "label7";
+            label7.Size = new Size(132, 20);
+            label7.TabIndex = 0;
+            label7.Text = "Sıraların Sayısı:";
+            label7.Click += label1_Click;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(62, 252);
+            label8.Name = "label8";
+            label8.Size = new Size(132, 20);
+            label8.TabIndex = 0;
+            label8.Text = "Sütunların Sayısı:";
+            label8.Click += label1_Click;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(283, 212);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(47, 23);
+            textBox4.TabIndex = 1001;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(283, 252);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(47, 23);
+            textBox5.TabIndex = 1001;
+            // 
+            // dontConsiderThese
+            // 
+            dontConsiderThese.Font = new Font("Segoe UI", 12F);
+            dontConsiderThese.ForeColor = Color.Black;
+            dontConsiderThese.Location = new Point(62, 332);
+            dontConsiderThese.Name = "dontConsiderThese";
+            dontConsiderThese.Size = new Size(132, 20);
+            dontConsiderThese.TabIndex = 0;
+            dontConsiderThese.Text = "Bıları Gözə Alma:";
+            dontConsiderThese.Click += label1_Click;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(237, 332);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(137, 23);
+            textBox6.TabIndex = 1001;
+            // 
+            // toolTip1
+            // 
+            toolTip1.Popup += toolTip1_Popup;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(603, 356);
+            button2.Name = "button2";
+            button2.Size = new Size(22, 23);
+            button2.TabIndex = 1002;
+            button2.Text = "<";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(631, 356);
+            button4.Name = "button4";
+            button4.Size = new Size(22, 23);
+            button4.TabIndex = 1002;
+            button4.Text = ">";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(843, 24);
+            menuStrip1.TabIndex = 1003;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { licenceToolStripMenuItem, yardımToolStripMenuItem, harHarHarToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(56, 20);
+            helpToolStripMenuItem.Text = "Yardım";
+            // 
+            // licenceToolStripMenuItem
+            // 
+            licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
+            licenceToolStripMenuItem.Size = new Size(147, 22);
+            licenceToolStripMenuItem.Text = "Birincı Yardım";
+            licenceToolStripMenuItem.Click += licenceToolStripMenuItem_Click;
+            // 
+            // yardımToolStripMenuItem
+            // 
+            yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
+            yardımToolStripMenuItem.Size = new Size(147, 22);
+            yardımToolStripMenuItem.Text = "Ikincı Yardım";
+            // 
+            // harHarHarToolStripMenuItem
+            // 
+            harHarHarToolStripMenuItem.Name = "harHarHarToolStripMenuItem";
+            harHarHarToolStripMenuItem.Size = new Size(147, 22);
+            harHarHarToolStripMenuItem.Text = "Har Har Har";
+            // 
+            // label9
+            // 
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(33, 409);
+            label9.Name = "label9";
+            label9.Size = new Size(172, 20);
+            label9.TabIndex = 0;
+            label9.Text = "Sonucları Bırda Saxla";
+            label9.Click += label1_Click;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(33, 445);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(680, 23);
+            textBox7.TabIndex = 0;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.DeepSkyBlue;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F);
+            button5.Location = new Point(725, 438);
+            button5.Name = "button5";
+            button5.Size = new Size(90, 35);
+            button5.TabIndex = 1;
+            button5.Text = "Gəz";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(843, 548);
+            Controls.Add(button4);
+            Controls.Add(button2);
+            Controls.Add(textBox3);
+            Controls.Add(textBox6);
+            Controls.Add(textBox5);
+            Controls.Add(textBox4);
+            Controls.Add(textBox2);
+            Controls.Add(button3);
+            Controls.Add(okButton);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(button5);
+            Controls.Add(button1);
+            Controls.Add(textBox7);
+            Controls.Add(textBox1);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(dontConsiderThese);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label4);
+            Controls.Add(label9);
+            Controls.Add(label3);
+            Controls.Add(selectPics);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label selectPics;
+        private TextBox textBox1;
+        private Button button1;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Label label2;
+        private Button okButton;
+        private Button button3;
+        private Label label3;
+        private Label label4;
+        private TextBox textBox2;
+        private Label label5;
+        private Label label6;
+        private TextBox textBox3;
+        private Label label7;
+        private Label label8;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private Label dontConsiderThese;
+        private TextBox textBox6;
+        private ToolTip toolTip1;
+        private Button button2;
+        private Button button4;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem licenceToolStripMenuItem;
+        private Label label9;
+        private TextBox textBox7;
+        private Button button5;
+        private ToolStripMenuItem yardımToolStripMenuItem;
+        private ToolStripMenuItem harHarHarToolStripMenuItem;
     }
 }
