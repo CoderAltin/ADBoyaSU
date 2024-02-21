@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             selectPics = new Label();
             textBox1 = new TextBox();
-            button1 = new Button();
+            browsImages = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
@@ -49,7 +49,6 @@
             textBox5 = new TextBox();
             dontConsiderThese = new Label();
             textBox6 = new TextBox();
-            toolTip1 = new ToolTip(components);
             button2 = new Button();
             button4 = new Button();
             menuStrip1 = new MenuStrip();
@@ -64,6 +63,8 @@
             label10 = new Label();
             textBox8 = new TextBox();
             label11 = new Label();
+            imageList1 = new ImageList(components);
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -81,29 +82,32 @@
             // 
             // textBox1
             // 
+            textBox1.AllowDrop = true;
             textBox1.Location = new Point(33, 74);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(680, 23);
             textBox1.TabIndex = 0;
             // 
-            // button1
+            // browsImages
             // 
-            button1.BackColor = Color.DeepSkyBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(725, 67);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 35);
-            button1.TabIndex = 1;
-            button1.Text = "Gəz";
-            button1.UseVisualStyleBackColor = false;
+            browsImages.BackColor = Color.DeepSkyBlue;
+            browsImages.FlatAppearance.BorderSize = 0;
+            browsImages.FlatStyle = FlatStyle.Flat;
+            browsImages.Font = new Font("Segoe UI", 12F);
+            browsImages.Location = new Point(725, 67);
+            browsImages.Name = "browsImages";
+            browsImages.Size = new Size(90, 35);
+            browsImages.TabIndex = 1;
+            browsImages.Text = "Gəz";
+            browsImages.UseVisualStyleBackColor = false;
+            browsImages.Click += browsImages_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(432, 134);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(383, 216);
+            pictureBox1.Size = new Size(380, 215);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
@@ -149,11 +153,11 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11F);
-            button3.Location = new Point(620, 486);
+            button3.Location = new Point(615, 486);
             button3.Name = "button3";
-            button3.Size = new Size(100, 45);
+            button3.Size = new Size(105, 45);
             button3.TabIndex = 1000;
-            button3.Text = "Bırx, İstəmır";
+            button3.Text = "Bırax, İstəmır";
             button3.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -268,10 +272,6 @@
             textBox6.Size = new Size(137, 23);
             textBox6.TabIndex = 1001;
             // 
-            // toolTip1
-            // 
-            toolTip1.Popup += toolTip1_Popup;
-            // 
             // button2
             // 
             button2.Location = new Point(603, 356);
@@ -283,7 +283,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(631, 356);
+            button4.Location = new Point(637, 356);
             button4.Name = "button4";
             button4.Size = new Size(22, 23);
             button4.TabIndex = 1002;
@@ -359,7 +359,6 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Enabled = false;
             checkBox1.Location = new Point(304, 139);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(107, 19);
@@ -395,11 +394,28 @@
             label11.TabIndex = 1005;
             label11.Text = "pixel";
             // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageSize = new Size(16, 16);
+            imageList1.TransparentColor = Color.Transparent;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(626, 360);
+            label12.Name = "label12";
+            label12.Size = new Size(10, 15);
+            label12.TabIndex = 1006;
+            label12.Text = "i";
+            // 
             // Form1
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 548);
+            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(checkBox1);
             Controls.Add(button4);
@@ -416,7 +432,7 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(button5);
-            Controls.Add(button1);
+            Controls.Add(browsImages);
             Controls.Add(textBox7);
             Controls.Add(textBox1);
             Controls.Add(label6);
@@ -445,8 +461,6 @@
 
         private Label selectPics;
         private TextBox textBox1;
-        private Button button1;
-        private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
         private Button okButton;
@@ -463,7 +477,6 @@
         private TextBox textBox5;
         private Label dontConsiderThese;
         private TextBox textBox6;
-        private ToolTip toolTip1;
         private Button button2;
         private Button button4;
         private MenuStrip menuStrip1;
@@ -478,5 +491,9 @@
         private Label label10;
         private TextBox textBox8;
         private Label label11;
+        public Button browsImages;
+        private ImageList imageList1;
+        private Label label12;
+        public PictureBox pictureBox1;
     }
 }
