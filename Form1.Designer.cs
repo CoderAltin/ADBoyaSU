@@ -60,6 +60,10 @@
             label9 = new Label();
             textBox7 = new TextBox();
             button5 = new Button();
+            checkBox1 = new CheckBox();
+            label10 = new Label();
+            textBox8 = new TextBox();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -352,15 +356,57 @@
             button5.Text = "Gəz";
             button5.UseVisualStyleBackColor = false;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Enabled = false;
+            checkBox1.Location = new Point(304, 139);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(107, 19);
+            checkBox1.TabIndex = 1004;
+            checkBox1.Text = "Əkızlərı Boazart";
+            checkBox1.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(62, 292);
+            label10.Name = "label10";
+            label10.Size = new Size(183, 24);
+            label10.TabIndex = 0;
+            label10.Text = "Dörtbıcaqların Böüklügü:";
+            label10.Click += label1_Click;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(283, 292);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(47, 23);
+            textBox8.TabIndex = 1001;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(336, 297);
+            label11.Name = "label11";
+            label11.Size = new Size(32, 15);
+            label11.TabIndex = 1005;
+            label11.Text = "pixel";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 548);
+            Controls.Add(label11);
+            Controls.Add(checkBox1);
             Controls.Add(button4);
             Controls.Add(button2);
             Controls.Add(textBox3);
             Controls.Add(textBox6);
+            Controls.Add(textBox8);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox2);
@@ -376,6 +422,7 @@
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(dontConsiderThese);
+            Controls.Add(label10);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label4);
@@ -427,5 +474,9 @@
         private Button button5;
         private ToolStripMenuItem yardımToolStripMenuItem;
         private ToolStripMenuItem harHarHarToolStripMenuItem;
+        private CheckBox checkBox1;
+        private Label label10;
+        private TextBox textBox8;
+        private Label label11;
     }
 }
