@@ -7,8 +7,10 @@ namespace ADBoyaSU
 {
     public partial class Form1 : Form
     {
-        public int imageIndex = 0;
         OpenFileDialog openFileDialog = new OpenFileDialog();
+
+        public int imageIndex = 0;
+        public string currentFilePath;
 
 
         public Form1()
@@ -68,19 +70,17 @@ namespace ADBoyaSU
             //pictureBox1.Image = imageList[0];
         }
 
-        //public void ShowSelectedImage(string direction, OpenFileDialog openFileDialog)
         public void ShowSelectedImage(int direction)
         {
             if (direction == 0)
-                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
-
+                currentFilePath = openFileDialog.FileNames[imageIndex];
             else if (direction == 1 && ++imageIndex <= openFileDialog.FileNames.Length - 1)
-                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
-
+                currentFilePath = openFileDialog.FileNames[imageIndex];
             else if (direction == -1 && --imageIndex >= 0)
-                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
+                currentFilePath = openFileDialog.FileNames[imageIndex];
 
-            openFilePath.Text = openFileDialog.FileNames[imageIndex];
+            pictureBox1.Image = System.Drawing.Image.FromFile(currentFilePath);
+            openFilePath.Text = currentFilePath;
 
             if (imageIndex == 0)
                 seePreviousFile.Enabled = false;
@@ -101,6 +101,19 @@ namespace ADBoyaSU
         private void seeNextFile_Click(object sender, EventArgs e)
         {
             ShowSelectedImage(1);
+        }
+
+        private void openFilePath_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(openFilePath.Text);
+            }
+            catch (Exception)
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
+                //throw;
+            }
         }
     }
 }

@@ -87,6 +87,7 @@
             openFilePath.Name = "openFilePath";
             openFilePath.Size = new Size(680, 23);
             openFilePath.TabIndex = 999;
+            openFilePath.TextChanged += openFilePath_TextChanged;
             // 
             // browsImages
             // 
