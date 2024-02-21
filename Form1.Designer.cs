@@ -83,6 +83,7 @@
             // openFilePath
             // 
             openFilePath.AllowDrop = true;
+            openFilePath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             openFilePath.Location = new Point(33, 74);
             openFilePath.Name = "openFilePath";
             openFilePath.Size = new Size(680, 23);
@@ -91,6 +92,7 @@
             // 
             // browsImages
             // 
+            browsImages.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             browsImages.BackColor = Color.DeepSkyBlue;
             browsImages.FlatAppearance.BorderSize = 0;
             browsImages.FlatStyle = FlatStyle.Flat;
@@ -105,6 +107,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Right;
             pictureBox1.Location = new Point(432, 134);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(380, 215);
@@ -114,7 +117,7 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Location = new Point(62, 115);
             label1.Name = "label1";
@@ -124,7 +127,7 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top;
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BorderStyle = BorderStyle.Fixed3D;
             label2.Location = new Point(62, 395);
             label2.Name = "label2";
@@ -134,6 +137,7 @@
             // 
             // okButton
             // 
+            okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             okButton.BackColor = Color.Chartreuse;
             okButton.FlatAppearance.BorderColor = Color.Chartreuse;
             okButton.FlatAppearance.BorderSize = 0;
@@ -149,6 +153,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.BackColor = Color.OrangeRed;
             button3.FlatAppearance.BorderColor = Color.OrangeRed;
             button3.FlatAppearance.BorderSize = 0;
@@ -275,6 +280,7 @@
             // 
             // seePreviousFile
             // 
+            seePreviousFile.Anchor = AnchorStyles.Right;
             seePreviousFile.Enabled = false;
             seePreviousFile.Location = new Point(603, 356);
             seePreviousFile.Name = "seePreviousFile";
@@ -286,6 +292,7 @@
             // 
             // seeNextFile
             // 
+            seeNextFile.Anchor = AnchorStyles.Right;
             seeNextFile.Enabled = false;
             seeNextFile.Location = new Point(637, 356);
             seeNextFile.Name = "seeNextFile";
@@ -332,6 +339,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.Font = new Font("Segoe UI", 12F);
             label9.ForeColor = Color.Black;
             label9.Location = new Point(33, 409);
@@ -343,6 +351,7 @@
             // 
             // textBox7
             // 
+            textBox7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox7.Location = new Point(33, 445);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(680, 23);
@@ -350,6 +359,7 @@
             // 
             // button5
             // 
+            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button5.BackColor = Color.DeepSkyBlue;
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
@@ -407,6 +417,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Location = new Point(626, 360);
             label12.Name = "label12";
@@ -419,6 +430,8 @@
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(843, 548);
             Controls.Add(label12);
             Controls.Add(label11);

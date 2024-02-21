@@ -82,15 +82,8 @@ namespace ADBoyaSU
             pictureBox1.Image = System.Drawing.Image.FromFile(currentFilePath);
             openFilePath.Text = currentFilePath;
 
-            if (imageIndex == 0)
-                seePreviousFile.Enabled = false;
-            else if (imageIndex == openFileDialog.FileNames.Length - 1)
-                seeNextFile.Enabled = false;
-            else
-            {
-                seeNextFile.Enabled = true;
-                seePreviousFile.Enabled = true;
-            }
+           
+            ScrollButtonsConditioner();
         }
 
         private void seePreviousFile_Click(object sender, EventArgs e)
@@ -113,6 +106,20 @@ namespace ADBoyaSU
             {
                 pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
                 //throw;
+            }
+        }
+
+        private void ScrollButtonsConditioner()
+        {
+
+            if (imageIndex == 0)
+                seePreviousFile.Enabled = false;
+            else if (imageIndex == openFileDialog.FileNames.Length - 1)
+                seeNextFile.Enabled = false;
+            else
+            {
+                seeNextFile.Enabled = true;
+                seePreviousFile.Enabled = true;
             }
         }
     }
