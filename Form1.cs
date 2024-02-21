@@ -8,6 +8,8 @@ namespace ADBoyaSU
     public partial class Form1 : Form
     {
         public int imageIndex = 0;
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+
 
         public Form1()
         {
@@ -53,34 +55,52 @@ namespace ADBoyaSU
         private void browsImages_Click(object sender, EventArgs e)
         {
             // Selecting the image
-            OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = "image files|*.png;*.jpg;*.gif";
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
             // assign fileNames to images stored in the list
-            List<System.Drawing.Image>? imageList = new List<System.Drawing.Image>();
-
-            for (int i = 0; i < openFileDialog.FileNames.Length; i++)
-                imageList.Add(System.Drawing.Image.FromFile(openFileDialog.FileNames[i]));
 
             // Dispaly images in the picuteBox1
-            ShowSelectedFiles("", imageList);
+            seeNextFile.Enabled = true;
+            imageIndex = 0;
+            ShowSelectedImage(0);
             //pictureBox1.Image = imageList[0];
         }
 
-        public void ShowSelectedFiles(string direction, List<System.Drawing.Image> imageList)
+        //public void ShowSelectedImage(string direction, OpenFileDialog openFileDialog)
+        public void ShowSelectedImage(int direction)
         {
-            int i;
+            if (direction == 0)
+                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
 
-            if (direction == "")
-            {
-                i = 0;
-                pictureBox1.Image = imageList[i];
+            else if (direction == 1 && ++imageIndex <= openFileDialog.FileNames.Length - 1)
+                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
+
+            else if (direction == -1 && --imageIndex >= 0)
+                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
+
+            openFilePath.Text = openFileDialog.FileNames[imageIndex];
+
+            if (imageIndex == 0)
                 seePreviousFile.Enabled = false;
+            else if (imageIndex == openFileDialog.FileNames.Length - 1)
+                seeNextFile.Enabled = false;
+            else
+            {
+                seeNextFile.Enabled = true;
+                seePreviousFile.Enabled = true;
             }
-            if (direction == "right")
-                pictureBox1.Image = imageList[imageIndex];
+        }
+
+        private void seePreviousFile_Click(object sender, EventArgs e)
+        {
+            ShowSelectedImage(-1);
+        }
+
+        private void seeNextFile_Click(object sender, EventArgs e)
+        {
+            ShowSelectedImage(1);
         }
     }
 }

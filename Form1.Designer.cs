@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             selectPics = new Label();
-            textBox1 = new TextBox();
+            openFilePath = new TextBox();
             browsImages = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -80,13 +80,13 @@
             selectPics.Text = "Əkızlərin Seç";
             selectPics.Click += label1_Click;
             // 
-            // textBox1
+            // openFilePath
             // 
-            textBox1.AllowDrop = true;
-            textBox1.Location = new Point(33, 74);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(680, 23);
-            textBox1.TabIndex = 0;
+            openFilePath.AllowDrop = true;
+            openFilePath.Location = new Point(33, 74);
+            openFilePath.Name = "openFilePath";
+            openFilePath.Size = new Size(680, 23);
+            openFilePath.TabIndex = 999;
             // 
             // browsImages
             // 
@@ -274,21 +274,25 @@
             // 
             // seePreviousFile
             // 
+            seePreviousFile.Enabled = false;
             seePreviousFile.Location = new Point(603, 356);
             seePreviousFile.Name = "seePreviousFile";
             seePreviousFile.Size = new Size(22, 23);
             seePreviousFile.TabIndex = 1002;
             seePreviousFile.Text = "<";
             seePreviousFile.UseVisualStyleBackColor = true;
+            seePreviousFile.Click += seePreviousFile_Click;
             // 
             // seeNextFile
             // 
+            seeNextFile.Enabled = false;
             seeNextFile.Location = new Point(637, 356);
             seeNextFile.Name = "seeNextFile";
             seeNextFile.Size = new Size(22, 23);
             seeNextFile.TabIndex = 1002;
             seeNextFile.Text = ">";
             seeNextFile.UseVisualStyleBackColor = true;
+            seeNextFile.Click += seeNextFile_Click;
             // 
             // menuStrip1
             // 
@@ -352,7 +356,7 @@
             button5.Location = new Point(725, 438);
             button5.Name = "button5";
             button5.Size = new Size(90, 35);
-            button5.TabIndex = 1;
+            button5.TabIndex = 2;
             button5.Text = "Gəz";
             button5.UseVisualStyleBackColor = false;
             // 
@@ -394,7 +398,7 @@
             label11.TabIndex = 1005;
             label11.Text = "pixel";
             // 
-            // imageList1
+            // imageList
             // 
             imageList.ColorDepth = ColorDepth.Depth32Bit;
             imageList.ImageSize = new Size(16, 16);
@@ -434,7 +438,7 @@
             Controls.Add(button5);
             Controls.Add(browsImages);
             Controls.Add(textBox7);
-            Controls.Add(textBox1);
+            Controls.Add(openFilePath);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(dontConsiderThese);
@@ -460,7 +464,7 @@
         #endregion
 
         private Label selectPics;
-        private TextBox textBox1;
+        private TextBox openFilePath;
         private Label label1;
         private Label label2;
         private Button okButton;
