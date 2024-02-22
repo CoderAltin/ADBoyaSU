@@ -17,6 +17,16 @@ namespace ADBoyaSU
 
         imageManipulation IM = new imageManipulation();
 
+        public int spX = 10; // starting point x
+        public int spY = 10; // starting point y
+        public int noR = 3; // number of rows
+        public int noC = 5; // number of columns
+        public int soS = 10; // size of squares
+        public int dbS = 2; // distance between squares
+
+
+
+
 
         public Form1()
         {
@@ -35,10 +45,10 @@ namespace ADBoyaSU
             // Dispaly images in the picuteBox1
             //seeNextFile.Enabled = true;
             imageIndex = 0;
-            ShowSelectedImage(0);
+            SelectImage(0);
         }
 
-        public void ShowSelectedImage(int direction)
+        public void SelectImage(int direction)
         {
             if (direction == 0)
                 currentFilePath = openFileDialog.FileNames[imageIndex];
@@ -48,33 +58,27 @@ namespace ADBoyaSU
                 currentFilePath = openFileDialog.FileNames[imageIndex];
 
 
-            //pictureBox1.Image = Image.FromFile(currentFilePath);
-            //pictureBox1.Image = IM.CreateImage(currentFilePath);
-            //pictureBox1.Image = GiveMeMyImage(currentFilePath);
             openFilePath.Text = currentFilePath;
 
 
             ScrollButtonsConditioner();
-
-            // Test area
-            workingImage = Image.FromFile(currentFilePath);
         }
 
         private void seePreviousFile_Click(object sender, EventArgs e)
         {
-            ShowSelectedImage(-1);
+            SelectImage(-1);
         }
 
         private void seeNextFile_Click(object sender, EventArgs e)
         {
-            ShowSelectedImage(1);
+            SelectImage(1);
         }
 
         private void openFilePath_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                pictureBox1.Image = GiveMeMyImage(openFilePath.Text);
+                ShowMeMyImage(openFilePath.Text);
             }
             catch (FileNotFoundException)
             {
@@ -82,7 +86,7 @@ namespace ADBoyaSU
             }
             catch (Exception)
             {
-                pictureBox1.Image = GiveMeMyImage(openFileDialog.FileNames[imageIndex]);
+                ShowMeMyImage(openFileDialog.FileNames[imageIndex]);
 
                 //throw;
             }
@@ -163,18 +167,71 @@ namespace ADBoyaSU
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public Image GiveMeMyImage(string filePath)
+        public void ShowMeMyImage(string filePath)
         {
             workingImage = Image.FromFile(filePath);
             graphics = Graphics.FromImage(workingImage);
 
             Brush brush = new SolidBrush(Color.DarkViolet);
             Pen pen = new Pen(brush, 5f);
-            Rectangle rect = new Rectangle(100, 100, 150, 150);
 
-            graphics.DrawRectangle(pen, rect);
+            for (int i = 0; i < noR; i++)
+            {
+                for (int j = 0; j < noC; j++)
+                {
+                    Rectangle rect = new Rectangle(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
+                    graphics.DrawRectangle(pen, rect);
+                }
+            }
+            //Rectangle rect = new Rectangle(100, 100, 150, 150);
+            //graphics.DrawRectangle(pen, rect);
 
-            return workingImage;
+            pictureBox1.Image = workingImage;
+            //return workingImage;
+        }
+
+        private void startPositionX_TextChanged(object sender, EventArgs e)
+        {
+            if (startPositionX.Text != "")
+                spX = Convert.ToInt32(startPositionX.Text);
+            
+            ShowMeMyImage(openFilePath.Text);
+        }
+
+        private void startPositionY_TextChanged(object sender, EventArgs e)
+        {
+            if (startPositionY.Text != "")
+                spY = Convert.ToInt32(startPositionY.Text);
+
+            ShowMeMyImage(openFilePath.Text);
+        }
+
+        private void numOfRows_TextChanged(object sender, EventArgs e)
+        {
+            noR = Convert.ToInt32(numOfRows.Text);
+            ShowMeMyImage(openFilePath.Text);
+
+        }
+
+        private void numOfColumns_TextChanged(object sender, EventArgs e)
+        {
+            noC = Convert.ToInt32(numOfColumns.Text);
+            ShowMeMyImage(openFilePath.Text);
+
+        }
+
+        private void squareSize_TextChanged(object sender, EventArgs e)
+        {
+            soS = Convert.ToInt32(squareSize.Text);
+            ShowMeMyImage(openFilePath.Text);
+
+        }
+
+        private void distanceBetweenSqrs_TextChanged(object sender, EventArgs e)
+        {
+            dbS = Convert.ToInt32(distanceBetweenSqrs.Text);
+            ShowMeMyImage(openFilePath.Text);
+
         }
     }
 }

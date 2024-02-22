@@ -39,14 +39,14 @@
             button3 = new Button();
             label3 = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
+            startPositionX = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            textBox3 = new TextBox();
+            startPositionY = new TextBox();
             label7 = new Label();
             label8 = new Label();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            numOfRows = new TextBox();
+            numOfColumns = new TextBox();
             dontConsiderThese = new Label();
             textBox6 = new TextBox();
             seePreviousFile = new Button();
@@ -56,7 +56,7 @@
             button5 = new Button();
             checkBox1 = new CheckBox();
             label10 = new Label();
-            textBox8 = new TextBox();
+            squareSize = new TextBox();
             imageList = new ImageList(components);
             label12 = new Label();
             helpToolStripMenuItem = new ToolStripMenuItem();
@@ -70,6 +70,10 @@
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
+            label11 = new Label();
+            distanceBetweenSqrs = new TextBox();
+            button9 = new Button();
+            button10 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -134,7 +138,7 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Location = new Point(62, 395);
+            label2.Location = new Point(62, 407);
             label2.Name = "label2";
             label2.Size = new Size(700, 1);
             label2.TabIndex = 999;
@@ -148,10 +152,10 @@
             okButton.FlatAppearance.BorderSize = 0;
             okButton.FlatStyle = FlatStyle.Flat;
             okButton.Font = new Font("Segoe UI", 11F);
-            okButton.Location = new Point(725, 486);
+            okButton.Location = new Point(725, 493);
             okButton.Name = "okButton";
             okButton.Size = new Size(90, 45);
-            okButton.TabIndex = 1000;
+            okButton.TabIndex = 11;
             okButton.Text = "Oldu, Yaxçı";
             okButton.UseVisualStyleBackColor = false;
             okButton.Click += button2_Click;
@@ -164,7 +168,7 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11F);
-            button3.Location = new Point(615, 486);
+            button3.Location = new Point(615, 493);
             button3.Name = "button3";
             button3.Size = new Size(105, 45);
             button3.TabIndex = 1000;
@@ -194,18 +198,21 @@
             label4.Text = "Başlamak Yerı:";
             label4.Click += label1_Click;
             // 
-            // textBox2
+            // startPositionX
             // 
-            textBox2.Location = new Point(249, 172);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(47, 23);
-            textBox2.TabIndex = 1001;
+            startPositionX.Location = new Point(264, 172);
+            startPositionX.Name = "startPositionX";
+            startPositionX.Size = new Size(47, 23);
+            startPositionX.TabIndex = 3;
+            startPositionX.Text = "10";
+            startPositionX.TextAlign = HorizontalAlignment.Center;
+            startPositionX.TextChanged += startPositionX_TextChanged;
             // 
             // label5
             // 
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(302, 175);
+            label5.Location = new Point(317, 175);
             label5.Name = "label5";
             label5.Size = new Size(17, 20);
             label5.TabIndex = 0;
@@ -216,19 +223,22 @@
             // 
             label6.Font = new Font("Segoe UI", 12F);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(316, 175);
+            label6.Location = new Point(331, 175);
             label6.Name = "label6";
             label6.Size = new Size(17, 20);
             label6.TabIndex = 0;
             label6.Text = "Y";
             label6.Click += label1_Click;
             // 
-            // textBox3
+            // startPositionY
             // 
-            textBox3.Location = new Point(339, 172);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(47, 23);
-            textBox3.TabIndex = 1001;
+            startPositionY.Location = new Point(354, 172);
+            startPositionY.Name = "startPositionY";
+            startPositionY.Size = new Size(47, 23);
+            startPositionY.TabIndex = 4;
+            startPositionY.Text = "10";
+            startPositionY.TextAlign = HorizontalAlignment.Center;
+            startPositionY.TextChanged += startPositionY_TextChanged;
             // 
             // label7
             // 
@@ -252,25 +262,31 @@
             label8.Text = "Sütunların Sayısı:";
             label8.Click += label1_Click;
             // 
-            // textBox4
+            // numOfRows
             // 
-            textBox4.Location = new Point(295, 212);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(47, 23);
-            textBox4.TabIndex = 1001;
+            numOfRows.Location = new Point(310, 212);
+            numOfRows.Name = "numOfRows";
+            numOfRows.Size = new Size(47, 23);
+            numOfRows.TabIndex = 5;
+            numOfRows.Text = "3";
+            numOfRows.TextAlign = HorizontalAlignment.Center;
+            numOfRows.TextChanged += numOfRows_TextChanged;
             // 
-            // textBox5
+            // numOfColumns
             // 
-            textBox5.Location = new Point(295, 252);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(47, 23);
-            textBox5.TabIndex = 1001;
+            numOfColumns.Location = new Point(310, 252);
+            numOfColumns.Name = "numOfColumns";
+            numOfColumns.Size = new Size(47, 23);
+            numOfColumns.TabIndex = 6;
+            numOfColumns.Text = "5";
+            numOfColumns.TextAlign = HorizontalAlignment.Center;
+            numOfColumns.TextChanged += numOfColumns_TextChanged;
             // 
             // dontConsiderThese
             // 
             dontConsiderThese.Font = new Font("Segoe UI", 12F);
             dontConsiderThese.ForeColor = Color.Black;
-            dontConsiderThese.Location = new Point(62, 332);
+            dontConsiderThese.Location = new Point(62, 372);
             dontConsiderThese.Name = "dontConsiderThese";
             dontConsiderThese.Size = new Size(132, 20);
             dontConsiderThese.TabIndex = 0;
@@ -279,10 +295,10 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(249, 332);
+            textBox6.Location = new Point(264, 372);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(137, 23);
-            textBox6.TabIndex = 1001;
+            textBox6.TabIndex = 9;
             // 
             // seePreviousFile
             // 
@@ -313,7 +329,7 @@
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.Font = new Font("Segoe UI", 12F);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(33, 409);
+            label9.Location = new Point(33, 416);
             label9.Name = "label9";
             label9.Size = new Size(172, 20);
             label9.TabIndex = 0;
@@ -323,7 +339,7 @@
             // textBox7
             // 
             textBox7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox7.Location = new Point(33, 445);
+            textBox7.Location = new Point(33, 452);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(680, 23);
             textBox7.TabIndex = 0;
@@ -335,10 +351,10 @@
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(725, 438);
+            button5.Location = new Point(725, 445);
             button5.Name = "button5";
             button5.Size = new Size(90, 35);
-            button5.TabIndex = 2;
+            button5.TabIndex = 10;
             button5.Text = "Gəz";
             button5.UseVisualStyleBackColor = false;
             // 
@@ -348,7 +364,7 @@
             checkBox1.Location = new Point(109, 139);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(107, 19);
-            checkBox1.TabIndex = 1004;
+            checkBox1.TabIndex = 2;
             checkBox1.Text = "Əkızlərı Boazart";
             checkBox1.TextAlign = ContentAlignment.MiddleCenter;
             checkBox1.UseVisualStyleBackColor = true;
@@ -364,12 +380,15 @@
             label10.Text = "Dörtbıcaqların Böüklügü:";
             label10.Click += label1_Click;
             // 
-            // textBox8
+            // squareSize
             // 
-            textBox8.Location = new Point(295, 292);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(47, 23);
-            textBox8.TabIndex = 1001;
+            squareSize.Location = new Point(310, 292);
+            squareSize.Name = "squareSize";
+            squareSize.Size = new Size(47, 23);
+            squareSize.TabIndex = 7;
+            squareSize.Text = "10";
+            squareSize.TextAlign = HorizontalAlignment.Center;
+            squareSize.TextChanged += squareSize_TextChanged;
             // 
             // imageList
             // 
@@ -425,7 +444,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(348, 212);
+            button1.Location = new Point(363, 212);
             button1.Name = "button1";
             button1.Size = new Size(38, 23);
             button1.TabIndex = 1007;
@@ -434,7 +453,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(348, 252);
+            button2.Location = new Point(363, 252);
             button2.Name = "button2";
             button2.Size = new Size(38, 23);
             button2.TabIndex = 1007;
@@ -443,7 +462,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(348, 292);
+            button4.Location = new Point(363, 292);
             button4.Name = "button4";
             button4.Size = new Size(38, 23);
             button4.TabIndex = 1007;
@@ -452,7 +471,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(249, 212);
+            button6.Location = new Point(264, 212);
             button6.Name = "button6";
             button6.Size = new Size(38, 23);
             button6.TabIndex = 1007;
@@ -461,7 +480,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(249, 252);
+            button7.Location = new Point(264, 252);
             button7.Name = "button7";
             button7.Size = new Size(38, 23);
             button7.TabIndex = 1007;
@@ -470,12 +489,51 @@
             // 
             // button8
             // 
-            button8.Location = new Point(249, 293);
+            button8.Location = new Point(264, 293);
             button8.Name = "button8";
             button8.Size = new Size(38, 23);
             button8.TabIndex = 1007;
             button8.Text = "az";
             button8.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.Font = new Font("Segoe UI", 12F);
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(62, 332);
+            label11.Name = "label11";
+            label11.Size = new Size(183, 24);
+            label11.TabIndex = 0;
+            label11.Text = "Dörtbıcaqların Arası:";
+            label11.Click += label1_Click;
+            // 
+            // distanceBetweenSqrs
+            // 
+            distanceBetweenSqrs.Location = new Point(310, 332);
+            distanceBetweenSqrs.Name = "distanceBetweenSqrs";
+            distanceBetweenSqrs.Size = new Size(47, 23);
+            distanceBetweenSqrs.TabIndex = 8;
+            distanceBetweenSqrs.Text = "2";
+            distanceBetweenSqrs.TextAlign = HorizontalAlignment.Center;
+            distanceBetweenSqrs.TextChanged += distanceBetweenSqrs_TextChanged;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(264, 332);
+            button9.Name = "button9";
+            button9.Size = new Size(38, 23);
+            button9.TabIndex = 1007;
+            button9.Text = "az";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(363, 332);
+            button10.Name = "button10";
+            button10.Size = new Size(38, 23);
+            button10.TabIndex = 1007;
+            button10.Text = "çox";
+            button10.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -485,8 +543,10 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(843, 548);
+            Controls.Add(button10);
             Controls.Add(button4);
             Controls.Add(button2);
+            Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button7);
             Controls.Add(button6);
@@ -495,12 +555,13 @@
             Controls.Add(checkBox1);
             Controls.Add(seeNextFile);
             Controls.Add(seePreviousFile);
-            Controls.Add(textBox3);
+            Controls.Add(startPositionY);
             Controls.Add(textBox6);
-            Controls.Add(textBox8);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
+            Controls.Add(distanceBetweenSqrs);
+            Controls.Add(squareSize);
+            Controls.Add(numOfColumns);
+            Controls.Add(numOfRows);
+            Controls.Add(startPositionX);
             Controls.Add(button3);
             Controls.Add(okButton);
             Controls.Add(label2);
@@ -513,6 +574,7 @@
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(dontConsiderThese);
+            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -542,14 +604,14 @@
         private Button button3;
         private Label label3;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox startPositionX;
         private Label label5;
         private Label label6;
-        private TextBox textBox3;
+        private TextBox startPositionY;
         private Label label7;
         private Label label8;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox numOfRows;
+        private TextBox numOfColumns;
         private Label dontConsiderThese;
         private TextBox textBox6;
         private Button seePreviousFile;
@@ -559,7 +621,7 @@
         private Button button5;
         private CheckBox checkBox1;
         private Label label10;
-        private TextBox textBox8;
+        private TextBox squareSize;
         public Button browsImages;
         private ImageList imageList;
         private Label label12;
@@ -575,5 +637,9 @@
         private Button button6;
         private Button button7;
         private Button button8;
+        private Label label11;
+        private TextBox distanceBetweenSqrs;
+        private Button button9;
+        private Button button10;
     }
 }
