@@ -7,6 +7,7 @@ namespace ADBoyaSU
 {
     public partial class Form1 : Form
     {
+        public bool showSquares = true;
         Image workingImage;
         Graphics graphics;
 
@@ -16,6 +17,9 @@ namespace ADBoyaSU
         public string currentFilePath;
 
         imageManipulation IM = new imageManipulation();
+
+        public Color penColor = Color.Chocolate;
+        public float penThickness = 3f;
 
         public float spX = 10; // starting point x
         public float spY = 10; // starting point y
@@ -175,17 +179,22 @@ namespace ADBoyaSU
         public void ShowMeMyImage(string filePath)
         {
             workingImage = Image.FromFile(filePath);
-            graphics = Graphics.FromImage(workingImage);
 
-            Brush brush = new SolidBrush(Color.DarkViolet);
-            Pen pen = new Pen(brush, 5f);
-
-            for (int i = 0; i < noR; i++)
+            if (showSquares)
             {
-                for (int j = 0; j < noC; j++)
+                graphics = Graphics.FromImage(workingImage);
+
+                Brush brush = new SolidBrush(penColor);
+                Pen pen = new Pen(brush, penThickness);
+
+
+                for (int i = 0; i < noR; i++)
                 {
-                    RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
-                    graphics.DrawRectangle(pen, rect);
+                    for (int j = 0; j < noC; j++)
+                    {
+                        RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
+                        graphics.DrawRectangle(pen, rect);
+                    }
                 }
             }
 
@@ -215,6 +224,7 @@ namespace ADBoyaSU
         {
             if (numOfRows.Text != "")
                 noR = Convert.ToInt32(numOfRows.Text);
+
             ShowMeMyImage(openFilePath.Text);
 
         }
@@ -223,6 +233,7 @@ namespace ADBoyaSU
         {
             if (numOfColumns.Text != "")
                 noC = Convert.ToInt32(numOfColumns.Text);
+
             ShowMeMyImage(openFilePath.Text);
 
         }
@@ -328,6 +339,13 @@ namespace ADBoyaSU
         {
             EditTextBoxValue(distanceBetweenSqrs, dbSIncStep);
         }
+
         #endregion
+
+        private void showSquaresCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            showSquares = showSquaresCheckBox.Checked;
+            ShowMeMyImage(openFilePath.Text);
+        }
     }
 }

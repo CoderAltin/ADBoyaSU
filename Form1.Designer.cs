@@ -64,6 +64,7 @@
             yardımToolStripMenuItem = new ToolStripMenuItem();
             harHarHarToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
+            qələmToolStripMenuItem = new ToolStripMenuItem();
             increaseRowNo = new Button();
             increaseColNo = new Button();
             increaseSquareSize = new Button();
@@ -74,6 +75,8 @@
             distanceBetweenSqrs = new TextBox();
             decreaseDistBS = new Button();
             increaseDistBS = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            showSquaresCheckBox = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -439,13 +442,18 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Enabled = false;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem, qələmToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(843, 24);
             menuStrip1.TabIndex = 1003;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // qələmToolStripMenuItem
+            // 
+            qələmToolStripMenuItem.Name = "qələmToolStripMenuItem";
+            qələmToolStripMenuItem.Size = new Size(54, 20);
+            qələmToolStripMenuItem.Text = "Qələm";
             // 
             // increaseRowNo
             // 
@@ -549,6 +557,25 @@
             increaseDistBS.UseVisualStyleBackColor = true;
             increaseDistBS.Click += increaseDistBS_Click;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // showSquaresCheckBox
+            // 
+            showSquaresCheckBox.AutoSize = true;
+            showSquaresCheckBox.Checked = true;
+            showSquaresCheckBox.CheckState = CheckState.Checked;
+            showSquaresCheckBox.Location = new Point(222, 139);
+            showSquaresCheckBox.Name = "showSquaresCheckBox";
+            showSquaresCheckBox.Size = new Size(131, 19);
+            showSquaresCheckBox.TabIndex = 2;
+            showSquaresCheckBox.Text = "Dörtbıcaqları Görsət";
+            showSquaresCheckBox.TextAlign = ContentAlignment.MiddleCenter;
+            showSquaresCheckBox.UseVisualStyleBackColor = true;
+            showSquaresCheckBox.CheckedChanged += showSquaresCheckBox_CheckedChanged;
+            // 
             // Form1
             // 
             AllowDrop = true;
@@ -566,6 +593,7 @@
             Controls.Add(decreaseRowNo);
             Controls.Add(increaseRowNo);
             Controls.Add(label12);
+            Controls.Add(showSquaresCheckBox);
             Controls.Add(checkBox1);
             Controls.Add(seeNextFile);
             Controls.Add(seePreviousFile);
@@ -655,5 +683,8 @@
         private TextBox distanceBetweenSqrs;
         private Button decreaseDistBS;
         private Button increaseDistBS;
+        private ToolStripMenuItem qələmToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip1;
+        private CheckBox showSquaresCheckBox;
     }
 }
