@@ -1,4 +1,4 @@
-﻿using SixLabors.ImageSharp;
+﻿//using SixLabors.ImageSharp;
 using System.Net.Sockets;
 using System.Collections;
 using System.Collections.Generic;
@@ -79,7 +79,7 @@ namespace ADBoyaSU
             else if (direction == -1 && --imageIndex >= 0)
                 currentFilePath = openFileDialog.FileNames[imageIndex];
 
-            pictureBox1.Image = System.Drawing.Image.FromFile(currentFilePath);
+            pictureBox1.Image = Image.FromFile(currentFilePath);
             openFilePath.Text = currentFilePath;
 
            
@@ -107,15 +107,27 @@ namespace ADBoyaSU
                 pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
                 //throw;
             }
+
+            ScrollButtonsConditioner();
         }
 
         private void ScrollButtonsConditioner()
         {
-
-            if (imageIndex == 0)
-                seePreviousFile.Enabled = false;
-            else if (imageIndex == openFileDialog.FileNames.Length - 1)
+            if (openFileDialog.FileNames.Length == 1) // only one file is selected
+            {
                 seeNextFile.Enabled = false;
+                seePreviousFile.Enabled = false;
+            }
+            else if (imageIndex == 0)
+            {
+                seePreviousFile.Enabled = false;
+                seeNextFile.Enabled = true;
+            }
+            else if (imageIndex == openFileDialog.FileNames.Length - 1)
+            {
+                seeNextFile.Enabled = false;
+                seePreviousFile.Enabled = true;
+            }
             else
             {
                 seeNextFile.Enabled = true;
