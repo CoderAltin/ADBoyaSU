@@ -37,6 +37,9 @@ namespace ADBoyaSU
         public float dbSDecStep = 0.5f; // the step by which distanceBetweenSquares value in decreased
         public float dbSIncStep = 0.5f; // the step by which distanceBetweenSquares value in increased
 
+        public string[] toOmitStr;
+        public int[]? toOmitInt;
+
         public Form1()
         {
             InitializeComponent();
@@ -187,11 +190,18 @@ namespace ADBoyaSU
                 Brush brush = new SolidBrush(penColor);
                 Pen pen = new Pen(brush, penThickness);
 
+                WhichOnesToOmit();
 
+                int k = 0;  // Counter
                 for (int i = 0; i < noR; i++)
                 {
                     for (int j = 0; j < noC; j++)
                     {
+                        k++;
+
+                        if (toOmitInt != null && toOmitInt.Any(n => n == k))
+                            continue;
+
                         RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
                         graphics.DrawRectangle(pen, rect);
                     }
@@ -345,6 +355,35 @@ namespace ADBoyaSU
         private void showSquaresCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             showSquares = showSquaresCheckBox.Checked;
+            ShowMeMyImage(openFilePath.Text);
+        }
+
+        public void WhichOnesToOmit()
+        {
+            //StringSplitOptions options = StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries;
+
+            if (omitThese.Text != "")
+                toOmitStr = omitThese.Text.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+            else
+                return;
+
+
+            toOmitInt = new int[toOmitStr.Length];
+
+            for (int i = 0; i < toOmitStr.Length; i++)
+                try
+                {
+                    toOmitInt[i] = Convert.ToInt32(toOmitStr[i]);
+                }
+                catch (Exception)
+                {
+                    //MessageBox ms = Message.Create(Handle,"message");
+                    continue;
+                }
+        }
+
+        private void omitThese_TextChanged(object sender, EventArgs e)
+        {
             ShowMeMyImage(openFilePath.Text);
         }
     }

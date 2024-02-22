@@ -48,7 +48,7 @@
             numOfRows = new TextBox();
             numOfColumns = new TextBox();
             dontConsiderThese = new Label();
-            textBox6 = new TextBox();
+            omitThese = new TextBox();
             seePreviousFile = new Button();
             seeNextFile = new Button();
             label9 = new Label();
@@ -171,7 +171,7 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11F);
-            button3.Location = new Point(615, 493);
+            button3.Location = new Point(609, 493);
             button3.Name = "button3";
             button3.Size = new Size(105, 45);
             button3.TabIndex = 1000;
@@ -300,12 +300,14 @@
             dontConsiderThese.Text = "Bıları Gözə Alma:";
             dontConsiderThese.Click += label1_Click;
             // 
-            // textBox6
+            // omitThese
             // 
-            textBox6.Location = new Point(264, 372);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(137, 23);
-            textBox6.TabIndex = 9;
+            omitThese.Location = new Point(264, 372);
+            omitThese.Name = "omitThese";
+            omitThese.Size = new Size(137, 23);
+            omitThese.TabIndex = 9;
+            omitThese.Text = "1, 8";
+            omitThese.TextChanged += omitThese_TextChanged;
             // 
             // seePreviousFile
             // 
@@ -598,7 +600,7 @@
             Controls.Add(seeNextFile);
             Controls.Add(seePreviousFile);
             Controls.Add(startPositionY);
-            Controls.Add(textBox6);
+            Controls.Add(omitThese);
             Controls.Add(distanceBetweenSqrs);
             Controls.Add(squareSize);
             Controls.Add(numOfColumns);
@@ -655,7 +657,7 @@
         private TextBox numOfRows;
         private TextBox numOfColumns;
         private Label dontConsiderThese;
-        private TextBox textBox6;
+        private TextBox omitThese;
         private Button seePreviousFile;
         private Button seeNextFile;
         private Label label9;
