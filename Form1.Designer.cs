@@ -51,20 +51,25 @@
             textBox6 = new TextBox();
             seePreviousFile = new Button();
             seeNextFile = new Button();
-            menuStrip1 = new MenuStrip();
-            helpToolStripMenuItem = new ToolStripMenuItem();
-            licenceToolStripMenuItem = new ToolStripMenuItem();
-            yardımToolStripMenuItem = new ToolStripMenuItem();
-            harHarHarToolStripMenuItem = new ToolStripMenuItem();
             label9 = new Label();
             textBox7 = new TextBox();
             button5 = new Button();
             checkBox1 = new CheckBox();
             label10 = new Label();
             textBox8 = new TextBox();
-            label11 = new Label();
             imageList = new ImageList(components);
             label12 = new Label();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            licenceToolStripMenuItem = new ToolStripMenuItem();
+            yardımToolStripMenuItem = new ToolStripMenuItem();
+            harHarHarToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
+            button1 = new Button();
+            button2 = new Button();
+            button4 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -165,6 +170,7 @@
             button3.TabIndex = 1000;
             button3.Text = "Bırax, İstəmır";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // label3
             // 
@@ -190,7 +196,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(237, 172);
+            textBox2.Location = new Point(249, 172);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(47, 23);
             textBox2.TabIndex = 1001;
@@ -199,7 +205,7 @@
             // 
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(214, 172);
+            label5.Location = new Point(302, 175);
             label5.Name = "label5";
             label5.Size = new Size(17, 20);
             label5.TabIndex = 0;
@@ -210,7 +216,7 @@
             // 
             label6.Font = new Font("Segoe UI", 12F);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(304, 172);
+            label6.Location = new Point(316, 175);
             label6.Name = "label6";
             label6.Size = new Size(17, 20);
             label6.TabIndex = 0;
@@ -219,7 +225,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(327, 172);
+            textBox3.Location = new Point(339, 172);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(47, 23);
             textBox3.TabIndex = 1001;
@@ -248,14 +254,14 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(283, 212);
+            textBox4.Location = new Point(295, 212);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(47, 23);
             textBox4.TabIndex = 1001;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(283, 252);
+            textBox5.Location = new Point(295, 252);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(47, 23);
             textBox5.TabIndex = 1001;
@@ -273,7 +279,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(237, 332);
+            textBox6.Location = new Point(249, 332);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(137, 23);
             textBox6.TabIndex = 1001;
@@ -301,41 +307,6 @@
             seeNextFile.Text = ">";
             seeNextFile.UseVisualStyleBackColor = true;
             seeNextFile.Click += seeNextFile_Click;
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(843, 24);
-            menuStrip1.TabIndex = 1003;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // helpToolStripMenuItem
-            // 
-            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { licenceToolStripMenuItem, yardımToolStripMenuItem, harHarHarToolStripMenuItem });
-            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(56, 20);
-            helpToolStripMenuItem.Text = "Yardım";
-            // 
-            // licenceToolStripMenuItem
-            // 
-            licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
-            licenceToolStripMenuItem.Size = new Size(147, 22);
-            licenceToolStripMenuItem.Text = "Birincı Yardım";
-            licenceToolStripMenuItem.Click += licenceToolStripMenuItem_Click;
-            // 
-            // yardımToolStripMenuItem
-            // 
-            yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
-            yardımToolStripMenuItem.Size = new Size(147, 22);
-            yardımToolStripMenuItem.Text = "Ikincı Yardım";
-            // 
-            // harHarHarToolStripMenuItem
-            // 
-            harHarHarToolStripMenuItem.Name = "harHarHarToolStripMenuItem";
-            harHarHarToolStripMenuItem.Size = new Size(147, 22);
-            harHarHarToolStripMenuItem.Text = "Har Har Har";
             // 
             // label9
             // 
@@ -374,7 +345,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(304, 139);
+            checkBox1.Location = new Point(109, 139);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(107, 19);
             checkBox1.TabIndex = 1004;
@@ -395,19 +366,10 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(283, 292);
+            textBox8.Location = new Point(295, 292);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(47, 23);
             textBox8.TabIndex = 1001;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(336, 297);
-            label11.Name = "label11";
-            label11.Size = new Size(32, 15);
-            label11.TabIndex = 1005;
-            label11.Text = "pixel";
             // 
             // imageList
             // 
@@ -423,7 +385,97 @@
             label12.Name = "label12";
             label12.Size = new Size(10, 15);
             label12.TabIndex = 1006;
-            label12.Text = "i";
+            label12.Text = "|";
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { licenceToolStripMenuItem, yardımToolStripMenuItem, harHarHarToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(56, 20);
+            helpToolStripMenuItem.Text = "Yardım";
+            // 
+            // licenceToolStripMenuItem
+            // 
+            licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
+            licenceToolStripMenuItem.Size = new Size(147, 22);
+            licenceToolStripMenuItem.Text = "Birincı Yardım";
+            licenceToolStripMenuItem.Click += licenceToolStripMenuItem_Click;
+            // 
+            // yardımToolStripMenuItem
+            // 
+            yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
+            yardımToolStripMenuItem.Size = new Size(147, 22);
+            yardımToolStripMenuItem.Text = "Ikincı Yardım";
+            // 
+            // harHarHarToolStripMenuItem
+            // 
+            harHarHarToolStripMenuItem.Name = "harHarHarToolStripMenuItem";
+            harHarHarToolStripMenuItem.Size = new Size(147, 22);
+            harHarHarToolStripMenuItem.Text = "Har Har Har";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Enabled = false;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(843, 24);
+            menuStrip1.TabIndex = 1003;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(348, 212);
+            button1.Name = "button1";
+            button1.Size = new Size(38, 23);
+            button1.TabIndex = 1007;
+            button1.Text = "çox";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(348, 252);
+            button2.Name = "button2";
+            button2.Size = new Size(38, 23);
+            button2.TabIndex = 1007;
+            button2.Text = "çox";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(348, 292);
+            button4.Name = "button4";
+            button4.Size = new Size(38, 23);
+            button4.TabIndex = 1007;
+            button4.Text = "çox";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(249, 212);
+            button6.Name = "button6";
+            button6.Size = new Size(38, 23);
+            button6.TabIndex = 1007;
+            button6.Text = "az";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(249, 252);
+            button7.Name = "button7";
+            button7.Size = new Size(38, 23);
+            button7.TabIndex = 1007;
+            button7.Text = "az";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(249, 293);
+            button8.Name = "button8";
+            button8.Size = new Size(38, 23);
+            button8.TabIndex = 1007;
+            button8.Text = "az";
+            button8.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -433,8 +485,13 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(843, 548);
+            Controls.Add(button4);
+            Controls.Add(button2);
+            Controls.Add(button8);
+            Controls.Add(button7);
+            Controls.Add(button6);
+            Controls.Add(button1);
             Controls.Add(label12);
-            Controls.Add(label11);
             Controls.Add(checkBox1);
             Controls.Add(seeNextFile);
             Controls.Add(seePreviousFile);
@@ -497,21 +554,26 @@
         private TextBox textBox6;
         private Button seePreviousFile;
         private Button seeNextFile;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem licenceToolStripMenuItem;
         private Label label9;
         private TextBox textBox7;
         private Button button5;
-        private ToolStripMenuItem yardımToolStripMenuItem;
-        private ToolStripMenuItem harHarHarToolStripMenuItem;
         private CheckBox checkBox1;
         private Label label10;
         private TextBox textBox8;
-        private Label label11;
         public Button browsImages;
         private ImageList imageList;
         private Label label12;
         public PictureBox pictureBox1;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem licenceToolStripMenuItem;
+        private ToolStripMenuItem yardımToolStripMenuItem;
+        private ToolStripMenuItem harHarHarToolStripMenuItem;
+        private MenuStrip menuStrip1;
+        private Button button1;
+        private Button button2;
+        private Button button4;
+        private Button button6;
+        private Button button7;
+        private Button button8;
     }
 }
