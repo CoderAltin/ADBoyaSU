@@ -64,16 +64,16 @@
             yardımToolStripMenuItem = new ToolStripMenuItem();
             harHarHarToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
-            button1 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
+            increaseRowNo = new Button();
+            increaseColNo = new Button();
+            increaseSquareSize = new Button();
+            decreaseRowNo = new Button();
+            decreaseColNo = new Button();
+            decreaseSquareSize = new Button();
             label11 = new Label();
             distanceBetweenSqrs = new TextBox();
-            button9 = new Button();
-            button10 = new Button();
+            decreaseDistBS = new Button();
+            increaseDistBS = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -207,6 +207,7 @@
             startPositionX.Text = "10";
             startPositionX.TextAlign = HorizontalAlignment.Center;
             startPositionX.TextChanged += startPositionX_TextChanged;
+            startPositionX.Leave += startPositionX_Leave;
             // 
             // label5
             // 
@@ -239,6 +240,7 @@
             startPositionY.Text = "10";
             startPositionY.TextAlign = HorizontalAlignment.Center;
             startPositionY.TextChanged += startPositionY_TextChanged;
+            startPositionY.Leave += startPositionY_Leave;
             // 
             // label7
             // 
@@ -271,6 +273,7 @@
             numOfRows.Text = "3";
             numOfRows.TextAlign = HorizontalAlignment.Center;
             numOfRows.TextChanged += numOfRows_TextChanged;
+            numOfRows.Leave += numOfRows_Leave;
             // 
             // numOfColumns
             // 
@@ -281,6 +284,7 @@
             numOfColumns.Text = "5";
             numOfColumns.TextAlign = HorizontalAlignment.Center;
             numOfColumns.TextChanged += numOfColumns_TextChanged;
+            numOfColumns.Leave += numOfColumns_Leave;
             // 
             // dontConsiderThese
             // 
@@ -389,6 +393,7 @@
             squareSize.Text = "10";
             squareSize.TextAlign = HorizontalAlignment.Center;
             squareSize.TextChanged += squareSize_TextChanged;
+            squareSize.Leave += squareSize_Leave;
             // 
             // imageList
             // 
@@ -442,59 +447,65 @@
             menuStrip1.TabIndex = 1003;
             menuStrip1.Text = "menuStrip1";
             // 
-            // button1
+            // increaseRowNo
             // 
-            button1.Location = new Point(363, 212);
-            button1.Name = "button1";
-            button1.Size = new Size(38, 23);
-            button1.TabIndex = 1007;
-            button1.Text = "çox";
-            button1.UseVisualStyleBackColor = true;
+            increaseRowNo.Location = new Point(363, 212);
+            increaseRowNo.Name = "increaseRowNo";
+            increaseRowNo.Size = new Size(38, 23);
+            increaseRowNo.TabIndex = 1007;
+            increaseRowNo.Text = "çox";
+            increaseRowNo.UseVisualStyleBackColor = true;
+            increaseRowNo.Click += increaseRowNo_Click;
             // 
-            // button2
+            // increaseColNo
             // 
-            button2.Location = new Point(363, 252);
-            button2.Name = "button2";
-            button2.Size = new Size(38, 23);
-            button2.TabIndex = 1007;
-            button2.Text = "çox";
-            button2.UseVisualStyleBackColor = true;
+            increaseColNo.Location = new Point(363, 252);
+            increaseColNo.Name = "increaseColNo";
+            increaseColNo.Size = new Size(38, 23);
+            increaseColNo.TabIndex = 1007;
+            increaseColNo.Text = "çox";
+            increaseColNo.UseVisualStyleBackColor = true;
+            increaseColNo.Click += increaseColNo_Click;
             // 
-            // button4
+            // increaseSquareSize
             // 
-            button4.Location = new Point(363, 292);
-            button4.Name = "button4";
-            button4.Size = new Size(38, 23);
-            button4.TabIndex = 1007;
-            button4.Text = "çox";
-            button4.UseVisualStyleBackColor = true;
+            increaseSquareSize.Location = new Point(363, 292);
+            increaseSquareSize.Name = "increaseSquareSize";
+            increaseSquareSize.Size = new Size(38, 23);
+            increaseSquareSize.TabIndex = 1007;
+            increaseSquareSize.Text = "çox";
+            increaseSquareSize.UseVisualStyleBackColor = true;
+            increaseSquareSize.Click += increaseSquareSize_Click;
             // 
-            // button6
+            // decreaseRowNo
             // 
-            button6.Location = new Point(264, 212);
-            button6.Name = "button6";
-            button6.Size = new Size(38, 23);
-            button6.TabIndex = 1007;
-            button6.Text = "az";
-            button6.UseVisualStyleBackColor = true;
+            decreaseRowNo.Location = new Point(264, 212);
+            decreaseRowNo.Name = "decreaseRowNo";
+            decreaseRowNo.Size = new Size(38, 23);
+            decreaseRowNo.TabIndex = 1007;
+            decreaseRowNo.Text = "az";
+            decreaseRowNo.UseVisualStyleBackColor = true;
+            decreaseRowNo.Click += decreaseRowNo_Click;
             // 
-            // button7
+            // decreaseColNo
             // 
-            button7.Location = new Point(264, 252);
-            button7.Name = "button7";
-            button7.Size = new Size(38, 23);
-            button7.TabIndex = 1007;
-            button7.Text = "az";
-            button7.UseVisualStyleBackColor = true;
+            decreaseColNo.Location = new Point(264, 252);
+            decreaseColNo.Name = "decreaseColNo";
+            decreaseColNo.Size = new Size(38, 23);
+            decreaseColNo.TabIndex = 1007;
+            decreaseColNo.Text = "az";
+            decreaseColNo.UseVisualStyleBackColor = true;
+            decreaseColNo.Click += decreaseColNo_Click;
             // 
-            // button8
+            // decreaseSquareSize
             // 
-            button8.Location = new Point(264, 293);
-            button8.Name = "button8";
-            button8.Size = new Size(38, 23);
-            button8.TabIndex = 1007;
-            button8.Text = "az";
-            button8.UseVisualStyleBackColor = true;
+            decreaseSquareSize.Location = new Point(264, 293);
+            decreaseSquareSize.Name = "decreaseSquareSize";
+            decreaseSquareSize.Size = new Size(38, 23);
+            decreaseSquareSize.TabIndex = 1007;
+            decreaseSquareSize.Text = "az";
+            decreaseSquareSize.UseVisualStyleBackColor = true;
+            decreaseSquareSize.Click += decreaseSquareSize_Click;
             // 
             // label11
             // 
@@ -516,24 +527,27 @@
             distanceBetweenSqrs.Text = "2";
             distanceBetweenSqrs.TextAlign = HorizontalAlignment.Center;
             distanceBetweenSqrs.TextChanged += distanceBetweenSqrs_TextChanged;
+            distanceBetweenSqrs.Leave += distanceBetweenSqrs_Leave;
             // 
-            // button9
+            // decreaseDistBS
             // 
-            button9.Location = new Point(264, 332);
-            button9.Name = "button9";
-            button9.Size = new Size(38, 23);
-            button9.TabIndex = 1007;
-            button9.Text = "az";
-            button9.UseVisualStyleBackColor = true;
+            decreaseDistBS.Location = new Point(264, 332);
+            decreaseDistBS.Name = "decreaseDistBS";
+            decreaseDistBS.Size = new Size(38, 23);
+            decreaseDistBS.TabIndex = 1007;
+            decreaseDistBS.Text = "az";
+            decreaseDistBS.UseVisualStyleBackColor = true;
+            decreaseDistBS.Click += decreaseDistBS_Click;
             // 
-            // button10
+            // increaseDistBS
             // 
-            button10.Location = new Point(363, 332);
-            button10.Name = "button10";
-            button10.Size = new Size(38, 23);
-            button10.TabIndex = 1007;
-            button10.Text = "çox";
-            button10.UseVisualStyleBackColor = true;
+            increaseDistBS.Location = new Point(363, 332);
+            increaseDistBS.Name = "increaseDistBS";
+            increaseDistBS.Size = new Size(38, 23);
+            increaseDistBS.TabIndex = 1007;
+            increaseDistBS.Text = "çox";
+            increaseDistBS.UseVisualStyleBackColor = true;
+            increaseDistBS.Click += increaseDistBS_Click;
             // 
             // Form1
             // 
@@ -543,14 +557,14 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(843, 548);
-            Controls.Add(button10);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button1);
+            Controls.Add(increaseDistBS);
+            Controls.Add(increaseSquareSize);
+            Controls.Add(increaseColNo);
+            Controls.Add(decreaseDistBS);
+            Controls.Add(decreaseSquareSize);
+            Controls.Add(decreaseColNo);
+            Controls.Add(decreaseRowNo);
+            Controls.Add(increaseRowNo);
             Controls.Add(label12);
             Controls.Add(checkBox1);
             Controls.Add(seeNextFile);
@@ -631,15 +645,15 @@
         private ToolStripMenuItem yardımToolStripMenuItem;
         private ToolStripMenuItem harHarHarToolStripMenuItem;
         private MenuStrip menuStrip1;
-        private Button button1;
-        private Button button2;
-        private Button button4;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button increaseRowNo;
+        private Button increaseColNo;
+        private Button increaseSquareSize;
+        private Button decreaseRowNo;
+        private Button decreaseColNo;
+        private Button decreaseSquareSize;
         private Label label11;
         private TextBox distanceBetweenSqrs;
-        private Button button9;
-        private Button button10;
+        private Button decreaseDistBS;
+        private Button increaseDistBS;
     }
 }

@@ -17,16 +17,21 @@ namespace ADBoyaSU
 
         imageManipulation IM = new imageManipulation();
 
-        public int spX = 10; // starting point x
-        public int spY = 10; // starting point y
+        public float spX = 10; // starting point x
+        public float spY = 10; // starting point y
         public int noR = 3; // number of rows
         public int noC = 5; // number of columns
-        public int soS = 10; // size of squares
-        public int dbS = 2; // distance between squares
+        public float soS = 10; // size of squares
+        public float dbS = 2; // distance between squares
 
-
-
-
+        public int noRDecStep = 1; // the step by which numberOfRows value is decreased
+        public int noRIncStep = 1; // the step by which numberOfRows value is increased
+        public int noCDecStep = 1; // the step by which numberOfCols value is decreased
+        public int noCIncStep = 1; // the step by which numberOfCols value is increased
+        public int soSDecStep = 1; // the step by which sizeOfSquare value is decreased
+        public int soSIncStep = 1; // the step by which sizeOfSquare value is increased
+        public float dbSDecStep = 0.5f; // the step by which distanceBetweenSquares value in decreased
+        public float dbSIncStep = 0.5f; // the step by which distanceBetweenSquares value in increased
 
         public Form1()
         {
@@ -179,59 +184,150 @@ namespace ADBoyaSU
             {
                 for (int j = 0; j < noC; j++)
                 {
-                    Rectangle rect = new Rectangle(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
+                    RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
                     graphics.DrawRectangle(pen, rect);
                 }
             }
-            //Rectangle rect = new Rectangle(100, 100, 150, 150);
-            //graphics.DrawRectangle(pen, rect);
 
             pictureBox1.Image = workingImage;
-            //return workingImage;
         }
 
+
+
+        #region TextChanged of the Settings
         private void startPositionX_TextChanged(object sender, EventArgs e)
         {
             if (startPositionX.Text != "")
-                spX = Convert.ToInt32(startPositionX.Text);
-            
+                spX = Convert.ToSingle(startPositionX.Text);
+
             ShowMeMyImage(openFilePath.Text);
         }
 
         private void startPositionY_TextChanged(object sender, EventArgs e)
         {
             if (startPositionY.Text != "")
-                spY = Convert.ToInt32(startPositionY.Text);
+                spY = Convert.ToSingle(startPositionY.Text);
 
             ShowMeMyImage(openFilePath.Text);
         }
 
         private void numOfRows_TextChanged(object sender, EventArgs e)
         {
-            noR = Convert.ToInt32(numOfRows.Text);
+            if (numOfRows.Text != "")
+                noR = Convert.ToInt32(numOfRows.Text);
             ShowMeMyImage(openFilePath.Text);
 
         }
 
         private void numOfColumns_TextChanged(object sender, EventArgs e)
         {
-            noC = Convert.ToInt32(numOfColumns.Text);
+            if (numOfColumns.Text != "")
+                noC = Convert.ToInt32(numOfColumns.Text);
             ShowMeMyImage(openFilePath.Text);
 
         }
 
         private void squareSize_TextChanged(object sender, EventArgs e)
         {
-            soS = Convert.ToInt32(squareSize.Text);
+            if (squareSize.Text != "")
+                soS = Convert.ToSingle(squareSize.Text);
             ShowMeMyImage(openFilePath.Text);
 
         }
 
         private void distanceBetweenSqrs_TextChanged(object sender, EventArgs e)
         {
-            dbS = Convert.ToInt32(distanceBetweenSqrs.Text);
+            if (distanceBetweenSqrs.Text != "")
+                dbS = Convert.ToSingle(distanceBetweenSqrs.Text);
             ShowMeMyImage(openFilePath.Text);
 
         }
+        #endregion
+
+        #region LostFocus Events
+        private void startPositionX_Leave(object sender, EventArgs e)
+        {
+            if (startPositionX.Text == "")
+                startPositionX.Text = spX.ToString();
+        }
+
+        private void startPositionY_Leave(object sender, EventArgs e)
+        {
+            if (startPositionY.Text == "")
+                startPositionY.Text = spY.ToString();
+        }
+
+        private void numOfRows_Leave(object sender, EventArgs e)
+        {
+            if (numOfRows.Text == "")
+                numOfRows.Text = noR.ToString();
+        }
+
+        private void numOfColumns_Leave(object sender, EventArgs e)
+        {
+            if (numOfColumns.Text == "")
+                numOfColumns.Text = noC.ToString();
+        }
+
+        private void squareSize_Leave(object sender, EventArgs e)
+        {
+            if (squareSize.Text == "")
+                squareSize.Text = soS.ToString();
+        }
+
+        private void distanceBetweenSqrs_Leave(object sender, EventArgs e)
+        {
+            if (distanceBetweenSqrs.Text == "")
+                distanceBetweenSqrs.Text = dbS.ToString();
+        }
+        #endregion
+
+        public void EditTextBoxValue(TextBox textBox, float value)
+        {
+            var buffer = Convert.ToSingle(textBox.Text);
+            buffer += value;
+            textBox.Text = buffer.ToString();
+        }
+        #region Increase/Decrease Buttons
+        private void decreaseRowNo_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(numOfRows, -noRDecStep);
+        }
+
+        private void increaseRowNo_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(numOfRows, noRIncStep);
+        }
+
+        private void decreaseColNo_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(numOfColumns, -noCDecStep);
+        }
+
+        private void increaseColNo_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(numOfColumns, noCIncStep);
+        }
+
+        private void decreaseSquareSize_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(squareSize, -soSDecStep);
+        }
+
+        private void increaseSquareSize_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(squareSize, soSIncStep);
+        }
+
+        private void decreaseDistBS_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(distanceBetweenSqrs, -dbSDecStep);
+        }
+
+        private void increaseDistBS_Click(object sender, EventArgs e)
+        {
+            EditTextBoxValue(distanceBetweenSqrs, dbSIncStep);
+        }
+        #endregion
     }
 }
