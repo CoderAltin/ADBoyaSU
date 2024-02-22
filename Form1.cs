@@ -102,6 +102,10 @@ namespace ADBoyaSU
             {
                 pictureBox1.Image = System.Drawing.Image.FromFile(openFilePath.Text);
             }
+            catch (FileNotFoundException)
+            {
+                pictureBox1.Image = null;
+            }
             catch (Exception)
             {
                 pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[imageIndex]);
@@ -113,7 +117,7 @@ namespace ADBoyaSU
 
         private void ScrollButtonsConditioner()
         {
-            if (openFileDialog.FileNames.Length == 1) // only one file is selected
+            if (openFileDialog.FileNames.Length <= 1) // only one file is selected
             {
                 seeNextFile.Enabled = false;
                 seePreviousFile.Enabled = false;
