@@ -23,15 +23,15 @@ namespace ADBoyaSU
 
         //imageManipulation IM = new imageManipulation();
 
-        public Color penColor = Color.Chocolate;
+        public Color penColor = Color.Gold;
         public float penThickness = 3f;
 
         public float spX = 10; // starting point x
         public float spY = 10; // starting point y
-        public int noR = 3; // number of rows
-        public int noC = 5; // number of columns
+        public int noR = 3;    // number of rows
+        public int noC = 5;    // number of columns
         public float soS = 10; // size of squares
-        public float dbS = 2; // distance between squares
+        public float dbS = 2;  // distance between squares
 
         public int noRDecStep = 1; // the step by which numberOfRows value is decreased
         public int noRIncStep = 1; // the step by which numberOfRows value is increased
@@ -48,6 +48,8 @@ namespace ADBoyaSU
         public Form1()
         {
             InitializeComponent();
+            noR = Convert.ToInt32(numOfRows.Text);
+            noC = Convert.ToInt32(numOfColumns.Text);
 
         }
 
@@ -60,7 +62,6 @@ namespace ADBoyaSU
 
 
             // Dispaly images in the picuteBox1
-            //seeNextFile.Enabled = true;
             imageIndex = 0;
             SelectImage(0);
         }
@@ -184,6 +185,7 @@ namespace ADBoyaSU
             this.Close();
         }
 
+
         /// <summary>
         /// Every image goes through this method before being displayed
         /// </summary>
@@ -194,7 +196,9 @@ namespace ADBoyaSU
             workingImage = Image.FromFile(filePath);
 
             if (convertToGray)
+            {
                 workingImage = Gray(workingImage);
+            }
 
             if (showSquares)
             {
@@ -230,7 +234,7 @@ namespace ADBoyaSU
         #region TextChanged of the Settings
         private void startPositionX_TextChanged(object sender, EventArgs e)
         {
-            if (startPositionX.Text.Trim() != "" )
+            if (startPositionX.Text.Trim() != "")
                 try
                 {
                     spX = Convert.ToSingle(startPositionX.Text);
@@ -437,7 +441,7 @@ namespace ADBoyaSU
                     c = btmp.GetPixel(i, j);
 
                     byte gray = (byte)(.299 * c.R + 0.587 * c.G + 0.114 * c.B);
-                    
+
                     btmp.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
                 }
             }
@@ -445,5 +449,78 @@ namespace ADBoyaSU
             return (Image)btmp.Clone();
         }
         #endregion
+
+        private void StartCounting()
+        {
+            int imagesCount = openFileDialog.FileNames.Length;
+            int rowCount = (int)(imagesCount / 3 + imagesCount + 1);
+            string[] result = new string[rowCount];
+
+            int l = 0;
+            //for (int i = 0; i < noR; i++)
+            //{
+            //    result[0] += " ,";
+            //    for (int j = 0; j < noC; j++)
+            //    {
+            //        l++;
+            //        if (toOmitInt != null && toOmitInt.Any(n => n == l))
+            //            result[0] += "";
+            //        else
+            //            result[0] += $"R{i + 1}-{j + 1},";
+            //    }
+            //}
+
+            l = 0;
+            int m = 1;
+            for (int i = 0; i < rowCount; i++) // for each image
+            {
+                if (i != 0)
+                    result[i] += ThisFileName(openFileDialog.FileNames[i - 1]) + " ,"; // first cell is file name
+                else
+                    result[i] += " ,";
+
+                for (int j = 0; j < noR; j++) // each row
+                {
+                    for (int k = 0; k < noC; k++) // each column
+                    {
+                        l++;
+
+                        if (toOmitInt != null && toOmitInt.Any(n => n == l))
+                            result[0] += "";
+                        else if (i == 0)
+                            result[0] += $"R{j + 1}-{k + 1},";
+                        else
+                            result[i] += ThisSquareValue(i, j).ToString() + ",";
+                    }
+
+                    result[i] += " ,";
+                }
+
+                l = 0;
+            }
+
+            string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
+            File.WriteAllLines(tempPath, result);
+        }
+
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            StartCounting();
+        }
+
+        private string ThisFileName(string filePath)
+        {
+            string[] pathSections;
+            pathSections = filePath.Split('\\');
+            //name = pathSections.LastOrDefault();
+
+            return filePath.Split('\\').Last();
+        }
+
+        private int ThisSquareValue(int i, int j)
+        {
+            return 1;
+        }
     }
 }

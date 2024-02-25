@@ -122,7 +122,7 @@
             pictureBox1.Anchor = AnchorStyles.Right;
             pictureBox1.Location = new Point(432, 134);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(380, 215);
+            pictureBox1.Size = new Size(380, 229);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -161,7 +161,7 @@
             okButton.TabIndex = 11;
             okButton.Text = "Oldu, Yaxçı";
             okButton.UseVisualStyleBackColor = false;
-            okButton.Click += button2_Click;
+            okButton.Click += okButton_Click;
             // 
             // button3
             // 
@@ -273,7 +273,7 @@
             numOfRows.Name = "numOfRows";
             numOfRows.Size = new Size(47, 23);
             numOfRows.TabIndex = 5;
-            numOfRows.Text = "3";
+            numOfRows.Text = "8";
             numOfRows.TextAlign = HorizontalAlignment.Center;
             numOfRows.TextChanged += numOfRows_TextChanged;
             numOfRows.Leave += numOfRows_Leave;
@@ -284,7 +284,7 @@
             numOfColumns.Name = "numOfColumns";
             numOfColumns.Size = new Size(47, 23);
             numOfColumns.TabIndex = 6;
-            numOfColumns.Text = "5";
+            numOfColumns.Text = "8";
             numOfColumns.TextAlign = HorizontalAlignment.Center;
             numOfColumns.TextChanged += numOfColumns_TextChanged;
             numOfColumns.Leave += numOfColumns_Leave;
@@ -314,7 +314,7 @@
             // 
             seePreviousFile.Anchor = AnchorStyles.Right;
             seePreviousFile.Enabled = false;
-            seePreviousFile.Location = new Point(603, 356);
+            seePreviousFile.Location = new Point(604, 369);
             seePreviousFile.Name = "seePreviousFile";
             seePreviousFile.Size = new Size(22, 23);
             seePreviousFile.TabIndex = 1002;
@@ -326,7 +326,7 @@
             // 
             seeNextFile.Anchor = AnchorStyles.Right;
             seeNextFile.Enabled = false;
-            seeNextFile.Location = new Point(637, 356);
+            seeNextFile.Location = new Point(638, 369);
             seeNextFile.Name = "seeNextFile";
             seeNextFile.Size = new Size(22, 23);
             seeNextFile.TabIndex = 1002;
@@ -412,7 +412,7 @@
             // 
             label12.Anchor = AnchorStyles.Right;
             label12.AutoSize = true;
-            label12.Location = new Point(626, 360);
+            label12.Location = new Point(627, 373);
             label12.Name = "label12";
             label12.Size = new Size(10, 15);
             label12.TabIndex = 1006;
