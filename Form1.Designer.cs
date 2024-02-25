@@ -308,6 +308,7 @@
             omitThese.TabIndex = 9;
             omitThese.Text = "1, 8";
             omitThese.TextChanged += omitThese_TextChanged;
+            omitThese.Leave += omitThese_Leave;
             // 
             // seePreviousFile
             // 

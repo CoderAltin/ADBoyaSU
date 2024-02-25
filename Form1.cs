@@ -313,6 +313,13 @@ namespace ADBoyaSU
             if (distanceBetweenSqrs.Text == "")
                 distanceBetweenSqrs.Text = dbS.ToString();
         }
+
+        private void omitThese_Leave(object sender, EventArgs e)
+        {
+            if (omitThese.Text.Trim() == "")
+                omitThese.Text = 0.ToString();
+        }
+
         #endregion
 
         public void EditTextBoxValue(TextBox textBox, float value)
@@ -365,7 +372,7 @@ namespace ADBoyaSU
 
         #endregion
 
-        #region Omit These section
+        #region "Omit These" section
         private void showSquaresCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             showSquares = showSquaresCheckBox.Checked;
@@ -374,8 +381,8 @@ namespace ADBoyaSU
 
         public void WhichOnesToOmit()
         {
+            // Could've done it like this too:
             //StringSplitOptions options = StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries;
-
             if (omitThese.Text != "")
                 toOmitStr = omitThese.Text.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
             else
@@ -411,10 +418,8 @@ namespace ADBoyaSU
         private Image Gray(Image image)
         {
             Bitmap btmp = new Bitmap(image);
-            //Bitmap btmp;
-            //btmp = (Bitmap)Bitmap.FromFile(openFilePath.Text);
-
             Color c;
+
             for (int i = 0; i < btmp.Width; i++)
             {
                 for (int j = 0; j < btmp.Height; j++)
@@ -427,5 +432,6 @@ namespace ADBoyaSU
 
             return (Image)btmp.Clone();
         }
+
     }
 }
