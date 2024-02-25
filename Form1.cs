@@ -7,6 +7,7 @@ namespace ADBoyaSU
 {
     public partial class Form1 : Form
     {
+        public bool convertToGray = false;
         public bool showSquares = true;
         Image workingImage;
         Graphics graphics;
@@ -113,12 +114,12 @@ namespace ADBoyaSU
                 seeNextFile.Enabled = false;
                 seePreviousFile.Enabled = false;
             }
-            else if (imageIndex == 0)
+            else if (imageIndex == 0) // first image
             {
                 seePreviousFile.Enabled = false;
                 seeNextFile.Enabled = true;
             }
-            else if (imageIndex == openFileDialog.FileNames.Length - 1)
+            else if (imageIndex == openFileDialog.FileNames.Length - 1) // last image
             {
                 seeNextFile.Enabled = false;
                 seePreviousFile.Enabled = true;
@@ -169,6 +170,11 @@ namespace ADBoyaSU
 
         #endregion
 
+        /// <summary>
+        /// Close the program
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -183,6 +189,11 @@ namespace ADBoyaSU
         {
             workingImage = Image.FromFile(filePath);
 
+            if (convertToGray)
+            {
+                workingImage = Gray(workingImage);
+            }
+
             if (showSquares)
             {
                 graphics = Graphics.FromImage(workingImage);
@@ -193,6 +204,7 @@ namespace ADBoyaSU
                 WhichOnesToOmit();
 
                 int k = 0;  // Counter
+                // Actually drawing the images
                 for (int i = 0; i < noR; i++)
                 {
                     for (int j = 0; j < noC; j++)
@@ -305,10 +317,11 @@ namespace ADBoyaSU
 
         public void EditTextBoxValue(TextBox textBox, float value)
         {
-            var buffer = Convert.ToSingle(textBox.Text);
-            buffer += value;
-            textBox.Text = buffer.ToString();
+            var temp = Convert.ToSingle(textBox.Text);
+            temp += value;
+            textBox.Text = temp.ToString();
         }
+
         #region Increase/Decrease Buttons
         private void decreaseRowNo_Click(object sender, EventArgs e)
         {
@@ -352,6 +365,7 @@ namespace ADBoyaSU
 
         #endregion
 
+        #region Omit These section
         private void showSquaresCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             showSquares = showSquaresCheckBox.Checked;
@@ -385,6 +399,33 @@ namespace ADBoyaSU
         private void omitThese_TextChanged(object sender, EventArgs e)
         {
             ShowMeMyImage(openFilePath.Text);
+        }
+        #endregion
+
+        private void convertImageToGray_CheckedChanged(object sender, EventArgs e)
+        {
+            convertToGray = convertImageToGray.Checked;
+            ShowMeMyImage(openFilePath.Text);
+        }
+
+        private Image Gray(Image image)
+        {
+            Bitmap btmp = new Bitmap(image);
+            //Bitmap btmp;
+            //btmp = (Bitmap)Bitmap.FromFile(openFilePath.Text);
+
+            Color c;
+            for (int i = 0; i < btmp.Width; i++)
+            {
+                for (int j = 0; j < btmp.Height; j++)
+                {
+                    c = btmp.GetPixel(i, j);
+                    byte gray = (byte)(.299 * c.R + 0.587 * c.G + 0.114 * c.B);
+                    btmp.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
+                }
+            }
+
+            return (Image)btmp.Clone();
         }
     }
 }

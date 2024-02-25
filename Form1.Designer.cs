@@ -54,7 +54,7 @@
             label9 = new Label();
             textBox7 = new TextBox();
             button5 = new Button();
-            checkBox1 = new CheckBox();
+            convertImageToGray = new CheckBox();
             label10 = new Label();
             squareSize = new TextBox();
             imageList = new ImageList(components);
@@ -99,7 +99,7 @@
             openFilePath.Location = new Point(33, 74);
             openFilePath.Name = "openFilePath";
             openFilePath.Size = new Size(680, 23);
-            openFilePath.TabIndex = 999;
+            openFilePath.TabIndex = 0;
             openFilePath.TextChanged += openFilePath_TextChanged;
             // 
             // browsImages
@@ -351,7 +351,7 @@
             textBox7.Location = new Point(33, 452);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(680, 23);
-            textBox7.TabIndex = 0;
+            textBox7.TabIndex = 998;
             // 
             // button5
             // 
@@ -367,16 +367,17 @@
             button5.Text = "Gəz";
             button5.UseVisualStyleBackColor = false;
             // 
-            // checkBox1
+            // convertImageToGray
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(109, 139);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(107, 19);
-            checkBox1.TabIndex = 2;
-            checkBox1.Text = "Əkızlərı Boazart";
-            checkBox1.TextAlign = ContentAlignment.MiddleCenter;
-            checkBox1.UseVisualStyleBackColor = true;
+            convertImageToGray.AutoSize = true;
+            convertImageToGray.Location = new Point(109, 139);
+            convertImageToGray.Name = "convertImageToGray";
+            convertImageToGray.Size = new Size(107, 19);
+            convertImageToGray.TabIndex = 2;
+            convertImageToGray.Text = "Əkızlərı Boazart";
+            convertImageToGray.TextAlign = ContentAlignment.MiddleCenter;
+            convertImageToGray.UseVisualStyleBackColor = true;
+            convertImageToGray.CheckedChanged += convertImageToGray_CheckedChanged;
             // 
             // label10
             // 
@@ -596,7 +597,7 @@
             Controls.Add(increaseRowNo);
             Controls.Add(label12);
             Controls.Add(showSquaresCheckBox);
-            Controls.Add(checkBox1);
+            Controls.Add(convertImageToGray);
             Controls.Add(seeNextFile);
             Controls.Add(seePreviousFile);
             Controls.Add(startPositionY);
@@ -663,7 +664,7 @@
         private Label label9;
         private TextBox textBox7;
         private Button button5;
-        private CheckBox checkBox1;
+        private CheckBox convertImageToGray;
         private Label label10;
         private TextBox squareSize;
         public Button browsImages;
