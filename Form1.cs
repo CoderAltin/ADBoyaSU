@@ -45,6 +45,8 @@ namespace ADBoyaSU
         public string[] toOmitStr;
         public int[]? toOmitInt;
 
+        int imagesOfAKind = 3;  // number of images that represent same sound
+
         public Form1()
         {
             InitializeComponent();
@@ -453,31 +455,27 @@ namespace ADBoyaSU
         private void StartCounting()
         {
             int imagesCount = openFileDialog.FileNames.Length;
-            int rowCount = (int)(imagesCount / 3 + imagesCount + 1);
+            int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
             string[] result = new string[rowCount];
 
-            int l = 0;
-            //for (int i = 0; i < noR; i++)
-            //{
-            //    result[0] += " ,";
-            //    for (int j = 0; j < noC; j++)
-            //    {
-            //        l++;
-            //        if (toOmitInt != null && toOmitInt.Any(n => n == l))
-            //            result[0] += "";
-            //        else
-            //            result[0] += $"R{i + 1}-{j + 1},";
-            //    }
-            //}
 
-            l = 0;
-            int m = 1;
+            int l = 0;
+            int m = 0;
+            bool attadim = false;
             for (int i = 0; i < rowCount; i++) // for each image
             {
-                if (i != 0)
-                    result[i] += ThisFileName(openFileDialog.FileNames[i - 1]) + " ,"; // first cell is file name
+                if (i != 0 && (m % imagesOfAKind != 0 || attadim)) // first row is header
+                {
+                    result[i] += ThisFileName(openFileDialog.FileNames[m]) + " ,"; // first cell is file name
+
+                    attadim = false;
+                }
                 else
+                {
                     result[i] += " ,";
+                    attadim = true;
+                }
+
 
                 for (int j = 0; j < noR; j++) // each row
                 {
@@ -487,16 +485,20 @@ namespace ADBoyaSU
 
                         if (toOmitInt != null && toOmitInt.Any(n => n == l))
                             result[0] += "";
-                        else if (i == 0)
+                        else if (i == 0)    // Headers
                             result[0] += $"R{j + 1}-{k + 1},";
+                        else if (attadim)
+                            result[i] += ((float)(ThisSquareValue(j - 1, k) + ThisSquareValue(j - 2, k) + ThisSquareValue(j - 3, k)) / 2).ToString() + ",";
                         else
-                            result[i] += ThisSquareValue(i, j).ToString() + ",";
+                            result[i] += ThisSquareValue(j, k).ToString() + ",";
                     }
 
                     result[i] += " ,";
                 }
 
                 l = 0;
+                if (!attadim)
+                    m++;
             }
 
             string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
