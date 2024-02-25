@@ -7,6 +7,10 @@ namespace ADBoyaSU
 {
     public partial class Form1 : Form
     {
+        // Azərbaycan Hərflərı:
+        // Ü İ Ö Ğ I Ə Ç Ş
+        // ü i ö ğ ı ə ç ş
+
         public bool convertToGray = false;
         public bool showSquares = true;
         Image workingImage;
