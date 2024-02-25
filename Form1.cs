@@ -17,7 +17,7 @@ namespace ADBoyaSU
         public int imageIndex = 0;
         public string currentFilePath;
 
-        imageManipulation IM = new imageManipulation();
+        //imageManipulation IM = new imageManipulation();
 
         public Color penColor = Color.Chocolate;
         public float penThickness = 3f;
@@ -190,9 +190,7 @@ namespace ADBoyaSU
             workingImage = Image.FromFile(filePath);
 
             if (convertToGray)
-            {
                 workingImage = Gray(workingImage);
-            }
 
             if (showSquares)
             {
@@ -228,15 +226,22 @@ namespace ADBoyaSU
         #region TextChanged of the Settings
         private void startPositionX_TextChanged(object sender, EventArgs e)
         {
-            if (startPositionX.Text != "")
-                spX = Convert.ToSingle(startPositionX.Text);
+            if (startPositionX.Text.Trim() != "" )
+                try
+                {
+                    spX = Convert.ToSingle(startPositionX.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("\tBir Sayı Yaz", "Savadsız");
+                }
 
             ShowMeMyImage(openFilePath.Text);
         }
 
         private void startPositionY_TextChanged(object sender, EventArgs e)
         {
-            if (startPositionY.Text != "")
+            if (startPositionY.Text.Trim() != "")
                 spY = Convert.ToSingle(startPositionY.Text);
 
             ShowMeMyImage(openFilePath.Text);
@@ -244,7 +249,7 @@ namespace ADBoyaSU
 
         private void numOfRows_TextChanged(object sender, EventArgs e)
         {
-            if (numOfRows.Text != "")
+            if (numOfRows.Text.Trim() != "")
                 noR = Convert.ToInt32(numOfRows.Text);
 
             ShowMeMyImage(openFilePath.Text);
@@ -253,7 +258,7 @@ namespace ADBoyaSU
 
         private void numOfColumns_TextChanged(object sender, EventArgs e)
         {
-            if (numOfColumns.Text != "")
+            if (numOfColumns.Text.Trim() != "")
                 noC = Convert.ToInt32(numOfColumns.Text);
 
             ShowMeMyImage(openFilePath.Text);
@@ -262,7 +267,7 @@ namespace ADBoyaSU
 
         private void squareSize_TextChanged(object sender, EventArgs e)
         {
-            if (squareSize.Text != "")
+            if (squareSize.Text.Trim() != "")
                 soS = Convert.ToSingle(squareSize.Text);
             ShowMeMyImage(openFilePath.Text);
 
@@ -270,7 +275,7 @@ namespace ADBoyaSU
 
         private void distanceBetweenSqrs_TextChanged(object sender, EventArgs e)
         {
-            if (distanceBetweenSqrs.Text != "")
+            if (distanceBetweenSqrs.Text.Trim() != "")
                 dbS = Convert.ToSingle(distanceBetweenSqrs.Text);
             ShowMeMyImage(openFilePath.Text);
 
@@ -280,37 +285,37 @@ namespace ADBoyaSU
         #region LostFocus Events
         private void startPositionX_Leave(object sender, EventArgs e)
         {
-            if (startPositionX.Text == "")
+            if (startPositionX.Text.Trim() == "")
                 startPositionX.Text = spX.ToString();
         }
 
         private void startPositionY_Leave(object sender, EventArgs e)
         {
-            if (startPositionY.Text == "")
+            if (startPositionY.Text.Trim() == "")
                 startPositionY.Text = spY.ToString();
         }
 
         private void numOfRows_Leave(object sender, EventArgs e)
         {
-            if (numOfRows.Text == "")
+            if (numOfRows.Text.Trim() == "")
                 numOfRows.Text = noR.ToString();
         }
 
         private void numOfColumns_Leave(object sender, EventArgs e)
         {
-            if (numOfColumns.Text == "")
+            if (numOfColumns.Text.Trim() == "")
                 numOfColumns.Text = noC.ToString();
         }
 
         private void squareSize_Leave(object sender, EventArgs e)
         {
-            if (squareSize.Text == "")
+            if (squareSize.Text.Trim() == "")
                 squareSize.Text = soS.ToString();
         }
 
         private void distanceBetweenSqrs_Leave(object sender, EventArgs e)
         {
-            if (distanceBetweenSqrs.Text == "")
+            if (distanceBetweenSqrs.Text.Trim() == "")
                 distanceBetweenSqrs.Text = dbS.ToString();
         }
 
@@ -409,6 +414,7 @@ namespace ADBoyaSU
         }
         #endregion
 
+        #region Convert to Gray
         private void convertImageToGray_CheckedChanged(object sender, EventArgs e)
         {
             convertToGray = convertImageToGray.Checked;
@@ -425,13 +431,15 @@ namespace ADBoyaSU
                 for (int j = 0; j < btmp.Height; j++)
                 {
                     c = btmp.GetPixel(i, j);
+
                     byte gray = (byte)(.299 * c.R + 0.587 * c.G + 0.114 * c.B);
+                    
                     btmp.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
                 }
             }
 
             return (Image)btmp.Clone();
         }
-
+        #endregion
     }
 }
