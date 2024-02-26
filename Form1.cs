@@ -40,8 +40,8 @@ namespace ADBoyaSU
         public int noRIncStep = 1; // the step by which numberOfRows value is increased
         public int noCDecStep = 1; // the step by which numberOfCols value is decreased
         public int noCIncStep = 1; // the step by which numberOfCols value is increased
-        public int soSDecStep = 1; // the step by which sizeOfSquare value is decreased
-        public int soSIncStep = 1; // the step by which sizeOfSquare value is increased
+        public float soSDecStep = 0.5f; // the step by which sizeOfSquare value is decreased
+        public float soSIncStep = 0.5f; // the step by which sizeOfSquare value is increased
         public float dbSDecStep = 0.5f; // the step by which distanceBetweenSquares value in decreased
         public float dbSIncStep = 0.5f; // the step by which distanceBetweenSquares value in increased
 
@@ -201,6 +201,7 @@ namespace ADBoyaSU
         /// <returns></returns>
         public void ShowMeMyImage(string filePath)
         {
+            testLittleSquares.Clear();
             workingImage = Image.FromFile(filePath);
 
             if (convertToGray)
@@ -514,8 +515,8 @@ namespace ADBoyaSU
                         }
                         else
                         {
-                            result[i] += ThisSquareValue(j, k).ToString() + ",";
-                            values[i, l] = (float)ThisSquareValue(j, k);
+                            result[i] += ThisSquareValue(openFileDialog.FileNames[m], j, k).ToString() + ",";
+                            values[i, l] = (float)ThisSquareValue(openFileDialog.FileNames[m], j, k);
                         }
                     }
 
@@ -550,23 +551,28 @@ namespace ADBoyaSU
             return filePath.Split('\\').Last();
         }
 
-        private int ThisSquareValue(int i, int j)
+        private int ThisSquareValue(string fileAddress, int i, int j)
         {
-            Bitmap btmp = new Bitmap(openFilePath.Text);
+            Bitmap btmp = new Bitmap(fileAddress);
             RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
             
             Bitmap square = btmp.Clone(rect, btmp.PixelFormat);
 
             Color c = new Color();
             float r = 122,g = 122,b = 122;
-            for (int m = 0; m < square.Width; m++)
+            int increment = (int)(soS / 4);
+            int startPixel = (int)(increment / 2);
+            int counter = 0;
+            for (int m = startPixel; m < square.Width; m += increment)
             {
-                for (int n = 0; n < square.Height; n++)
+                for (int n = startPixel; n < square.Height; n += increment)
                 {
                     c = square.GetPixel(m, n);
                     r = (float)(r + c.R) / 2;
                     g = (float)(g + c.G) / 2;
                     b = (float)(b + c.B) / 2;
+
+                    counter++;
                 }
             }
 

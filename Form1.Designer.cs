@@ -79,6 +79,8 @@
             showSquaresCheckBox = new CheckBox();
             testPicBox = new PictureBox();
             picNumUpDown = new NumericUpDown();
+            thisImageIndex = new Label();
+            allImagesCount = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
@@ -318,7 +320,7 @@
             // 
             seePreviousFile.Anchor = AnchorStyles.Right;
             seePreviousFile.Enabled = false;
-            seePreviousFile.Location = new Point(604, 369);
+            seePreviousFile.Location = new Point(589, 369);
             seePreviousFile.Name = "seePreviousFile";
             seePreviousFile.Size = new Size(22, 23);
             seePreviousFile.TabIndex = 1002;
@@ -330,7 +332,7 @@
             // 
             seeNextFile.Anchor = AnchorStyles.Right;
             seeNextFile.Enabled = false;
-            seeNextFile.Location = new Point(638, 369);
+            seeNextFile.Location = new Point(652, 369);
             seeNextFile.Name = "seeNextFile";
             seeNextFile.Size = new Size(22, 23);
             seeNextFile.TabIndex = 1002;
@@ -601,6 +603,24 @@
             picNumUpDown.TabIndex = 1009;
             picNumUpDown.ValueChanged += picNumUpDown_ValueChanged;
             // 
+            // thisImageIndex
+            // 
+            thisImageIndex.AutoSize = true;
+            thisImageIndex.Location = new Point(612, 373);
+            thisImageIndex.Name = "thisImageIndex";
+            thisImageIndex.Size = new Size(17, 15);
+            thisImageIndex.TabIndex = 1010;
+            thisImageIndex.Text = "??";
+            // 
+            // allImagesCount
+            // 
+            allImagesCount.AutoSize = true;
+            allImagesCount.Location = new Point(634, 373);
+            allImagesCount.Name = "allImagesCount";
+            allImagesCount.Size = new Size(17, 15);
+            allImagesCount.TabIndex = 1010;
+            allImagesCount.Text = "??";
+            // 
             // Form1
             // 
             AllowDrop = true;
@@ -609,6 +629,8 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(843, 548);
+            Controls.Add(allImagesCount);
+            Controls.Add(thisImageIndex);
             Controls.Add(picNumUpDown);
             Controls.Add(testPicBox);
             Controls.Add(increaseDistBS);
@@ -717,5 +739,7 @@
         private CheckBox showSquaresCheckBox;
         private PictureBox testPicBox;
         private NumericUpDown picNumUpDown;
+        private Label thisImageIndex;
+        private Label allImagesCount;
     }
 }
