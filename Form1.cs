@@ -3,6 +3,8 @@ using System.Net.Sockets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing.Imaging;
+using System.Diagnostics;
 
 namespace ADBoyaSU
 {
@@ -46,7 +48,10 @@ namespace ADBoyaSU
         public string[] toOmitStr;
         public int[]? toOmitInt;
 
+        // ThisSquareValue
         int imagesOfAKind = 3;  // number of images that represent same sound
+        List<Image> testLittleSquares = new List<Image>();
+        bool galmisdikQabaxdan = false;
 
         public Form1()
         {
@@ -516,7 +521,7 @@ namespace ADBoyaSU
 
                     if (attadim && i != 0)
                     {
-                        result[i] += "  " + (sumOfThisRow /numOfDataInThisRow).ToString() + "  ,";
+                        result[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString() + "  ,";
                         sumOfThisRow = 0;
                         numOfDataInThisRow = 0;
                     }
@@ -547,11 +552,35 @@ namespace ADBoyaSU
 
         private int ThisSquareValue(int i, int j)
         {
-            //Bitmap btmp = (Bitmap)Image.FromFile(openFilePath.Text);
             Bitmap btmp = new Bitmap(openFilePath.Text);
-            pictureBox1.Image = btmp;
+            RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
+            
+            Bitmap square = btmp.Clone(rect, btmp.PixelFormat);
+            
+
+            // testing the resulting pircutes
+            if (!galmisdikQabaxdan)
+            {
+                testLittleSquares.Add((Image)square);
+                galmisdikQabaxdan = true;
+            }
+            else
+                galmisdikQabaxdan = false;
 
             return i;
+        }
+
+        private void picNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int i = (int)picNumUpDown.Value;
+                testPicBox.Image = testLittleSquares[i];
+            }
+            catch (Exception)
+            {
+                picNumUpDown.Value = 0;
+            }
         }
     }
 }

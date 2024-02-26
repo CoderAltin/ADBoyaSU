@@ -77,8 +77,12 @@
             increaseDistBS = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
             showSquaresCheckBox = new CheckBox();
+            testPicBox = new PictureBox();
+            picNumUpDown = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picNumUpDown).BeginInit();
             SuspendLayout();
             // 
             // selectPics
@@ -580,6 +584,23 @@
             showSquaresCheckBox.UseVisualStyleBackColor = true;
             showSquaresCheckBox.CheckedChanged += showSquaresCheckBox_CheckedChanged;
             // 
+            // testPicBox
+            // 
+            testPicBox.Location = new Point(78, 485);
+            testPicBox.Name = "testPicBox";
+            testPicBox.Size = new Size(88, 50);
+            testPicBox.SizeMode = PictureBoxSizeMode.Zoom;
+            testPicBox.TabIndex = 1008;
+            testPicBox.TabStop = false;
+            // 
+            // picNumUpDown
+            // 
+            picNumUpDown.Location = new Point(187, 504);
+            picNumUpDown.Name = "picNumUpDown";
+            picNumUpDown.Size = new Size(120, 23);
+            picNumUpDown.TabIndex = 1009;
+            picNumUpDown.ValueChanged += picNumUpDown_ValueChanged;
+            // 
             // Form1
             // 
             AllowDrop = true;
@@ -588,6 +609,8 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(843, 548);
+            Controls.Add(picNumUpDown);
+            Controls.Add(testPicBox);
             Controls.Add(increaseDistBS);
             Controls.Add(increaseSquareSize);
             Controls.Add(increaseColNo);
@@ -636,6 +659,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)testPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picNumUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -690,5 +715,7 @@
         private ToolStripMenuItem qələmToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip1;
         private CheckBox showSquaresCheckBox;
+        private PictureBox testPicBox;
+        private NumericUpDown picNumUpDown;
     }
 }
