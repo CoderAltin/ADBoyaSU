@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ADBoyaSU
 {
@@ -457,11 +458,13 @@ namespace ADBoyaSU
             int imagesCount = openFileDialog.FileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
             string[] result = new string[rowCount];
-            float[,] value = new float[rowCount, noR * noC + noR];
+            float[,] values = new float[rowCount + 2, noR * noC + noR + 2];
 
 
             int l = 0;
             int m = 0;
+            int numOfDataInThisRow = 0;
+            float sumOfThisRow = 0;
             bool attadim = false;
             for (int i = 0; i < rowCount; i++) // for each image
             {
@@ -496,17 +499,29 @@ namespace ADBoyaSU
                             else
                                 result[0] += $"R{j + 1}-{k + 1},";
                         }
-                        else if (attadim)   // time for average calculation!
-                            result[i] += "";
+                        else if (attadim && i != 0)   // time for average calculation!
+                        {
+                            float temp = values[i - 1, l] + values[i - 2, l] + values[i - 3, l];
+                            result[i] += (100 * temp / imagesOfAKind).ToString() + ",";
+
+                            sumOfThisRow += (temp / imagesOfAKind) * 100;
+                            numOfDataInThisRow++;
+                        }
                         else
                         {
                             result[i] += ThisSquareValue(j, k).ToString() + ",";
-                            //result[i] += $"{j}{k}" + ",";     // testing correct indexting
-                            value[j, k] = (float)ThisSquareValue(j, k);
+                            values[i, l] = (float)ThisSquareValue(j, k);
                         }
                     }
 
-                    result[i] += " ,";
+                    if (attadim && i != 0)
+                    {
+                        result[i] += "  " + (sumOfThisRow /numOfDataInThisRow).ToString() + "  ,";
+                        sumOfThisRow = 0;
+                        numOfDataInThisRow = 0;
+                    }
+                    else
+                        result[i] += " ,";
                 }
 
                 l = 0;
@@ -532,7 +547,11 @@ namespace ADBoyaSU
 
         private int ThisSquareValue(int i, int j)
         {
-            return 1;
+            //Bitmap btmp = (Bitmap)Image.FromFile(openFilePath.Text);
+            Bitmap btmp = new Bitmap(openFilePath.Text);
+            pictureBox1.Image = btmp;
+
+            return i;
         }
     }
 }
