@@ -82,6 +82,10 @@
             thisImageIndex = new Label();
             allImagesCount = new Label();
             progressBar1 = new ProgressBar();
+            progressbarLabel = new Label();
+            progressbarTotalImages = new Label();
+            progressbarDoneImages = new Label();
+            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
@@ -590,7 +594,7 @@
             // 
             // testPicBox
             // 
-            testPicBox.Location = new Point(33, 484);
+            testPicBox.Location = new Point(389, 487);
             testPicBox.Name = "testPicBox";
             testPicBox.Size = new Size(63, 38);
             testPicBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -600,7 +604,7 @@
             // 
             // picNumUpDown
             // 
-            picNumUpDown.Location = new Point(102, 490);
+            picNumUpDown.Location = new Point(458, 493);
             picNumUpDown.Name = "picNumUpDown";
             picNumUpDown.Size = new Size(79, 23);
             picNumUpDown.TabIndex = 1009;
@@ -640,6 +644,52 @@
             progressBar1.TabIndex = 1011;
             progressBar1.Visible = false;
             // 
+            // progressbarLabel
+            // 
+            progressbarLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            progressbarLabel.Font = new Font("Segoe UI", 9F);
+            progressbarLabel.ForeColor = Color.Black;
+            progressbarLabel.Location = new Point(33, 505);
+            progressbarLabel.Name = "progressbarLabel";
+            progressbarLabel.Size = new Size(142, 20);
+            progressbarLabel.TabIndex = 0;
+            progressbarLabel.Text = "Çox Önəmlı İşlər Görürək ";
+            progressbarLabel.TextAlign = ContentAlignment.BottomLeft;
+            progressbarLabel.Visible = false;
+            progressbarLabel.Click += label1_Click;
+            // 
+            // progressbarTotalImages
+            // 
+            progressbarTotalImages.AutoSize = true;
+            progressbarTotalImages.Location = new Point(202, 509);
+            progressbarTotalImages.Name = "progressbarTotalImages";
+            progressbarTotalImages.RightToLeft = RightToLeft.No;
+            progressbarTotalImages.Size = new Size(21, 15);
+            progressbarTotalImages.TabIndex = 1012;
+            progressbarTotalImages.Text = "??)";
+            progressbarTotalImages.Visible = false;
+            // 
+            // progressbarDoneImages
+            // 
+            progressbarDoneImages.AutoSize = true;
+            progressbarDoneImages.Location = new Point(171, 509);
+            progressbarDoneImages.Name = "progressbarDoneImages";
+            progressbarDoneImages.Size = new Size(21, 15);
+            progressbarDoneImages.TabIndex = 1012;
+            progressbarDoneImages.Text = "(??";
+            progressbarDoneImages.Visible = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(192, 510);
+            label15.Name = "label15";
+            label15.RightToLeft = RightToLeft.No;
+            label15.Size = new Size(12, 15);
+            label15.TabIndex = 1012;
+            label15.Text = "/";
+            label15.Visible = false;
+            // 
             // Form1
             // 
             AllowDrop = true;
@@ -648,6 +698,9 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(844, 551);
+            Controls.Add(progressbarDoneImages);
+            Controls.Add(label15);
+            Controls.Add(progressbarTotalImages);
             Controls.Add(progressBar1);
             Controls.Add(allImagesCount);
             Controls.Add(thisImageIndex);
@@ -690,6 +743,7 @@
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label4);
+            Controls.Add(progressbarLabel);
             Controls.Add(label9);
             Controls.Add(label3);
             Controls.Add(selectPics);
@@ -762,5 +816,9 @@
         private Label thisImageIndex;
         private Label allImagesCount;
         private ProgressBar progressBar1;
+        private Label progressbarLabel;
+        private Label progressbarTotalImages;
+        private Label progressbarDoneImages;
+        private Label label15;
     }
 }
