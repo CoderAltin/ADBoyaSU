@@ -85,7 +85,7 @@
             progressbarLabel = new Label();
             progressbarTotalImages = new Label();
             progressbarDoneImages = new Label();
-            label15 = new Label();
+            progressbarSlash = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
@@ -679,16 +679,16 @@
             progressbarDoneImages.Text = "(??";
             progressbarDoneImages.Visible = false;
             // 
-            // label15
+            // progressbarSlash
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(192, 510);
-            label15.Name = "label15";
-            label15.RightToLeft = RightToLeft.No;
-            label15.Size = new Size(12, 15);
-            label15.TabIndex = 1012;
-            label15.Text = "/";
-            label15.Visible = false;
+            progressbarSlash.AutoSize = true;
+            progressbarSlash.Location = new Point(192, 510);
+            progressbarSlash.Name = "progressbarSlash";
+            progressbarSlash.RightToLeft = RightToLeft.No;
+            progressbarSlash.Size = new Size(12, 15);
+            progressbarSlash.TabIndex = 1012;
+            progressbarSlash.Text = "/";
+            progressbarSlash.Visible = false;
             // 
             // Form1
             // 
@@ -699,7 +699,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(844, 551);
             Controls.Add(progressbarDoneImages);
-            Controls.Add(label15);
+            Controls.Add(progressbarSlash);
             Controls.Add(progressbarTotalImages);
             Controls.Add(progressBar1);
             Controls.Add(allImagesCount);
@@ -819,6 +819,6 @@
         private Label progressbarLabel;
         private Label progressbarTotalImages;
         private Label progressbarDoneImages;
-        private Label label15;
+        private Label progressbarSlash;
     }
 }

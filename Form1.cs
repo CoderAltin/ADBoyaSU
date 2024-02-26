@@ -77,7 +77,7 @@ namespace ADBoyaSU
             SelectImage(0);
 
             // Hide the progressbar
-            progressBar1.Visible = false;
+            ProgressbarVisiblitiy(0);
         }
 
         public void SelectImage(int direction)
@@ -555,26 +555,33 @@ namespace ADBoyaSU
 
                 // Progress bar
                 if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                {
                     progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
+                    progressbarDoneImages.Text = "(" + (m + 1).ToString();
+                    progressbarDoneImages.Update();
+                }
+
                 else
+                {
                     progressBar1.Value = 100;
+                    progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
+                }
             }
 
             string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
             File.WriteAllLines(tempPath, result);
             //File.Open(tempPath,FileMode.OpenOrCreate);
 
-            MessageBox.Show("\tQurtuldu", "Bildirim");
-
-            progressBar1.Value = 0;
+            MessageBox.Show("\tQurtuldu.", "Bildirim");
+            //ProgressbarVisiblitiy(0);
+            //progressBar1.Value = 0;
         }
 
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 1;
-
+            ProgressbarVisiblitiy(1);
+            
             StartCounting();
         }
 
@@ -637,7 +644,38 @@ namespace ADBoyaSU
                 picNumUpDown.Value = 0;
             }
         }
+        /// <summary>
+        /// determines the visiblity of progressbar and int's stuff 
+        /// </summary>
+        /// <param name="cond">1- visible, 0- not</param>
+        public void ProgressbarVisiblitiy(int cond)
+        {
+            if (cond == 0) // not visible
+            {
+                progressBar1.Visible = false;
+                progressbarDoneImages.Visible = false;
+                progressbarTotalImages.Visible = false;
+                progressbarLabel.Visible = false;
+                progressbarSlash.Visible = false;
+            }
+            else if(cond == 1)// visible
+            {
+                progressbarLabel.Visible = true;
+                progressbarTotalImages.Text = openFileDialog.FileNames.Count().ToString() + ")";
+                progressbarTotalImages.Visible = true;
+                progressbarDoneImages.Text = "(" + 0.ToString();
+                progressbarDoneImages.Visible = true;
+                progressbarSlash.Visible = true;
+                progressBar1.Visible = true;
+                progressBar1.Value = 1;
+            }
 
+                progressbarLabel.Update();
+                progressbarTotalImages.Update();
+                progressbarDoneImages.Update();
+                progressbarSlash.Update();
+                progressBar1.Update();
+        }
         #endregion
 
     }
