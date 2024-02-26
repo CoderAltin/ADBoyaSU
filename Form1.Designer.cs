@@ -594,6 +594,7 @@
             testPicBox.SizeMode = PictureBoxSizeMode.Zoom;
             testPicBox.TabIndex = 1008;
             testPicBox.TabStop = false;
+            testPicBox.Visible = false;
             // 
             // picNumUpDown
             // 
@@ -601,25 +602,33 @@
             picNumUpDown.Name = "picNumUpDown";
             picNumUpDown.Size = new Size(120, 23);
             picNumUpDown.TabIndex = 1009;
+            picNumUpDown.Visible = false;
             picNumUpDown.ValueChanged += picNumUpDown_ValueChanged;
             // 
             // thisImageIndex
             // 
+            thisImageIndex.Anchor = AnchorStyles.Right;
             thisImageIndex.AutoSize = true;
+            thisImageIndex.FlatStyle = FlatStyle.Flat;
+            thisImageIndex.Font = new Font("Segoe UI", 9F);
             thisImageIndex.Location = new Point(612, 373);
             thisImageIndex.Name = "thisImageIndex";
             thisImageIndex.Size = new Size(17, 15);
             thisImageIndex.TabIndex = 1010;
             thisImageIndex.Text = "??";
+            thisImageIndex.TextAlign = ContentAlignment.MiddleRight;
             // 
             // allImagesCount
             // 
+            allImagesCount.Anchor = AnchorStyles.Right;
             allImagesCount.AutoSize = true;
+            allImagesCount.Font = new Font("Segoe UI", 9F);
             allImagesCount.Location = new Point(634, 373);
             allImagesCount.Name = "allImagesCount";
             allImagesCount.Size = new Size(17, 15);
             allImagesCount.TabIndex = 1010;
             allImagesCount.Text = "??";
+            allImagesCount.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

@@ -68,6 +68,7 @@ namespace ADBoyaSU
             openFileDialog.Filter = "image files|*.png;*.jpg;*.gif";
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
+            allImagesCount.Text = openFileDialog.FileNames.Count().ToString();
 
             // Dispaly images in the picuteBox1
             imageIndex = 0;
@@ -77,11 +78,22 @@ namespace ADBoyaSU
         public void SelectImage(int direction)
         {
             if (direction == 0)
+            {
                 currentFilePath = openFileDialog.FileNames[imageIndex];
+                thisImageIndex.Text = (imageIndex + 1).ToString();
+            }
             else if (direction == 1 && ++imageIndex <= openFileDialog.FileNames.Length - 1)
+            {
                 currentFilePath = openFileDialog.FileNames[imageIndex];
+                thisImageIndex.Text = (imageIndex + 1).ToString();
+
+            }
             else if (direction == -1 && --imageIndex >= 0)
+            {
                 currentFilePath = openFileDialog.FileNames[imageIndex];
+                thisImageIndex.Text = (imageIndex + 1).ToString();
+
+            }
 
 
             openFilePath.Text = currentFilePath;
@@ -459,6 +471,8 @@ namespace ADBoyaSU
         }
         #endregion
 
+        #region Counting the squares
+
         private void StartCounting()
         {
             int imagesCount = openFileDialog.FileNames.Length;
@@ -605,5 +619,7 @@ namespace ADBoyaSU
                 picNumUpDown.Value = 0;
             }
         }
+
+        #endregion
     }
 }
