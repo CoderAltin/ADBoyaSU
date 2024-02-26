@@ -556,7 +556,19 @@ namespace ADBoyaSU
             RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
             
             Bitmap square = btmp.Clone(rect, btmp.PixelFormat);
-            
+
+            Color c = new Color();
+            float r = 122,g = 122,b = 122;
+            for (int m = 0; m < square.Width; m++)
+            {
+                for (int n = 0; n < square.Height; n++)
+                {
+                    c = square.GetPixel(m, n);
+                    r = (float)(r + c.R) / 2;
+                    g = (float)(g + c.G) / 2;
+                    b = (float)(b + c.B) / 2;
+                }
+            }
 
             // testing the resulting pircutes
             if (!galmisdikQabaxdan)
@@ -567,7 +579,12 @@ namespace ADBoyaSU
             else
                 galmisdikQabaxdan = false;
 
-            return i;
+
+            if (r + g + b < 650) // not white. this square isn't white
+                return 1;
+            else                 // white.     this Square is white
+                return 0;
+
         }
 
         private void picNumUpDown_ValueChanged(object sender, EventArgs e)
