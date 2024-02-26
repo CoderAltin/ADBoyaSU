@@ -457,6 +457,7 @@ namespace ADBoyaSU
             int imagesCount = openFileDialog.FileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
             string[] result = new string[rowCount];
+            float[,] value = new float[rowCount, noR * noC + noR];
 
 
             int l = 0;
@@ -466,12 +467,15 @@ namespace ADBoyaSU
             {
                 if (i != 0 && (m % imagesOfAKind != 0 || attadim)) // first row is header
                 {
+                    // extract data from images
+
                     result[i] += ThisFileName(openFileDialog.FileNames[m]) + " ,"; // first cell is file name
 
                     attadim = false;
                 }
                 else
                 {
+                    // claculate the averages and stuff
                     result[i] += " ,";
                     attadim = true;
                 }
@@ -483,14 +487,23 @@ namespace ADBoyaSU
                     {
                         l++;
 
-                        if (toOmitInt != null && toOmitInt.Any(n => n == l))
+                        if (toOmitInt != null && toOmitInt.Any(n => n == l)) // omit this
                             result[0] += "";
                         else if (i == 0)    // Headers
-                            result[0] += $"R{j + 1}-{k + 1},";
-                        else if (attadim)
-                            result[i] += ((float)(ThisSquareValue(j - 1, k) + ThisSquareValue(j - 2, k) + ThisSquareValue(j - 3, k)) / 2).ToString() + ",";
+                        {
+                            if (j == 0)
+                                result[0] += $"R{j + 1}-{k},";
+                            else
+                                result[0] += $"R{j + 1}-{k + 1},";
+                        }
+                        else if (attadim)   // time for average calculation!
+                            result[i] += "";
                         else
+                        {
                             result[i] += ThisSquareValue(j, k).ToString() + ",";
+                            //result[i] += $"{j}{k}" + ",";     // testing correct indexting
+                            value[j, k] = (float)ThisSquareValue(j, k);
+                        }
                     }
 
                     result[i] += " ,";
@@ -503,6 +516,7 @@ namespace ADBoyaSU
 
             string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
             File.WriteAllLines(tempPath, result);
+            //File.Open(tempPath,FileMode.OpenOrCreate);
         }
 
 
@@ -513,10 +527,6 @@ namespace ADBoyaSU
 
         private string ThisFileName(string filePath)
         {
-            string[] pathSections;
-            pathSections = filePath.Split('\\');
-            //name = pathSections.LastOrDefault();
-
             return filePath.Split('\\').Last();
         }
 
