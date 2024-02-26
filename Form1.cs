@@ -26,7 +26,7 @@ namespace ADBoyaSU
 
         //imageManipulation IM = new imageManipulation();
 
-        public Color penColor = Color.Gold;
+        public Color penColor = Color.DarkViolet;
         public float penThickness = 3f;
 
         public float spX = 10; // starting point x
