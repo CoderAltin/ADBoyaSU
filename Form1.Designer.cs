@@ -53,7 +53,7 @@
             seeNextFile = new Button();
             label9 = new Label();
             textBox7 = new TextBox();
-            button5 = new Button();
+            saveButton = new Button();
             convertImageToGray = new CheckBox();
             label10 = new Label();
             squareSize = new TextBox();
@@ -81,6 +81,7 @@
             picNumUpDown = new NumericUpDown();
             thisImageIndex = new Label();
             allImagesCount = new Label();
+            progressBar1 = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
@@ -93,9 +94,10 @@
             selectPics.ForeColor = Color.Black;
             selectPics.Location = new Point(33, 38);
             selectPics.Name = "selectPics";
+            selectPics.RightToLeft = RightToLeft.No;
             selectPics.Size = new Size(100, 20);
             selectPics.TabIndex = 0;
-            selectPics.Text = "Əkızlərin Seç";
+            selectPics.Text = "Üçüzlərı Seç";
             selectPics.Click += label1_Click;
             // 
             // openFilePath
@@ -104,7 +106,7 @@
             openFilePath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             openFilePath.Location = new Point(33, 74);
             openFilePath.Name = "openFilePath";
-            openFilePath.Size = new Size(680, 23);
+            openFilePath.Size = new Size(681, 23);
             openFilePath.TabIndex = 0;
             openFilePath.TextChanged += openFilePath_TextChanged;
             // 
@@ -115,7 +117,7 @@
             browsImages.FlatAppearance.BorderSize = 0;
             browsImages.FlatStyle = FlatStyle.Flat;
             browsImages.Font = new Font("Segoe UI", 12F);
-            browsImages.Location = new Point(725, 67);
+            browsImages.Location = new Point(726, 67);
             browsImages.Name = "browsImages";
             browsImages.Size = new Size(90, 35);
             browsImages.TabIndex = 1;
@@ -126,7 +128,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Right;
-            pictureBox1.Location = new Point(432, 134);
+            pictureBox1.Location = new Point(433, 135);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(380, 229);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -139,7 +141,7 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Location = new Point(62, 115);
             label1.Name = "label1";
-            label1.Size = new Size(700, 1);
+            label1.Size = new Size(701, 1);
             label1.TabIndex = 999;
             label1.Click += label1_Click_1;
             // 
@@ -147,9 +149,9 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Location = new Point(62, 407);
+            label2.Location = new Point(62, 410);
             label2.Name = "label2";
-            label2.Size = new Size(700, 1);
+            label2.Size = new Size(701, 1);
             label2.TabIndex = 999;
             label2.Click += label1_Click_1;
             // 
@@ -161,7 +163,7 @@
             okButton.FlatAppearance.BorderSize = 0;
             okButton.FlatStyle = FlatStyle.Flat;
             okButton.Font = new Font("Segoe UI", 11F);
-            okButton.Location = new Point(725, 493);
+            okButton.Location = new Point(726, 496);
             okButton.Name = "okButton";
             okButton.Size = new Size(90, 45);
             okButton.TabIndex = 11;
@@ -177,7 +179,7 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11F);
-            button3.Location = new Point(609, 493);
+            button3.Location = new Point(610, 496);
             button3.Name = "button3";
             button3.Size = new Size(105, 45);
             button3.TabIndex = 1000;
@@ -320,7 +322,7 @@
             // 
             seePreviousFile.Anchor = AnchorStyles.Right;
             seePreviousFile.Enabled = false;
-            seePreviousFile.Location = new Point(589, 369);
+            seePreviousFile.Location = new Point(590, 370);
             seePreviousFile.Name = "seePreviousFile";
             seePreviousFile.Size = new Size(22, 23);
             seePreviousFile.TabIndex = 1002;
@@ -332,7 +334,7 @@
             // 
             seeNextFile.Anchor = AnchorStyles.Right;
             seeNextFile.Enabled = false;
-            seeNextFile.Location = new Point(652, 369);
+            seeNextFile.Location = new Point(653, 370);
             seeNextFile.Name = "seeNextFile";
             seeNextFile.Size = new Size(22, 23);
             seeNextFile.TabIndex = 1002;
@@ -345,7 +347,7 @@
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.Font = new Font("Segoe UI", 12F);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(33, 416);
+            label9.Location = new Point(33, 419);
             label9.Name = "label9";
             label9.Size = new Size(172, 20);
             label9.TabIndex = 0;
@@ -355,33 +357,33 @@
             // textBox7
             // 
             textBox7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox7.Location = new Point(33, 452);
+            textBox7.Location = new Point(33, 455);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(680, 23);
+            textBox7.Size = new Size(681, 23);
             textBox7.TabIndex = 998;
             // 
-            // button5
+            // saveButton
             // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button5.BackColor = Color.DeepSkyBlue;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(725, 445);
-            button5.Name = "button5";
-            button5.Size = new Size(90, 35);
-            button5.TabIndex = 10;
-            button5.Text = "Gəz";
-            button5.UseVisualStyleBackColor = false;
+            saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            saveButton.BackColor = Color.DeepSkyBlue;
+            saveButton.FlatAppearance.BorderSize = 0;
+            saveButton.FlatStyle = FlatStyle.Flat;
+            saveButton.Font = new Font("Segoe UI", 12F);
+            saveButton.Location = new Point(726, 448);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(90, 35);
+            saveButton.TabIndex = 10;
+            saveButton.Text = "Gəz";
+            saveButton.UseVisualStyleBackColor = false;
             // 
             // convertImageToGray
             // 
             convertImageToGray.AutoSize = true;
             convertImageToGray.Location = new Point(109, 139);
             convertImageToGray.Name = "convertImageToGray";
-            convertImageToGray.Size = new Size(107, 19);
+            convertImageToGray.Size = new Size(110, 19);
             convertImageToGray.TabIndex = 2;
-            convertImageToGray.Text = "Əkızlərı Boazart";
+            convertImageToGray.Text = "Üçüzlərı Boazart";
             convertImageToGray.TextAlign = ContentAlignment.MiddleCenter;
             convertImageToGray.UseVisualStyleBackColor = true;
             convertImageToGray.CheckedChanged += convertImageToGray_CheckedChanged;
@@ -418,7 +420,7 @@
             // 
             label12.Anchor = AnchorStyles.Right;
             label12.AutoSize = true;
-            label12.Location = new Point(627, 373);
+            label12.Location = new Point(628, 374);
             label12.Name = "label12";
             label12.Size = new Size(10, 15);
             label12.TabIndex = 1006;
@@ -455,7 +457,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem, qələmToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(843, 24);
+            menuStrip1.Size = new Size(844, 24);
             menuStrip1.TabIndex = 1003;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -588,9 +590,9 @@
             // 
             // testPicBox
             // 
-            testPicBox.Location = new Point(78, 485);
+            testPicBox.Location = new Point(33, 484);
             testPicBox.Name = "testPicBox";
-            testPicBox.Size = new Size(88, 50);
+            testPicBox.Size = new Size(63, 38);
             testPicBox.SizeMode = PictureBoxSizeMode.Zoom;
             testPicBox.TabIndex = 1008;
             testPicBox.TabStop = false;
@@ -598,9 +600,9 @@
             // 
             // picNumUpDown
             // 
-            picNumUpDown.Location = new Point(187, 504);
+            picNumUpDown.Location = new Point(102, 490);
             picNumUpDown.Name = "picNumUpDown";
-            picNumUpDown.Size = new Size(120, 23);
+            picNumUpDown.Size = new Size(79, 23);
             picNumUpDown.TabIndex = 1009;
             picNumUpDown.Visible = false;
             picNumUpDown.ValueChanged += picNumUpDown_ValueChanged;
@@ -611,7 +613,7 @@
             thisImageIndex.AutoSize = true;
             thisImageIndex.FlatStyle = FlatStyle.Flat;
             thisImageIndex.Font = new Font("Segoe UI", 9F);
-            thisImageIndex.Location = new Point(612, 373);
+            thisImageIndex.Location = new Point(613, 374);
             thisImageIndex.Name = "thisImageIndex";
             thisImageIndex.Size = new Size(17, 15);
             thisImageIndex.TabIndex = 1010;
@@ -623,12 +625,20 @@
             allImagesCount.Anchor = AnchorStyles.Right;
             allImagesCount.AutoSize = true;
             allImagesCount.Font = new Font("Segoe UI", 9F);
-            allImagesCount.Location = new Point(634, 373);
+            allImagesCount.Location = new Point(635, 374);
             allImagesCount.Name = "allImagesCount";
             allImagesCount.Size = new Size(17, 15);
             allImagesCount.TabIndex = 1010;
             allImagesCount.Text = "??";
             allImagesCount.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(33, 531);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(559, 10);
+            progressBar1.TabIndex = 1011;
+            progressBar1.Visible = false;
             // 
             // Form1
             // 
@@ -637,7 +647,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(843, 548);
+            ClientSize = new Size(844, 551);
+            Controls.Add(progressBar1);
             Controls.Add(allImagesCount);
             Controls.Add(thisImageIndex);
             Controls.Add(picNumUpDown);
@@ -667,7 +678,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(button5);
+            Controls.Add(saveButton);
             Controls.Add(browsImages);
             Controls.Add(textBox7);
             Controls.Add(openFilePath);
@@ -720,7 +731,7 @@
         private Button seeNextFile;
         private Label label9;
         private TextBox textBox7;
-        private Button button5;
+        private Button saveButton;
         private CheckBox convertImageToGray;
         private Label label10;
         private TextBox squareSize;
@@ -750,5 +761,6 @@
         private NumericUpDown picNumUpDown;
         private Label thisImageIndex;
         private Label allImagesCount;
+        private ProgressBar progressBar1;
     }
 }

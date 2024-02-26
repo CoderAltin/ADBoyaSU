@@ -51,6 +51,7 @@ namespace ADBoyaSU
         // ThisSquareValue
         int imagesOfAKind = 3;  // number of images that represent same sound
         List<Image> testLittleSquares = new List<Image>();
+        //Image[] testLittleSquares;
         bool galmisdikQabaxdan = false;
 
         public Form1()
@@ -59,6 +60,7 @@ namespace ADBoyaSU
             noR = Convert.ToInt32(numOfRows.Text);
             noC = Convert.ToInt32(numOfColumns.Text);
 
+            //testLittleSquares = new Image[noR * noC + 1];
         }
 
         private void browsImages_Click(object sender, EventArgs e)
@@ -73,6 +75,9 @@ namespace ADBoyaSU
             // Dispaly images in the picuteBox1
             imageIndex = 0;
             SelectImage(0);
+
+            // Hide the progressbar
+            progressBar1.Visible = false;
         }
 
         public void SelectImage(int direction)
@@ -213,7 +218,7 @@ namespace ADBoyaSU
         /// <returns></returns>
         public void ShowMeMyImage(string filePath)
         {
-            testLittleSquares.Clear();
+            //testLittleSquares.Clear();
             workingImage = Image.FromFile(filePath);
 
             if (convertToGray)
@@ -547,16 +552,29 @@ namespace ADBoyaSU
                 l = 0;
                 if (!attadim)
                     m++;
+
+                // Progress bar
+                if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                    progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
+                else
+                    progressBar1.Value = 100;
             }
 
             string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
             File.WriteAllLines(tempPath, result);
             //File.Open(tempPath,FileMode.OpenOrCreate);
+
+            MessageBox.Show("\tQurtuldu", "Bildirim");
+
+            progressBar1.Value = 0;
         }
 
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            progressBar1.Visible = true;
+            progressBar1.Value = 1;
+
             StartCounting();
         }
 
@@ -569,11 +587,11 @@ namespace ADBoyaSU
         {
             Bitmap btmp = new Bitmap(fileAddress);
             RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
-            
+
             Bitmap square = btmp.Clone(rect, btmp.PixelFormat);
 
             Color c = new Color();
-            float r = 122,g = 122,b = 122;
+            float r = 122, g = 122, b = 122;
             int increment = (int)(soS / 4);
             int startPixel = (int)(increment / 2);
             int counter = 0;
@@ -621,5 +639,6 @@ namespace ADBoyaSU
         }
 
         #endregion
+
     }
 }
