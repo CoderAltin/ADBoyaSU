@@ -14,7 +14,7 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
-        
+
 
         public bool convertToGray = false;
         public bool showSquares = true;
@@ -51,7 +51,7 @@ namespace ADBoyaSU
         string wrongInputSettings_message = "\tDüzgün Bir Sayı Yaz.";
         string wrongInputSettings_caption = "Savadsız";
 
-
+        // Omit These
         public string[] toOmitStr;
         public int[]? toOmitInt;
 
@@ -62,7 +62,8 @@ namespace ADBoyaSU
         //Image[] testLittleSquares;
 
         // Saving
-        public string saveAddress = "";
+        public string saveAddress_1 = "";
+        public string saveAddress_2 = "";
 
         public Form1()
         {
@@ -538,29 +539,41 @@ namespace ADBoyaSU
         {
             int imagesCount = openFileDialog.FileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
-            string[] result = new string[rowCount];
+            string[] result_1 = new string[rowCount];
+            string[] result_2 = new string[rowCount];
             float[,] values = new float[rowCount + 2, noR * noC + noR + 2];
 
+            #region Creating headers for second file/table
+            result_2[0] += " ,";
+            for (int i = 1; i <= noR; i++)
+            {
+                result_2[0] += $"TOTAL, R{i}, PERCENTAGE,";
+            }
+            #endregion
 
-            int l = 0;
-            int m = 0;
+            int l = 0; // counts number of squares of each image
+            int m = 0; // correct counter of number of images
+            int n = 0; // exact counter of number of actual squares in each image
+            int sumImageRow = 0;
             int numOfDataInThisRow = 0;
             float sumOfThisRow = 0;
             bool attadim = false;
             for (int i = 0; i < rowCount; i++) // for each image
             {
+
+                // Setting file names as row names of first file
                 if (i != 0 && (m % imagesOfAKind != 0 || attadim)) // first row is header
                 {
                     // extract data from images
-
-                    result[i] += ThisFileName(openFileDialog.FileNames[m]) + " ,"; // first cell is file name
+                    result_1[i] += ThisFileName(openFileDialog.FileNames[m]) + " ,"; // first cell is file name
+                    result_2[m + 1] += ThisFileName(openFileDialog.FileNames[m]) + " ,";
 
                     attadim = false;
                 }
                 else
                 {
                     // claculate the averages and stuff
-                    result[i] += " ,";
+                    result_1[i] += " ,";
                     attadim = true;
                 }
 
@@ -572,37 +585,47 @@ namespace ADBoyaSU
                         l++;
 
                         if (toOmitInt != null && toOmitInt.Any(n => n == l)) // omit this
-                            result[0] += "";
+                            result_1[0] += "";
                         else if (i == 0)    // Headers
                         {
                             if (j == 0)
-                                result[0] += $"R{j + 1}-{k},";
+                                result_1[0] += $"R{j + 1}-{k},";
                             else
-                                result[0] += $"R{j + 1}-{k + 1},";
-                        }
+                                result_1[0] += $"R{j + 1}-{k + 1},";
+                        }// Headers
                         else if (attadim && i != 0)   // time for average calculation!
                         {
                             float temp = values[i - 1, l] + values[i - 2, l] + values[i - 3, l];
-                            result[i] += (100 * temp / imagesOfAKind).ToString() + ",";
+                            result_1[i] += (100 * temp / imagesOfAKind).ToString() + ",";
 
                             sumOfThisRow += (temp / imagesOfAKind) * 100;
                             numOfDataInThisRow++;
                         }
                         else // storing actual square data both for displaying(result[i]) and calculations(Values[i,l])
                         {
-                            result[i] += ThisSquareValue(openFileDialog.FileNames[m], j, k).ToString() + ",";
+                            result_1[i] += ThisSquareValue(openFileDialog.FileNames[m], j, k).ToString() + ",";
                             values[i, l] = (float)ThisSquareValue(openFileDialog.FileNames[m], j, k);
+                            sumImageRow += (int)values[i, l];
+                            n++;
                         }
+                    }
+
+
+                    if (i != 0 && !attadim) // creating second file
+                    {
+                        result_2[m + 1] += $"{n},{sumImageRow},{(float)sumImageRow * 100 / n},";
+                        sumImageRow = 0;
+                        n = 0;
                     }
 
                     if (attadim && i != 0)  // average of all data in one row
                     {
-                        result[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString() + "  ,";
+                        result_1[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString() + "  ,";
                         sumOfThisRow = 0;
                         numOfDataInThisRow = 0;
                     }
                     else
-                        result[i] += " ,";
+                        result_1[i] += " ,";
                 }
 
                 l = 0;
@@ -625,7 +648,7 @@ namespace ADBoyaSU
 
 
             // Saving
-            Save(result);
+            Save(result_1, result_2);
 
             MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
             //ProgressbarVisiblitiy(0);
@@ -635,7 +658,7 @@ namespace ADBoyaSU
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            if (saveAddress.Trim() != "")
+            if (saveAddress_1.Trim() != "")
             {
                 ProgressbarVisiblitiy(1);
 
@@ -774,21 +797,21 @@ namespace ADBoyaSU
         }
 
         #region Saving
-        public void Save(string[] data)
+        public void Save(string[] data_1, string[] data_2)
         {
             try
             {
-                File.WriteAllLines(saveAddress, data);
+                File.WriteAllLines(saveAddress_1, data_1);
+                File.WriteAllLines(saveAddress_2, data_2);
             }
             catch (Exception)
             {
-                MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən","Ax Boyunum...");
+                MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
             }
 
-            MessageBox.Show("\tYazdık Sonucları.","Oldu!...");
+            //MessageBox.Show("\tYazdık Sonucları.", "Oldu!...");
 
         }
-        #endregion
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -808,8 +831,11 @@ namespace ADBoyaSU
 
         private void saveFilePath_TextChanged(object sender, EventArgs e)
         {
-            saveAddress = saveFilePath.Text;
+            saveAddress_1 = saveFilePath.Text;
 
+            string temp = saveFilePath.Text.Split('\\').Last().Split('.').First();
+            saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_secondtable");
         }
+        #endregion
     }
 }
