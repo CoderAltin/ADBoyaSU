@@ -63,6 +63,7 @@ namespace ADBoyaSU
             //testLittleSquares = new Image[noR * noC + 1];
         }
 
+        #region Image selection and display
         private void browsImages_Click(object sender, EventArgs e)
         {
             // Selecting the image
@@ -70,11 +71,23 @@ namespace ADBoyaSU
             openFileDialog.Filter = "image files|*.png;*.jpg;*.gif";
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
-            allImagesCount.Text = openFileDialog.FileNames.Count().ToString();
+            // only for the first file selection. 
+            if (dialogResult == DialogResult.OK)
+                EnableControls(1);
 
-            // Dispaly images in the picuteBox1
-            imageIndex = 0;
-            SelectImage(0);
+            try
+            {
+                allImagesCount.Text = openFileDialog.FileNames.Count().ToString();
+
+                // Dispaly images in the picuteBox1
+                imageIndex = 0;
+                SelectImage(0);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...", "Birzad Seçməmışez");
+
+            }
 
             // Hide the progressbar
             ProgressbarVisiblitiy(0);
@@ -129,7 +142,8 @@ namespace ADBoyaSU
             }
             catch (Exception)
             {
-                ShowMeMyImage(openFileDialog.FileNames[imageIndex]);
+                if (openFilePath.Text.Trim() != "")
+                    ShowMeMyImage(openFileDialog.FileNames[imageIndex]);
 
                 //throw;
             }
@@ -160,6 +174,8 @@ namespace ADBoyaSU
                 seePreviousFile.Enabled = true;
             }
         }
+        #endregion
+
 
         #region Not using these yet
 
@@ -200,16 +216,6 @@ namespace ADBoyaSU
 
         #endregion
 
-        /// <summary>
-        /// Close the program
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
 
         /// <summary>
         /// Every image goes through this method before being displayed
@@ -220,17 +226,19 @@ namespace ADBoyaSU
         {
             //testLittleSquares.Clear();
             workingImage = Image.FromFile(filePath);
+            Color usedColor = penColor;
 
             if (convertToGray)
             {
                 workingImage = Gray(workingImage);
+                usedColor = Color.White;
             }
 
             if (showSquares)
             {
                 graphics = Graphics.FromImage(workingImage);
 
-                Brush brush = new SolidBrush(penColor);
+                Brush brush = new SolidBrush(usedColor);
                 Pen pen = new Pen(brush, penThickness);
 
                 WhichOnesToOmit();
@@ -532,14 +540,14 @@ namespace ADBoyaSU
                             sumOfThisRow += (temp / imagesOfAKind) * 100;
                             numOfDataInThisRow++;
                         }
-                        else
+                        else // storing actual square data both for displaying(result[i]) and calculations(Values[i,l])
                         {
                             result[i] += ThisSquareValue(openFileDialog.FileNames[m], j, k).ToString() + ",";
                             values[i, l] = (float)ThisSquareValue(openFileDialog.FileNames[m], j, k);
                         }
                     }
 
-                    if (attadim && i != 0)
+                    if (attadim && i != 0)  // average of all data in one row
                     {
                         result[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString() + "  ,";
                         sumOfThisRow = 0;
@@ -560,7 +568,6 @@ namespace ADBoyaSU
                     progressbarDoneImages.Text = "(" + (m + 1).ToString();
                     progressbarDoneImages.Update();
                 }
-
                 else
                 {
                     progressBar1.Value = 100;
@@ -572,7 +579,7 @@ namespace ADBoyaSU
             File.WriteAllLines(tempPath, result);
             //File.Open(tempPath,FileMode.OpenOrCreate);
 
-            MessageBox.Show("\tQurtuldu.", "Bildirim");
+            MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
             //ProgressbarVisiblitiy(0);
             //progressBar1.Value = 0;
         }
@@ -581,7 +588,7 @@ namespace ADBoyaSU
         private void okButton_Click(object sender, EventArgs e)
         {
             ProgressbarVisiblitiy(1);
-            
+
             StartCounting();
         }
 
@@ -658,7 +665,7 @@ namespace ADBoyaSU
                 progressbarLabel.Visible = false;
                 progressbarSlash.Visible = false;
             }
-            else if(cond == 1)// visible
+            else if (cond == 1)// visible
             {
                 progressbarLabel.Visible = true;
                 progressbarTotalImages.Text = openFileDialog.FileNames.Count().ToString() + ")";
@@ -670,13 +677,45 @@ namespace ADBoyaSU
                 progressBar1.Value = 1;
             }
 
-                progressbarLabel.Update();
-                progressbarTotalImages.Update();
-                progressbarDoneImages.Update();
-                progressbarSlash.Update();
-                progressBar1.Update();
+            progressbarLabel.Update();
+            progressbarTotalImages.Update();
+            progressbarDoneImages.Update();
+            progressbarSlash.Update();
+            progressBar1.Update();
         }
         #endregion
 
+        #region workflow Conducting (enabling and disabling controls)
+        /// <summary>
+        /// enables or disable a group of controls
+        /// </summary>
+        /// <param name="state">state. 0 -> disable, 1 -> enable</param>
+        public void EnableControls(int state)
+        {
+            if (state == 0) // disable all but 3 controls
+            {
+                foreach (Control item in this.Controls)
+                {
+                    if (item.Name == "browseImage" || item.Name == "openFilePath" || item.Name == "exitButton")
+                        item.Enabled = true;
+                    else
+                        item.Enabled = false;
+                }
+            }
+            else if (state == 1) // enable all controls
+            {
+                foreach (Control item in this.Controls)
+                {
+                    item.Enabled = true;
+                }
+            }
+        }
+
+        #endregion
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -36,7 +36,7 @@
             label1 = new Label();
             label2 = new Label();
             okButton = new Button();
-            button3 = new Button();
+            exitButton = new Button();
             label3 = new Label();
             label4 = new Label();
             startPositionX = new TextBox();
@@ -163,6 +163,7 @@
             // 
             okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             okButton.BackColor = Color.Chartreuse;
+            okButton.Enabled = false;
             okButton.FlatAppearance.BorderColor = Color.Chartreuse;
             okButton.FlatAppearance.BorderSize = 0;
             okButton.FlatStyle = FlatStyle.Flat;
@@ -175,21 +176,21 @@
             okButton.UseVisualStyleBackColor = false;
             okButton.Click += okButton_Click;
             // 
-            // button3
+            // exitButton
             // 
-            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3.BackColor = Color.OrangeRed;
-            button3.FlatAppearance.BorderColor = Color.OrangeRed;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 11F);
-            button3.Location = new Point(610, 496);
-            button3.Name = "button3";
-            button3.Size = new Size(105, 45);
-            button3.TabIndex = 1000;
-            button3.Text = "Bırax, İstəmır";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            exitButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            exitButton.BackColor = Color.OrangeRed;
+            exitButton.FlatAppearance.BorderColor = Color.OrangeRed;
+            exitButton.FlatAppearance.BorderSize = 0;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Segoe UI", 11F);
+            exitButton.Location = new Point(610, 496);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(105, 45);
+            exitButton.TabIndex = 1000;
+            exitButton.Text = "Bırax, İstəmır";
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // label3
             // 
@@ -215,6 +216,7 @@
             // 
             // startPositionX
             // 
+            startPositionX.Enabled = false;
             startPositionX.Location = new Point(264, 172);
             startPositionX.Name = "startPositionX";
             startPositionX.Size = new Size(47, 23);
@@ -226,6 +228,7 @@
             // 
             // label5
             // 
+            label5.Enabled = false;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.Black;
             label5.Location = new Point(317, 175);
@@ -237,6 +240,7 @@
             // 
             // label6
             // 
+            label6.Enabled = false;
             label6.Font = new Font("Segoe UI", 12F);
             label6.ForeColor = Color.Black;
             label6.Location = new Point(331, 175);
@@ -248,6 +252,7 @@
             // 
             // startPositionY
             // 
+            startPositionY.Enabled = false;
             startPositionY.Location = new Point(354, 172);
             startPositionY.Name = "startPositionY";
             startPositionY.Size = new Size(47, 23);
@@ -281,6 +286,7 @@
             // 
             // numOfRows
             // 
+            numOfRows.Enabled = false;
             numOfRows.Location = new Point(310, 212);
             numOfRows.Name = "numOfRows";
             numOfRows.Size = new Size(47, 23);
@@ -292,6 +298,7 @@
             // 
             // numOfColumns
             // 
+            numOfColumns.Enabled = false;
             numOfColumns.Location = new Point(310, 252);
             numOfColumns.Name = "numOfColumns";
             numOfColumns.Size = new Size(47, 23);
@@ -314,6 +321,7 @@
             // 
             // omitThese
             // 
+            omitThese.Enabled = false;
             omitThese.Location = new Point(264, 372);
             omitThese.Name = "omitThese";
             omitThese.Size = new Size(137, 23);
@@ -383,6 +391,7 @@
             // convertImageToGray
             // 
             convertImageToGray.AutoSize = true;
+            convertImageToGray.Enabled = false;
             convertImageToGray.Location = new Point(109, 139);
             convertImageToGray.Name = "convertImageToGray";
             convertImageToGray.Size = new Size(110, 19);
@@ -405,6 +414,7 @@
             // 
             // squareSize
             // 
+            squareSize.Enabled = false;
             squareSize.Location = new Point(310, 292);
             squareSize.Name = "squareSize";
             squareSize.Size = new Size(47, 23);
@@ -473,6 +483,7 @@
             // 
             // increaseRowNo
             // 
+            increaseRowNo.Enabled = false;
             increaseRowNo.Location = new Point(363, 212);
             increaseRowNo.Name = "increaseRowNo";
             increaseRowNo.Size = new Size(38, 23);
@@ -483,6 +494,7 @@
             // 
             // increaseColNo
             // 
+            increaseColNo.Enabled = false;
             increaseColNo.Location = new Point(363, 252);
             increaseColNo.Name = "increaseColNo";
             increaseColNo.Size = new Size(38, 23);
@@ -493,6 +505,7 @@
             // 
             // increaseSquareSize
             // 
+            increaseSquareSize.Enabled = false;
             increaseSquareSize.Location = new Point(363, 292);
             increaseSquareSize.Name = "increaseSquareSize";
             increaseSquareSize.Size = new Size(38, 23);
@@ -503,6 +516,7 @@
             // 
             // decreaseRowNo
             // 
+            decreaseRowNo.Enabled = false;
             decreaseRowNo.Location = new Point(264, 212);
             decreaseRowNo.Name = "decreaseRowNo";
             decreaseRowNo.Size = new Size(38, 23);
@@ -513,6 +527,7 @@
             // 
             // decreaseColNo
             // 
+            decreaseColNo.Enabled = false;
             decreaseColNo.Location = new Point(264, 252);
             decreaseColNo.Name = "decreaseColNo";
             decreaseColNo.Size = new Size(38, 23);
@@ -523,6 +538,7 @@
             // 
             // decreaseSquareSize
             // 
+            decreaseSquareSize.Enabled = false;
             decreaseSquareSize.Location = new Point(264, 293);
             decreaseSquareSize.Name = "decreaseSquareSize";
             decreaseSquareSize.Size = new Size(38, 23);
@@ -544,6 +560,7 @@
             // 
             // distanceBetweenSqrs
             // 
+            distanceBetweenSqrs.Enabled = false;
             distanceBetweenSqrs.Location = new Point(310, 332);
             distanceBetweenSqrs.Name = "distanceBetweenSqrs";
             distanceBetweenSqrs.Size = new Size(47, 23);
@@ -555,6 +572,7 @@
             // 
             // decreaseDistBS
             // 
+            decreaseDistBS.Enabled = false;
             decreaseDistBS.Location = new Point(264, 332);
             decreaseDistBS.Name = "decreaseDistBS";
             decreaseDistBS.Size = new Size(38, 23);
@@ -565,6 +583,7 @@
             // 
             // increaseDistBS
             // 
+            increaseDistBS.Enabled = false;
             increaseDistBS.Location = new Point(363, 332);
             increaseDistBS.Name = "increaseDistBS";
             increaseDistBS.Size = new Size(38, 23);
@@ -583,6 +602,7 @@
             showSquaresCheckBox.AutoSize = true;
             showSquaresCheckBox.Checked = true;
             showSquaresCheckBox.CheckState = CheckState.Checked;
+            showSquaresCheckBox.Enabled = false;
             showSquaresCheckBox.Location = new Point(222, 139);
             showSquaresCheckBox.Name = "showSquaresCheckBox";
             showSquaresCheckBox.Size = new Size(131, 19);
@@ -726,7 +746,7 @@
             Controls.Add(numOfColumns);
             Controls.Add(numOfRows);
             Controls.Add(startPositionX);
-            Controls.Add(button3);
+            Controls.Add(exitButton);
             Controls.Add(okButton);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -768,7 +788,7 @@
         private Label label1;
         private Label label2;
         private Button okButton;
-        private Button button3;
+        private Button exitButton;
         private Label label3;
         private Label label4;
         private TextBox startPositionX;
