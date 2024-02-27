@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Imaging;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace ADBoyaSU
 {
@@ -45,14 +46,22 @@ namespace ADBoyaSU
         public float dbSDecStep = 0.5f; // the step by which distanceBetweenSquares value in decreased
         public float dbSIncStep = 0.5f; // the step by which distanceBetweenSquares value in increased
 
+        // Text Changed of Settings
+        string wrongInputSettings_message = "\tDüzgün Bir Sayı Yaz.";
+        string wrongInputSettings_caption = "Savadsız";
+
+
         public string[] toOmitStr;
         public int[]? toOmitInt;
 
         // ThisSquareValue
         int imagesOfAKind = 3;  // number of images that represent same sound
         List<Image> testLittleSquares = new List<Image>();
-        //Image[] testLittleSquares;
         bool galmisdikQabaxdan = false;
+        //Image[] testLittleSquares;
+
+        // Saving
+        public string saveAddress;
 
         public Form1()
         {
@@ -275,16 +284,24 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("\tBir Sayı Yaz", "Savadsız");
+                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                 }
 
             ShowMeMyImage(openFilePath.Text);
         }
 
+
         private void startPositionY_TextChanged(object sender, EventArgs e)
         {
             if (startPositionY.Text.Trim() != "")
-                spY = Convert.ToSingle(startPositionY.Text);
+                try
+                {
+                    spY = Convert.ToSingle(startPositionY.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                }
 
             ShowMeMyImage(openFilePath.Text);
         }
@@ -292,7 +309,14 @@ namespace ADBoyaSU
         private void numOfRows_TextChanged(object sender, EventArgs e)
         {
             if (numOfRows.Text.Trim() != "")
-                noR = Convert.ToInt32(numOfRows.Text);
+                try
+                {
+                    noR = Convert.ToInt32(numOfRows.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                }
 
             ShowMeMyImage(openFilePath.Text);
 
@@ -301,7 +325,14 @@ namespace ADBoyaSU
         private void numOfColumns_TextChanged(object sender, EventArgs e)
         {
             if (numOfColumns.Text.Trim() != "")
-                noC = Convert.ToInt32(numOfColumns.Text);
+                try
+                {
+                    noC = Convert.ToInt32(numOfColumns.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                }
 
             ShowMeMyImage(openFilePath.Text);
 
@@ -310,7 +341,15 @@ namespace ADBoyaSU
         private void squareSize_TextChanged(object sender, EventArgs e)
         {
             if (squareSize.Text.Trim() != "")
-                soS = Convert.ToSingle(squareSize.Text);
+                try
+                {
+                    soS = Convert.ToSingle(squareSize.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                }
+
             ShowMeMyImage(openFilePath.Text);
 
         }
@@ -318,7 +357,15 @@ namespace ADBoyaSU
         private void distanceBetweenSqrs_TextChanged(object sender, EventArgs e)
         {
             if (distanceBetweenSqrs.Text.Trim() != "")
-                dbS = Convert.ToSingle(distanceBetweenSqrs.Text);
+                try
+                {
+                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                }
+
             ShowMeMyImage(openFilePath.Text);
 
         }
@@ -575,9 +622,11 @@ namespace ADBoyaSU
                 }
             }
 
-            string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
-            File.WriteAllLines(tempPath, result);
-            //File.Open(tempPath,FileMode.OpenOrCreate);
+
+            // Saving
+            Save(result);
+            //string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
+            //File.WriteAllLines(tempPath, result);
 
             MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
             //ProgressbarVisiblitiy(0);
@@ -651,6 +700,7 @@ namespace ADBoyaSU
                 picNumUpDown.Value = 0;
             }
         }
+
         /// <summary>
         /// determines the visiblity of progressbar and int's stuff 
         /// </summary>
@@ -716,6 +766,53 @@ namespace ADBoyaSU
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        #region Saving
+        public void Save(string[] data)
+        {
+            if (saveAddress.Trim() != "")
+            {
+                try
+                {
+                    File.WriteAllLines(saveAddress, data);
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən");
+                }
+
+                MessageBox.Show("\tYazdık Sonucları.");
+            }
+            else
+                MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?");
+
+            // Ü İ Ö Ğ I Ə Ç Ş
+            // ü i ö ğ ı ə ç ş
+        }
+        #endregion
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.AddExtension = true;
+            saveFileDialog.AddToRecent = true;
+            saveFileDialog.DefaultExt = ".txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                saveFilePath.Text = saveFileDialog.FileName;
+            }
+            else
+                MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?","");
+
+        }
+
+        private void saveFilePath_TextChanged(object sender, EventArgs e)
+        {
+            saveAddress = saveFilePath.Text;
+
         }
     }
 }

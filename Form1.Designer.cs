@@ -52,7 +52,7 @@
             seePreviousFile = new Button();
             seeNextFile = new Button();
             label9 = new Label();
-            textBox7 = new TextBox();
+            saveFilePath = new TextBox();
             saveButton = new Button();
             convertImageToGray = new CheckBox();
             label10 = new Label();
@@ -366,13 +366,14 @@
             label9.Text = "Sonucları Bırda Saxla";
             label9.Click += label1_Click;
             // 
-            // textBox7
+            // saveFilePath
             // 
-            textBox7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox7.Location = new Point(33, 455);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(681, 23);
-            textBox7.TabIndex = 998;
+            saveFilePath.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            saveFilePath.Location = new Point(33, 455);
+            saveFilePath.Name = "saveFilePath";
+            saveFilePath.Size = new Size(681, 23);
+            saveFilePath.TabIndex = 998;
+            saveFilePath.TextChanged += saveFilePath_TextChanged;
             // 
             // saveButton
             // 
@@ -387,6 +388,7 @@
             saveButton.TabIndex = 10;
             saveButton.Text = "Gəz";
             saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += saveButton_Click;
             // 
             // convertImageToGray
             // 
@@ -715,7 +717,6 @@
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(844, 551);
             Controls.Add(progressbarDoneImages);
@@ -753,7 +754,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(saveButton);
             Controls.Add(browsImages);
-            Controls.Add(textBox7);
+            Controls.Add(saveFilePath);
             Controls.Add(openFilePath);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -804,7 +805,7 @@
         private Button seePreviousFile;
         private Button seeNextFile;
         private Label label9;
-        private TextBox textBox7;
+        private TextBox saveFilePath;
         private Button saveButton;
         private CheckBox convertImageToGray;
         private Label label10;
