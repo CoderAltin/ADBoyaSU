@@ -14,6 +14,7 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
+        
 
         public bool convertToGray = false;
         public bool showSquares = true;
@@ -61,7 +62,7 @@ namespace ADBoyaSU
         //Image[] testLittleSquares;
 
         // Saving
-        public string saveAddress;
+        public string saveAddress = "";
 
         public Form1()
         {
@@ -625,8 +626,6 @@ namespace ADBoyaSU
 
             // Saving
             Save(result);
-            //string tempPath = "C:\\Users\\Altin\\Pictures\\test.txt";
-            //File.WriteAllLines(tempPath, result);
 
             MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
             //ProgressbarVisiblitiy(0);
@@ -636,9 +635,15 @@ namespace ADBoyaSU
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            ProgressbarVisiblitiy(1);
+            if (saveAddress.Trim() != "")
+            {
+                ProgressbarVisiblitiy(1);
 
-            StartCounting();
+                StartCounting();
+            }
+            else
+                MessageBox.Show("Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç", "Harada Saxlıyak Bıları İndı Biz?");
+
         }
 
         private string ThisFileName(string filePath)
@@ -771,25 +776,17 @@ namespace ADBoyaSU
         #region Saving
         public void Save(string[] data)
         {
-            if (saveAddress.Trim() != "")
+            try
             {
-                try
-                {
-                    File.WriteAllLines(saveAddress, data);
-
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən");
-                }
-
-                MessageBox.Show("\tYazdık Sonucları.");
+                File.WriteAllLines(saveAddress, data);
             }
-            else
-                MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?");
+            catch (Exception)
+            {
+                MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən","Ax Boyunum...");
+            }
 
-            // Ü İ Ö Ğ I Ə Ç Ş
-            // ü i ö ğ ı ə ç ş
+            MessageBox.Show("\tYazdık Sonucları.","Oldu!...");
+
         }
         #endregion
 
@@ -798,6 +795,7 @@ namespace ADBoyaSU
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.AddExtension = true;
             saveFileDialog.AddToRecent = true;
+            saveFileDialog.Filter = "Text files (*.txt)|*.txt";
             saveFileDialog.DefaultExt = ".txt";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -805,8 +803,7 @@ namespace ADBoyaSU
                 saveFilePath.Text = saveFileDialog.FileName;
             }
             else
-                MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?","");
-
+                MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?", "Bir Yer Seçmədin");
         }
 
         private void saveFilePath_TextChanged(object sender, EventArgs e)
