@@ -834,7 +834,7 @@ namespace ADBoyaSU
             saveAddress_1 = saveFilePath.Text;
 
             string temp = saveFilePath.Text.Split('\\').Last().Split('.').First();
-            saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_secondtable");
+            saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_ikiminci");
         }
         #endregion
     }

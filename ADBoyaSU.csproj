@@ -7,7 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>ADBoyaSU.Program</StartupObject>
+    <ApplicationIcon>gir-ozum-01 64x64.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="gir-ozum-01 64x64.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.2" />

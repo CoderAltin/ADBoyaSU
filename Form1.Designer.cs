@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             selectPics = new Label();
             openFilePath = new TextBox();
             browsImages = new Button();
@@ -769,9 +770,12 @@
             Controls.Add(label3);
             Controls.Add(selectPics);
             Controls.Add(menuStrip1);
+            HelpButton = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "ADBoyaSU- V 1.0.5";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
