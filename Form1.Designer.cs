@@ -336,7 +336,7 @@
             // 
             seePreviousFile.Anchor = AnchorStyles.Right;
             seePreviousFile.Enabled = false;
-            seePreviousFile.Location = new Point(590, 370);
+            seePreviousFile.Location = new Point(581, 370);
             seePreviousFile.Name = "seePreviousFile";
             seePreviousFile.Size = new Size(22, 23);
             seePreviousFile.TabIndex = 1002;
@@ -348,7 +348,7 @@
             // 
             seeNextFile.Anchor = AnchorStyles.Right;
             seeNextFile.Enabled = false;
-            seeNextFile.Location = new Point(653, 370);
+            seeNextFile.Location = new Point(662, 370);
             seeNextFile.Name = "seeNextFile";
             seeNextFile.Size = new Size(22, 23);
             seeNextFile.TabIndex = 1002;
@@ -388,7 +388,7 @@
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(90, 35);
             saveButton.TabIndex = 10;
-            saveButton.Text = "Gəz";
+            saveButton.Text = "Saxla";
             saveButton.UseVisualStyleBackColor = false;
             saveButton.Click += saveButton_Click;
             // 
@@ -600,11 +600,11 @@
             thisImageIndex.AutoSize = true;
             thisImageIndex.FlatStyle = FlatStyle.Flat;
             thisImageIndex.Font = new Font("Segoe UI", 9F);
-            thisImageIndex.Location = new Point(613, 374);
+            thisImageIndex.Location = new Point(608, 374);
             thisImageIndex.Name = "thisImageIndex";
-            thisImageIndex.Size = new Size(17, 15);
+            thisImageIndex.Size = new Size(22, 15);
             thisImageIndex.TabIndex = 1010;
-            thisImageIndex.Text = "??";
+            thisImageIndex.Text = "???";
             thisImageIndex.TextAlign = ContentAlignment.MiddleRight;
             // 
             // allImagesCount
@@ -614,9 +614,9 @@
             allImagesCount.Font = new Font("Segoe UI", 9F);
             allImagesCount.Location = new Point(635, 374);
             allImagesCount.Name = "allImagesCount";
-            allImagesCount.Size = new Size(17, 15);
+            allImagesCount.Size = new Size(22, 15);
             allImagesCount.TabIndex = 1010;
-            allImagesCount.Text = "??";
+            allImagesCount.Text = "???";
             allImagesCount.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // progressBar1
@@ -644,12 +644,13 @@
             // progressbarTotalImages
             // 
             progressbarTotalImages.AutoSize = true;
-            progressbarTotalImages.Location = new Point(202, 509);
+            progressbarTotalImages.Location = new Point(207, 509);
             progressbarTotalImages.Name = "progressbarTotalImages";
             progressbarTotalImages.RightToLeft = RightToLeft.No;
-            progressbarTotalImages.Size = new Size(21, 15);
+            progressbarTotalImages.Size = new Size(26, 15);
             progressbarTotalImages.TabIndex = 1012;
-            progressbarTotalImages.Text = "??)";
+            progressbarTotalImages.Text = "???)";
+            progressbarTotalImages.TextAlign = ContentAlignment.MiddleCenter;
             progressbarTotalImages.Visible = false;
             // 
             // progressbarDoneImages
@@ -657,15 +658,16 @@
             progressbarDoneImages.AutoSize = true;
             progressbarDoneImages.Location = new Point(171, 509);
             progressbarDoneImages.Name = "progressbarDoneImages";
-            progressbarDoneImages.Size = new Size(21, 15);
+            progressbarDoneImages.Size = new Size(26, 15);
             progressbarDoneImages.TabIndex = 1012;
-            progressbarDoneImages.Text = "(??";
+            progressbarDoneImages.Text = "(???";
+            progressbarDoneImages.TextAlign = ContentAlignment.MiddleCenter;
             progressbarDoneImages.Visible = false;
             // 
             // progressbarSlash
             // 
             progressbarSlash.AutoSize = true;
-            progressbarSlash.Location = new Point(192, 510);
+            progressbarSlash.Location = new Point(197, 510);
             progressbarSlash.Name = "progressbarSlash";
             progressbarSlash.RightToLeft = RightToLeft.No;
             progressbarSlash.Size = new Size(12, 15);
@@ -727,6 +729,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
             ClientSize = new Size(844, 551);
             Controls.Add(progressbarDoneImages);
             Controls.Add(progressbarSlash);

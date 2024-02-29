@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             description = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // description
@@ -42,10 +43,21 @@
             description.Text = "ADBoyaSU\r\n\r\nAltin'ın Düzəltdığı Boya Saymax Uyğulaması\r\n\r\n\r\n\r\nƏrşan-Altin\r\n2024 - OMA Oyunları (R)\r\n";
             description.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            label1.Location = new Point(187, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(104, 25);
+            label1.TabIndex = 3;
+            label1.Text = "ADBoyaSU";
+            // 
             // popup
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(484, 209);
+            Controls.Add(label1);
             Controls.Add(description);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -62,5 +74,6 @@
 
         public TextBox aboutUs;
         private Label description;
+        private Label label1;
     }
 }

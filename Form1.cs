@@ -15,6 +15,7 @@ namespace ADBoyaSU
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
         //
+        Thread calculatorThread;
 
 
         public bool convertToGray = false;
@@ -71,9 +72,6 @@ namespace ADBoyaSU
             InitializeComponent();
             noR = Convert.ToInt32(numOfRows.Text);
             noC = Convert.ToInt32(numOfColumns.Text);
-
-            //testLittleSquares = new Image[noR * noC + 1];
-
 
         }
 
@@ -636,14 +634,28 @@ namespace ADBoyaSU
                 // Progress bar
                 if (this.InvokeRequired)
                 {
-                    if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                    this.BeginInvoke((MethodInvoker)delegate ()
                     {
-                        this.BeginInvoke((MethodInvoker)delegate ()
+                        if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
                         {
                             progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
                             progressbarDoneImages.Text = "(" + (m + 1).ToString();
                             progressbarDoneImages.Update();
-                        });
+                        }
+                        else
+                        {
+                            progressBar1.Value = 100;
+                            progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
+                        }
+                    });
+                }
+                else
+                {
+                    if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                    {
+                        progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
+                        progressbarDoneImages.Text = "(" + (m + 1).ToString();
+                        progressbarDoneImages.Update();
                     }
                     else
                     {
@@ -651,6 +663,7 @@ namespace ADBoyaSU
                         progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
                     }
                 }
+
             }
 
 
@@ -673,7 +686,7 @@ namespace ADBoyaSU
                 //StartCounting();
 
                 // *** calculation has it's own thread *** //
-                Thread calculatorThread = new Thread(StartCounting);
+                calculatorThread = new Thread(StartCounting);
                 calculatorThread.Start();
             }
             else
@@ -784,32 +797,67 @@ namespace ADBoyaSU
         {
             if (state == 0) // disable all but 3 controls
             {
-                startPositionX.Enabled = false;
-                startPositionY.Enabled = false;
-                
-                decreaseRowNo.Enabled = false;
-                numOfRows.Enabled = false;
-                increaseRowNo.Enabled = false;
-                
-                decreaseColNo.Enabled = false;
-                numOfColumns.Enabled = false;  
-                increaseColNo.Enabled = false;  
+                if (this.InvokeRequired)
+                {
+                    this.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        startPositionX.Enabled = false;
+                        startPositionY.Enabled = false;
 
-                decreaseSquareSize.Enabled = false;
-                squareSize.Enabled = false;
-                increaseSquareSize.Enabled = false;
-                
-                decreaseDistBS.Enabled = false;
-                distanceBetweenSqrs.Enabled = false;
-                increaseDistBS.Enabled = false;
-                
-                omitThese.Enabled = false;
+                        decreaseRowNo.Enabled = false;
+                        numOfRows.Enabled = false;
+                        increaseRowNo.Enabled = false;
 
-                browsImages.Enabled = false;
-                saveButton.Enabled = false;
-                okButton.Enabled = false;
+                        decreaseColNo.Enabled = false;
+                        numOfColumns.Enabled = false;
+                        increaseColNo.Enabled = false;
 
-                saveFilePath.Enabled = false;
+                        decreaseSquareSize.Enabled = false;
+                        squareSize.Enabled = false;
+                        increaseSquareSize.Enabled = false;
+
+                        decreaseDistBS.Enabled = false;
+                        distanceBetweenSqrs.Enabled = false;
+                        increaseDistBS.Enabled = false;
+
+                        omitThese.Enabled = false;
+
+                        browsImages.Enabled = false;
+                        saveButton.Enabled = false;
+                        okButton.Enabled = false;
+
+                        saveFilePath.Enabled = false;
+                    });
+                }
+                else
+                {
+                    startPositionX.Enabled = false;
+                    startPositionY.Enabled = false;
+
+                    decreaseRowNo.Enabled = false;
+                    numOfRows.Enabled = false;
+                    increaseRowNo.Enabled = false;
+
+                    decreaseColNo.Enabled = false;
+                    numOfColumns.Enabled = false;
+                    increaseColNo.Enabled = false;
+
+                    decreaseSquareSize.Enabled = false;
+                    squareSize.Enabled = false;
+                    increaseSquareSize.Enabled = false;
+
+                    decreaseDistBS.Enabled = false;
+                    distanceBetweenSqrs.Enabled = false;
+                    increaseDistBS.Enabled = false;
+
+                    omitThese.Enabled = false;
+
+                    browsImages.Enabled = false;
+                    saveButton.Enabled = false;
+                    okButton.Enabled = false;
+
+                    saveFilePath.Enabled = false;
+                }
 
                 /*
                 foreach (Control item in this.Controls)
@@ -825,7 +873,16 @@ namespace ADBoyaSU
             {
                 foreach (Control item in this.Controls)
                 {
-                    item.Enabled = true;
+                    if (this.InvokeRequired)
+                    {
+                        this.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            item.Enabled = true;
+                        });
+                    }
+                    else
+                        item.Enabled = true;
+
                 }
             }
         }
