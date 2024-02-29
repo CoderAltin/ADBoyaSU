@@ -549,13 +549,14 @@ namespace ADBoyaSU
             }
             #endregion
 
-            int l = 0; // counts number of squares of each image
+            int l = 0; // counts number of squares of each image (not considering the omitted ones)
             int m = 0; // correct counter of number of images
             int n = 0; // exact counter of number of actual squares in each image
             int sumImageRow = 0;
             int numOfDataInThisRow = 0;
             float sumOfThisRow = 0;
             bool attadim = false;
+
             for (int i = 0; i < rowCount; i++) // for each image
             {
 
@@ -601,8 +602,8 @@ namespace ADBoyaSU
                         }
                         else // storing actual square data both for displaying(result[i]) and calculations(Values[i,l])
                         {
-                            result_1[i] += ThisSquareValue(openFileDialog.FileNames[m], j, k).ToString() + ",";
                             values[i, l] = (float)ThisSquareValue(openFileDialog.FileNames[m], j, k);
+                            result_1[i] += values[i, l].ToString() + ",";
                             sumImageRow += (int)values[i, l];
                             n++;
                         }
