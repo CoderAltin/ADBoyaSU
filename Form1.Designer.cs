@@ -60,12 +60,6 @@
             squareSize = new TextBox();
             imageList = new ImageList(components);
             label12 = new Label();
-            helpToolStripMenuItem = new ToolStripMenuItem();
-            licenceToolStripMenuItem = new ToolStripMenuItem();
-            yardımToolStripMenuItem = new ToolStripMenuItem();
-            harHarHarToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1 = new MenuStrip();
-            qələmToolStripMenuItem = new ToolStripMenuItem();
             increaseRowNo = new Button();
             increaseColNo = new Button();
             increaseSquareSize = new Button();
@@ -87,10 +81,17 @@
             progressbarTotalImages = new Label();
             progressbarDoneImages = new Label();
             progressbarSlash = new Label();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            licenceToolStripMenuItem = new ToolStripMenuItem();
+            yardımToolStripMenuItem = new ToolStripMenuItem();
+            harHarHarToolStripMenuItem = new ToolStripMenuItem();
+            qələmToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
+            bizaGoraToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picNumUpDown).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // selectPics
@@ -443,47 +444,6 @@
             label12.TabIndex = 1006;
             label12.Text = "|";
             // 
-            // helpToolStripMenuItem
-            // 
-            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { licenceToolStripMenuItem, yardımToolStripMenuItem, harHarHarToolStripMenuItem });
-            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(56, 20);
-            helpToolStripMenuItem.Text = "Yardım";
-            // 
-            // licenceToolStripMenuItem
-            // 
-            licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
-            licenceToolStripMenuItem.Size = new Size(147, 22);
-            licenceToolStripMenuItem.Text = "Birincı Yardım";
-            licenceToolStripMenuItem.Click += licenceToolStripMenuItem_Click;
-            // 
-            // yardımToolStripMenuItem
-            // 
-            yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
-            yardımToolStripMenuItem.Size = new Size(147, 22);
-            yardımToolStripMenuItem.Text = "Ikincı Yardım";
-            // 
-            // harHarHarToolStripMenuItem
-            // 
-            harHarHarToolStripMenuItem.Name = "harHarHarToolStripMenuItem";
-            harHarHarToolStripMenuItem.Size = new Size(147, 22);
-            harHarHarToolStripMenuItem.Text = "Har Har Har";
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem, qələmToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(844, 24);
-            menuStrip1.TabIndex = 1003;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // qələmToolStripMenuItem
-            // 
-            qələmToolStripMenuItem.Name = "qələmToolStripMenuItem";
-            qələmToolStripMenuItem.Size = new Size(54, 20);
-            qələmToolStripMenuItem.Text = "Qələm";
-            // 
             // increaseRowNo
             // 
             increaseRowNo.Enabled = false;
@@ -713,6 +673,54 @@
             progressbarSlash.Text = "/";
             progressbarSlash.Visible = false;
             // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { licenceToolStripMenuItem, yardımToolStripMenuItem, harHarHarToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(56, 20);
+            helpToolStripMenuItem.Text = "Yardım";
+            // 
+            // licenceToolStripMenuItem
+            // 
+            licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
+            licenceToolStripMenuItem.Size = new Size(147, 22);
+            licenceToolStripMenuItem.Text = "Birincı Yardım";
+            // 
+            // yardımToolStripMenuItem
+            // 
+            yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
+            yardımToolStripMenuItem.Size = new Size(147, 22);
+            yardımToolStripMenuItem.Text = "Ikincı Yardım";
+            // 
+            // harHarHarToolStripMenuItem
+            // 
+            harHarHarToolStripMenuItem.Name = "harHarHarToolStripMenuItem";
+            harHarHarToolStripMenuItem.Size = new Size(147, 22);
+            harHarHarToolStripMenuItem.Text = "Har Har Har";
+            // 
+            // qələmToolStripMenuItem
+            // 
+            qələmToolStripMenuItem.Name = "qələmToolStripMenuItem";
+            qələmToolStripMenuItem.Size = new Size(54, 20);
+            qələmToolStripMenuItem.Text = "Qələm";
+            qələmToolStripMenuItem.Click += qələmToolStripMenuItem_Click;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem, qələmToolStripMenuItem, bizaGoraToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(844, 24);
+            menuStrip1.TabIndex = 1003;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // bizaGoraToolStripMenuItem
+            // 
+            bizaGoraToolStripMenuItem.Name = "bizaGoraToolStripMenuItem";
+            bizaGoraToolStripMenuItem.Size = new Size(68, 20);
+            bizaGoraToolStripMenuItem.Text = "Bizə Görə";
+            bizaGoraToolStripMenuItem.Click += bizaGoraToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AllowDrop = true;
@@ -770,7 +778,6 @@
             Controls.Add(label3);
             Controls.Add(selectPics);
             Controls.Add(menuStrip1);
-            HelpButton = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
@@ -778,10 +785,10 @@
             Text = "ADBoyaSU- V 1.0.5";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)testPicBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)picNumUpDown).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -818,11 +825,6 @@
         private ImageList imageList;
         private Label label12;
         public PictureBox pictureBox1;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem licenceToolStripMenuItem;
-        private ToolStripMenuItem yardımToolStripMenuItem;
-        private ToolStripMenuItem harHarHarToolStripMenuItem;
-        private MenuStrip menuStrip1;
         private Button increaseRowNo;
         private Button increaseColNo;
         private Button increaseSquareSize;
@@ -833,7 +835,6 @@
         private TextBox distanceBetweenSqrs;
         private Button decreaseDistBS;
         private Button increaseDistBS;
-        private ToolStripMenuItem qələmToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip1;
         private CheckBox showSquaresCheckBox;
         private PictureBox testPicBox;
@@ -845,5 +846,12 @@
         private Label progressbarTotalImages;
         private Label progressbarDoneImages;
         private Label progressbarSlash;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem licenceToolStripMenuItem;
+        private ToolStripMenuItem yardımToolStripMenuItem;
+        private ToolStripMenuItem harHarHarToolStripMenuItem;
+        private ToolStripMenuItem qələmToolStripMenuItem;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem bizaGoraToolStripMenuItem;
     }
 }

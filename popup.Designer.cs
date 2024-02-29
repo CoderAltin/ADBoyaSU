@@ -28,29 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            progressBar1 = new ProgressBar();
+            description = new Label();
             SuspendLayout();
             // 
-            // progressBar1
+            // description
             // 
-            progressBar1.Location = new Point(34, 79);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(656, 23);
-            progressBar1.TabIndex = 0;
+            description.AutoSize = true;
+            description.Font = new Font("Segoe UI", 12F);
+            description.Location = new Point(84, 21);
+            description.Name = "description";
+            description.Size = new Size(315, 168);
+            description.TabIndex = 2;
+            description.Text = "ADBoyaSU\r\n\r\nAltin'ın Düzəltdığı Boya Saymax Uyğulaması\r\n\r\n\r\n\r\nƏrşan-Altin\r\n2024 - OMA Oyunları (R)\r\n";
+            description.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // popup
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(744, 183);
-            Controls.Add(progressBar1);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(484, 209);
+            Controls.Add(description);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "popup";
-            Text = "popup";
+            ShowIcon = false;
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Bizə Görə";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private ProgressBar progressBar1;
+        public TextBox aboutUs;
+        private Label description;
     }
 }

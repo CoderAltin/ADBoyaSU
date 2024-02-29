@@ -14,17 +14,18 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
+        //
 
 
         public bool convertToGray = false;
         public bool showSquares = true;
-        Image workingImage;
-        Graphics graphics;
+        Image? workingImage;
+        Graphics? graphics;
 
         OpenFileDialog openFileDialog = new OpenFileDialog();
 
         public int imageIndex = 0;
-        public string currentFilePath;
+        public string? currentFilePath;
 
         //imageManipulation IM = new imageManipulation();
 
@@ -52,7 +53,7 @@ namespace ADBoyaSU
         string wrongInputSettings_caption = "Savadsız";
 
         // Omit These
-        public string[] toOmitStr;
+        public string[]? toOmitStr;
         public int[]? toOmitInt;
 
         // ThisSquareValue
@@ -72,6 +73,8 @@ namespace ADBoyaSU
             noC = Convert.ToInt32(numOfColumns.Text);
 
             //testLittleSquares = new Image[noR * noC + 1];
+
+
         }
 
         #region Image selection and display
@@ -211,11 +214,6 @@ namespace ADBoyaSU
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void licenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -837,5 +835,28 @@ namespace ADBoyaSU
             saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_ikiminci");
         }
         #endregion
+
+        #region MenuStrip 'n Stuff
+        private void bizaGoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            popup popup = new popup();
+            popup.ShowDialog();
+        }
+
+        private void qələmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form penSettingsForm = new PenSettings();
+            penSettingsForm.ShowDialog();
+
+            /*
+            MessageBox.Show(
+                "Başda bir qələm qurabilmək yerı qoymağı düşünürdüm...\n" +
+                "Amma sora gördüm neynır...\n" +
+                "Gavar gələn sürümlərdə.",
+                "Qələmı Qur (-a bilmə)");
+            */
+        }
+        #endregion
+
     }
 }
