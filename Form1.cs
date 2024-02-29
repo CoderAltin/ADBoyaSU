@@ -632,16 +632,22 @@ namespace ADBoyaSU
                     m++;
 
                 // Progress bar
-                if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                if (this.InvokeRequired)
                 {
-                    progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
-                    progressbarDoneImages.Text = "(" + (m + 1).ToString();
-                    progressbarDoneImages.Update();
-                }
-                else
-                {
-                    progressBar1.Value = 100;
-                    progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
+                    if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                    {
+                        this.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
+                            progressbarDoneImages.Text = "(" + (m + 1).ToString();
+                            progressbarDoneImages.Update();
+                        });
+                    }
+                    else
+                    {
+                        progressBar1.Value = 100;
+                        progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
+                    }
                 }
             }
 
@@ -661,7 +667,10 @@ namespace ADBoyaSU
             {
                 ProgressbarVisiblitiy(1);
 
-                StartCounting();
+                //StartCounting();
+
+                Thread calculatorThread = new Thread(StartCounting);
+                calculatorThread.Start();
             }
             else
                 MessageBox.Show("Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç", "Harada Saxlıyak Bıları İndı Biz?");
