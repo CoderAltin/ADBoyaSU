@@ -535,6 +535,8 @@ namespace ADBoyaSU
 
         private void StartCounting()
         {
+            EnableControls(0);
+
             int imagesCount = openFileDialog.FileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
             string[] result_1 = new string[rowCount];
@@ -656,8 +658,8 @@ namespace ADBoyaSU
             Save(result_1, result_2);
 
             MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
-            //ProgressbarVisiblitiy(0);
-            //progressBar1.Value = 0;
+
+            EnableControls(1);
         }
 
 
@@ -667,8 +669,10 @@ namespace ADBoyaSU
             {
                 ProgressbarVisiblitiy(1);
 
+                // *** Working on the main thread *** //
                 //StartCounting();
 
+                // *** calculation has it's own thread *** //
                 Thread calculatorThread = new Thread(StartCounting);
                 calculatorThread.Start();
             }
@@ -780,13 +784,42 @@ namespace ADBoyaSU
         {
             if (state == 0) // disable all but 3 controls
             {
+                startPositionX.Enabled = false;
+                startPositionY.Enabled = false;
+                
+                decreaseRowNo.Enabled = false;
+                numOfRows.Enabled = false;
+                increaseRowNo.Enabled = false;
+                
+                decreaseColNo.Enabled = false;
+                numOfColumns.Enabled = false;  
+                increaseColNo.Enabled = false;  
+
+                decreaseSquareSize.Enabled = false;
+                squareSize.Enabled = false;
+                increaseSquareSize.Enabled = false;
+                
+                decreaseDistBS.Enabled = false;
+                distanceBetweenSqrs.Enabled = false;
+                increaseDistBS.Enabled = false;
+                
+                omitThese.Enabled = false;
+
+                browsImages.Enabled = false;
+                saveButton.Enabled = false;
+                okButton.Enabled = false;
+
+                saveFilePath.Enabled = false;
+
+                /*
                 foreach (Control item in this.Controls)
                 {
-                    if (item.Name == "browseImage" || item.Name == "openFilePath" || item.Name == "exitButton")
+                    if (item.Name == "browsImages" || item.Name == "openFilePath" || item.Name == "exitButton")
                         item.Enabled = true;
                     else
                         item.Enabled = false;
                 }
+                */
             }
             else if (state == 1) // enable all controls
             {
