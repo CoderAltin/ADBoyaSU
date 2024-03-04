@@ -1058,7 +1058,7 @@ namespace ADBoyaSU
             fileNames = tempDragedFiles.ToArray();
 
             if (dragedFiles == null || dragedFiles.Count() == 0)
-                MessageBox.Show("\tPis Secdiz");
+                MessageBox.Show("Bı(lar) .png, .jpg yoxsa .gif döül(lər)", "Pis Seçdin");
 
             WeHaveImagesNow(tempDragedFiles.ToArray());
 
