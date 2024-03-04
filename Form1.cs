@@ -1,4 +1,6 @@
 ﻿//using SixLabors.ImageSharp;
+using System.CodeDom;
+
 namespace ADBoyaSU
 {
     public partial class Form1 : Form
@@ -15,7 +17,9 @@ namespace ADBoyaSU
         Image? workingImage;
         Graphics? graphics;
 
+        // Select Files
         OpenFileDialog openFileDialog = new OpenFileDialog();
+        string[] fileNames;
 
         public int imageIndex = 0;
         public string? currentFilePath;
@@ -83,11 +87,25 @@ namespace ADBoyaSU
 
             // only for the first file selection. 
             if (dialogResult == DialogResult.OK)
-                EnableControls(1);
+            {
+                //fileNames = fileNames;
+                //EnableControls(1);
+
+                WeHaveImagesNow(openFileDialog.FileNames);
+            }
+        }
+
+        public void WeHaveImagesNow(string[] names)
+        {
+            fileNames = names;
 
             try
             {
-                allImagesCount.Text = openFileDialog.FileNames.Count().ToString();
+                //allImagesCount.Text = fileNames.Count().ToString();
+                allImagesCount.TextAlign = ContentAlignment.MiddleCenter;
+                allImagesCount.Text = fileNames.Count().ToString();
+
+                EnableControls(1);
 
                 // Dispaly images in the picuteBox1
                 imageIndex = 0;
@@ -95,6 +113,20 @@ namespace ADBoyaSU
             }
             catch (Exception)
             {
+                EnableControls(0);
+                pictureBox1.Image = null;
+
+                browsImages.Enabled = true;
+                saveButton.Enabled = true;
+                saveFilePath.Enabled = true;
+                openFilePath.Text = "";
+
+                allImagesCount.Text = "???";
+                thisImageIndex.Text = "???";
+
+                ScrollButtonsConditioner();
+
+
                 MessageBox.Show("Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...", "Birzad Seçməmışez");
 
             }
@@ -105,20 +137,22 @@ namespace ADBoyaSU
 
         public void SelectImage(int direction)
         {
+            thisImageIndex.TextAlign = ContentAlignment.MiddleCenter;
+
             if (direction == 0)
             {
-                currentFilePath = openFileDialog.FileNames[imageIndex];
+                currentFilePath = fileNames[imageIndex];
                 thisImageIndex.Text = (imageIndex + 1).ToString();
             }
-            else if (direction == 1 && ++imageIndex <= openFileDialog.FileNames.Length - 1)
+            else if (direction == 1 && ++imageIndex <= fileNames.Length - 1)
             {
-                currentFilePath = openFileDialog.FileNames[imageIndex];
+                currentFilePath = fileNames[imageIndex];
                 thisImageIndex.Text = (imageIndex + 1).ToString();
 
             }
             else if (direction == -1 && --imageIndex >= 0)
             {
-                currentFilePath = openFileDialog.FileNames[imageIndex];
+                currentFilePath = fileNames[imageIndex];
                 thisImageIndex.Text = (imageIndex + 1).ToString();
 
             }
@@ -145,6 +179,9 @@ namespace ADBoyaSU
             try
             {
                 ShowMeMyImage(openFilePath.Text);
+
+                if (fileNames.Count() == 1)
+                    EnableControls(1);
             }
             catch (FileNotFoundException)
             {
@@ -153,7 +190,7 @@ namespace ADBoyaSU
             catch (Exception)
             {
                 if (openFilePath.Text.Trim() != "")
-                    ShowMeMyImage(openFileDialog.FileNames[imageIndex]);
+                    ShowMeMyImage(fileNames[imageIndex]);
             }
 
             ScrollButtonsConditioner();
@@ -161,7 +198,12 @@ namespace ADBoyaSU
 
         private void ScrollButtonsConditioner()
         {
-            if (openFileDialog.FileNames.Length <= 1) // only one file is selected
+            if (fileNames == null)
+            {
+                fileNames = new string[1];
+                fileNames[0] = openFilePath.Text;
+            }
+            else if (fileNames.Length <= 1) // only one file is selected
             {
                 seeNextFile.Enabled = false;
                 seePreviousFile.Enabled = false;
@@ -171,7 +213,7 @@ namespace ADBoyaSU
                 seePreviousFile.Enabled = false;
                 seeNextFile.Enabled = true;
             }
-            else if (imageIndex == openFileDialog.FileNames.Length - 1) // last image
+            else if (imageIndex == fileNames.Length - 1) // last image
             {
                 seeNextFile.Enabled = false;
                 seePreviousFile.Enabled = true;
@@ -531,7 +573,7 @@ namespace ADBoyaSU
         {
             EnableControls(0);
 
-            int imagesCount = openFileDialog.FileNames.Length;
+            int imagesCount = fileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
             string[] result_1 = new string[rowCount];
             string[] result_2 = new string[rowCount];
@@ -560,8 +602,8 @@ namespace ADBoyaSU
                 if (i != 0 && (m % imagesOfAKind != 0 || attadim)) // first row is header
                 {
                     // extract data from images
-                    result_1[i] += ThisFileName(openFileDialog.FileNames[m]) + " ,"; // first cell is file name
-                    result_2[m + 1] += ThisFileName(openFileDialog.FileNames[m]) + " ,";
+                    result_1[i] += ThisFileName(fileNames[m]) + " ,"; // first cell is file name
+                    result_2[m + 1] += ThisFileName(fileNames[m]) + " ,";
 
                     attadim = false;
                 }
@@ -598,7 +640,7 @@ namespace ADBoyaSU
                         }
                         else // storing actual square data both for displaying(result[i]) and calculations(Values[i,l])
                         {
-                            values[i, l] = (float)ThisSquareValue(openFileDialog.FileNames[m], j, k);
+                            values[i, l] = (float)ThisSquareValue(fileNames[m], j, k);
                             result_1[i] += values[i, l].ToString() + ",";
                             sumImageRow += (int)values[i, l];
                             n++;
@@ -632,31 +674,31 @@ namespace ADBoyaSU
                 {
                     this.BeginInvoke((MethodInvoker)delegate ()
                     {
-                        if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                        if ((100 * (m + 1) / fileNames.Count()) < 100)
                         {
-                            progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
+                            progressBar1.Value = 100 * (m + 1) / fileNames.Count();
                             progressbarDoneImages.Text = "(" + (m + 1).ToString();
                             progressbarDoneImages.Update();
                         }
                         else
                         {
                             progressBar1.Value = 100;
-                            progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
+                            progressbarDoneImages.Text = "(" + fileNames.Count().ToString();
                         }
                     });
                 }
                 else
                 {
-                    if ((100 * (m + 1) / openFileDialog.FileNames.Count()) < 100)
+                    if ((100 * (m + 1) / fileNames.Count()) < 100)
                     {
-                        progressBar1.Value = 100 * (m + 1) / openFileDialog.FileNames.Count();
+                        progressBar1.Value = 100 * (m + 1) / fileNames.Count();
                         progressbarDoneImages.Text = "(" + (m + 1).ToString();
                         progressbarDoneImages.Update();
                     }
                     else
                     {
                         progressBar1.Value = 100;
-                        progressbarDoneImages.Text = "(" + openFileDialog.FileNames.Count().ToString();
+                        progressbarDoneImages.Text = "(" + fileNames.Count().ToString();
                     }
                 }
 
@@ -772,7 +814,7 @@ namespace ADBoyaSU
             else if (cond == 1)// visible
             {
                 progressbarLabel.Visible = true;
-                progressbarTotalImages.Text = openFileDialog.FileNames.Count().ToString() + ")";
+                progressbarTotalImages.Text = fileNames.Count().ToString() + ")";
                 progressbarTotalImages.Visible = true;
                 progressbarDoneImages.Text = "(" + 0.ToString();
                 progressbarDoneImages.Visible = true;
@@ -828,6 +870,9 @@ namespace ADBoyaSU
                         okButton.Enabled = false;
 
                         saveFilePath.Enabled = false;
+
+                        convertImageToGray.Enabled = false;
+                        showSquaresCheckBox.Enabled = false;
                     });
                 }
                 else
@@ -858,6 +903,9 @@ namespace ADBoyaSU
                     okButton.Enabled = false;
 
                     saveFilePath.Enabled = false;
+
+                    convertImageToGray.Enabled = false;
+                    showSquaresCheckBox.Enabled = false;
                 }
 
                 /*
@@ -987,6 +1035,7 @@ namespace ADBoyaSU
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             tempDragedFiles.Clear();
+
             var tempFiles = (string[])e.Data.GetData(DataFormats.FileDrop);
 
 
@@ -999,10 +1048,12 @@ namespace ADBoyaSU
             }
 
             dragedFiles = tempDragedFiles.ToArray();
+            fileNames = tempDragedFiles.ToArray();
 
             if (dragedFiles == null || dragedFiles.Count() == 0)
                 MessageBox.Show("\tPis Secdiz");
 
+            WeHaveImagesNow(tempDragedFiles.ToArray());
 
             // Revert changed colors
             this.BackColor = form1Color;
