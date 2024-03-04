@@ -787,6 +787,9 @@
             Name = "Form1";
             Text = "ADBoyaSU- V 1.0.5";
             Load += Form1_Load;
+            DragDrop += Form1_DragDrop;
+            DragEnter += Form1_DragEnter;
+            DragLeave += Form1_DragLeave;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)testPicBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)picNumUpDown).EndInit();

@@ -1,12 +1,4 @@
 ﻿//using SixLabors.ImageSharp;
-using System.Net.Sockets;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing.Imaging;
-using System.Diagnostics;
-using System.Windows.Forms;
-
 namespace ADBoyaSU
 {
     public partial class Form1 : Form
@@ -66,6 +58,12 @@ namespace ADBoyaSU
         // Saving
         public string saveAddress_1 = "";
         public string saveAddress_2 = "";
+
+        // Drag and drop
+        Color form1Color, menuStrip1Color;
+        string[] dragedFiles;
+        List<string> tempDragedFiles = new List<string>();
+
 
         public Form1()
         {
@@ -156,8 +154,6 @@ namespace ADBoyaSU
             {
                 if (openFilePath.Text.Trim() != "")
                     ShowMeMyImage(openFileDialog.FileNames[imageIndex]);
-
-                //throw;
             }
 
             ScrollButtonsConditioner();
@@ -699,6 +695,11 @@ namespace ADBoyaSU
             return filePath.Split('\\').Last();
         }
 
+        private string ThisFileExtention(string filePath)
+        {
+            return filePath.Split('.').Last();
+        }
+
         private int ThisSquareValue(string fileAddress, int i, int j)
         {
             Bitmap btmp = new Bitmap(fileAddress);
@@ -958,5 +959,56 @@ namespace ADBoyaSU
         }
         #endregion
 
+        #region Drag and Drop
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            // Save current colors
+            form1Color = this.BackColor;
+            menuStrip1Color = menuStrip1.BackColor;
+
+            // Set new colors
+            this.BackColor = Color.AliceBlue;
+            menuStrip1.BackColor = Color.AliceBlue;
+
+
+            e.Effect = DragDropEffects.Copy;
+        }
+
+
+        private void Form1_DragLeave(object sender, EventArgs e)
+        {
+            // Revert changed colors
+            this.BackColor = form1Color;
+            menuStrip1.BackColor = menuStrip1Color;
+        }
+
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            tempDragedFiles.Clear();
+            var tempFiles = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+
+            // select the suitable file (image files)
+            foreach (var item in tempFiles)
+            {
+                string a = ThisFileExtention(item).ToLower();
+                if (a == "png" || a == "jpg" || a == "gif")
+                    tempDragedFiles.Add(item);
+            }
+
+            dragedFiles = tempDragedFiles.ToArray();
+
+            if (dragedFiles == null || dragedFiles.Count() == 0)
+                MessageBox.Show("\tPis Secdiz");
+
+
+            // Revert changed colors
+            this.BackColor = form1Color;
+            menuStrip1.BackColor = menuStrip1Color;
+        }
+
+        #endregion
     }
 }
