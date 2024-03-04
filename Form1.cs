@@ -595,7 +595,7 @@ namespace ADBoyaSU
                         else if (attadim && i != 0)   // time for average calculation!
                         {
                             float temp = values[i - 1, l] + values[i - 2, l] + values[i - 3, l];
-                            result_1[i] += (100 * temp / imagesOfAKind).ToString() + ",";
+                            result_1[i] += (100 * temp / imagesOfAKind).ToString("0.00") + ",";
 
                             sumOfThisRow += (temp / imagesOfAKind) * 100;
                             numOfDataInThisRow++;
@@ -619,7 +619,7 @@ namespace ADBoyaSU
 
                     if (attadim && i != 0)  // average of all data in one row
                     {
-                        result_1[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString() + "  ,";
+                        result_1[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString("0.00") + "  ,";
                         sumOfThisRow = 0;
                         numOfDataInThisRow = 0;
                     }
