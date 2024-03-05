@@ -27,6 +27,8 @@ namespace ADBoyaSU
         // Select Files
         OpenFileDialog openFileDialog = new OpenFileDialog();
         string[] fileNames;
+        //Size fis;   // first image size
+        //Size csis;  // currently showing image size
 
         public int imageIndex = 0;
         public string? currentFilePath;
@@ -109,6 +111,7 @@ namespace ADBoyaSU
         public void WeHaveImagesNow(string[] names)
         {
             fileNames = names;
+            //fis = Image.FromFile(fileNames[0]).Size;
 
             try
             {
@@ -284,6 +287,10 @@ namespace ADBoyaSU
             //testLittleSquares.Clear();
             workingImage = Image.FromFile(filePath);
             Color usedColor = penColor;
+            //csis = workingImage.Size;
+
+            // resize the image (so they are all the same size)
+            //workingImage = (Image)(new Bitmap(workingImage, new Size(400, 400)));
 
             if (convertToGray)
             {
@@ -796,7 +803,14 @@ namespace ADBoyaSU
 
         private int ThisSquareValue(string fileAddress, int i, int j)
         {
+            // Without resizing
             Bitmap btmp = new Bitmap(fileAddress);
+
+            // Resizing the image
+            //Image tmpImage = Image.FromFile(fileAddress);
+            //Bitmap btmp = new Bitmap(tmpImage, (fis + csis)/2);
+            //tmpImage.Dispose();
+
             RectangleF rect = new RectangleF(spX + j * (soS + dbS), spY + i * (soS + dbS), soS, soS);
 
             Bitmap square = btmp.Clone(rect, btmp.PixelFormat);
