@@ -733,7 +733,7 @@
             // 
             niyaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { UnconsistentImageSize, ImagesNotTriple });
             niyaToolStripMenuItem.Name = "niyaToolStripMenuItem";
-            niyaToolStripMenuItem.Size = new Size(180, 24);
+            niyaToolStripMenuItem.Size = new Size(115, 24);
             niyaToolStripMenuItem.Text = "Niyə?";
             // 
             // UnconsistentImageSize
