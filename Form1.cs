@@ -69,6 +69,7 @@ namespace ADBoyaSU
         // Saving
         public string saveAddress_1 = "";
         public string saveAddress_2 = "";
+        public string saveAddress_3 = "";
 
         // Drag and drop
         Color form1Color, menuStrip1Color;
@@ -582,8 +583,11 @@ namespace ADBoyaSU
 
             int imagesCount = fileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
-            string[] result_1 = new string[rowCount];
-            string[] result_2 = new string[rowCount];
+
+            string[] result_1 = new string[rowCount]; // 1'st table with averages and stuff
+            string[] result_2 = new string[rowCount]; // 2'nd table which is kind of a summary
+            string[] result_3 = new string[imagesCount + 1]; // 3'rd table just a raw set of data
+
             float[,] values = new float[rowCount + 2, noR * noC + noR + 2];
 
             #region Creating headers for second file/table
@@ -609,8 +613,11 @@ namespace ADBoyaSU
                 if (i != 0 && (m % imagesOfAKind != 0 || attadim)) // first row is header
                 {
                     // extract data from images
-                    result_1[i] += ThisFileName(fileNames[m]) + " ,"; // first cell is file name
-                    result_2[m + 1] += ThisFileName(fileNames[m]) + " ,";
+                    string tfn = ThisFileName(fileNames[m]) + " ,";
+
+                    result_1[i] += tfn; // first cell is file name
+                    result_2[m + 1] += tfn;
+                    result_3[m + 1] += tfn;
 
                     attadim = false;
                 }
@@ -629,13 +636,17 @@ namespace ADBoyaSU
                         l++;
 
                         if (toOmitInt != null && toOmitInt.Any(n => n == l)) // omit this
+                        {
                             result_1[0] += "";
+                        } // Omit These
                         else if (i == 0)    // Headers
                         {
+                            // first Table
                             if (j == 0)
                                 result_1[0] += $"R{j + 1}-{k},";
                             else
                                 result_1[0] += $"R{j + 1}-{k + 1},";
+
                         }// Headers
                         else if (attadim && i != 0)   // time for average calculation!
                         {
@@ -644,14 +655,15 @@ namespace ADBoyaSU
 
                             sumOfThisRow += (temp / imagesOfAKind) * 100;
                             numOfDataInThisRow++;
-                        }
+                        } // Averages
                         else // storing actual square data both for displaying(result[i]) and calculations(Values[i,l])
                         {
                             values[i, l] = (float)ThisSquareValue(fileNames[m], j, k);
                             result_1[i] += values[i, l].ToString() + ",";
+                            result_3[m + 1] += values[i, l].ToString() + ",";
                             sumImageRow += (int)values[i, l];
                             n++;
-                        }
+                        }   // Data From Images
                     }
 
 
@@ -660,17 +672,22 @@ namespace ADBoyaSU
                         result_2[m + 1] += $"{n},{sumImageRow},{(float)sumImageRow * 100 / n},";
                         sumImageRow = 0;
                         n = 0;
-                    }
+                    }// creating second file
 
                     if (attadim && i != 0)  // average of all data in one row
                     {
                         result_1[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString("0.00") + "  ,";
                         sumOfThisRow = 0;
                         numOfDataInThisRow = 0;
-                    }
+                    }// average of all data in one row
                     else
                         result_1[i] += " ,";
+
+                    if (!attadim && i != 0)  // 3'rd table
+                        result_3[m + 1] += " ,";
+
                 }
+
 
                 l = 0;
                 if (!attadim)
@@ -711,9 +728,20 @@ namespace ADBoyaSU
 
             }
 
+            // headers for 3'rd table
+            result_3[0] = result_1[0];
 
             // Saving
-            Save(result_1, result_2);
+            try
+            {
+                File.WriteAllLines(saveAddress_1, result_1);
+                File.WriteAllLines(saveAddress_2, result_2);
+                File.WriteAllLines(saveAddress_3, result_3);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
+            }
 
             MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
 
@@ -951,6 +979,7 @@ namespace ADBoyaSU
         }
 
         #region Saving
+        /* No using this anymore
         public void Save(string[] data_1, string[] data_2)
         {
             try
@@ -966,6 +995,7 @@ namespace ADBoyaSU
             //MessageBox.Show("\tYazdık Sonucları.", "Oldu!...");
 
         }
+        */
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -989,6 +1019,7 @@ namespace ADBoyaSU
 
             string temp = saveFilePath.Text.Split('\\').Last().Split('.').First();
             saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_ikiminci");
+            saveAddress_3 = saveFilePath.Text.Replace(temp, temp + "_yavan");
         }
         #endregion
 
