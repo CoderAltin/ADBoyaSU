@@ -273,6 +273,7 @@ namespace ADBoyaSU
         #endregion
 
 
+        #region Showing image
         /// <summary>
         /// Every image goes through this method before being displayed
         /// </summary>
@@ -318,7 +319,7 @@ namespace ADBoyaSU
 
             pictureBox1.Image = workingImage;
         }
-
+        #endregion
 
 
         #region TextChanged of the Settings
@@ -680,7 +681,12 @@ namespace ADBoyaSU
 
                     if (i != 0 && !attadim) // creating second file
                     {
-                        result_2[m + 1] += $"{n},{sumImageRow},{(float)sumImageRow * 100 / n},";
+                        string temp = $"{n},{sumImageRow}," + ((float)sumImageRow * 100 / n).ToString("00.00");
+
+                        while (temp.Length < 10) // making it visually nice!
+                            temp += " ";
+
+                        result_2[m + 1] +=  temp + ",";
                         sumImageRow = 0;
                         n = 0;
                     }// creating second file
