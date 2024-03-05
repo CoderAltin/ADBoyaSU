@@ -693,7 +693,7 @@ namespace ADBoyaSU
                         while (temp.Length < 10) // making it visually nice!
                             temp += " ";
 
-                        result_2[m + 1] +=  temp + ",";
+                        result_2[m + 1] += temp + ",";
                         sumImageRow = 0;
                         n = 0;
                     }// creating second file
@@ -1129,6 +1129,20 @@ namespace ADBoyaSU
             menuStrip1.BackColor = menuStrip1Color;
         }
 
+        #endregion
+
+        #region Special Case Handling
+        private void UnconsistentImageSize_Click(object sender, EventArgs e)
+        {
+            Form imNosely01 = new imNosely01();
+            imNosely01.Show();
+        }
+
+        private void ImagesNotTriple_Click(object sender, EventArgs e)
+        {
+            Form imNosely02 = new imNosely02();
+            imNosely02.Show();
+        }
         #endregion
     }
 }

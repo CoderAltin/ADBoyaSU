@@ -87,6 +87,10 @@
             harHarHarToolStripMenuItem = new ToolStripMenuItem();
             qələmToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
+            findiqliyamToolStripMenuItem = new ToolStripMenuItem();
+            niyaToolStripMenuItem = new ToolStripMenuItem();
+            UnconsistentImageSize = new ToolStripMenuItem();
+            ImagesNotTriple = new ToolStripMenuItem();
             bizaGoraToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
@@ -679,47 +683,77 @@
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { licenceToolStripMenuItem, yardımToolStripMenuItem, harHarHarToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(56, 20);
+            helpToolStripMenuItem.Size = new Size(67, 24);
             helpToolStripMenuItem.Text = "Yardım";
             // 
             // licenceToolStripMenuItem
             // 
             licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
-            licenceToolStripMenuItem.Size = new Size(147, 22);
+            licenceToolStripMenuItem.Size = new Size(169, 24);
             licenceToolStripMenuItem.Text = "Birincı Yardım";
             // 
             // yardımToolStripMenuItem
             // 
             yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
-            yardımToolStripMenuItem.Size = new Size(147, 22);
+            yardımToolStripMenuItem.Size = new Size(169, 24);
             yardımToolStripMenuItem.Text = "Ikincı Yardım";
             // 
             // harHarHarToolStripMenuItem
             // 
             harHarHarToolStripMenuItem.Name = "harHarHarToolStripMenuItem";
-            harHarHarToolStripMenuItem.Size = new Size(147, 22);
+            harHarHarToolStripMenuItem.Size = new Size(169, 24);
             harHarHarToolStripMenuItem.Text = "Har Har Har";
             // 
             // qələmToolStripMenuItem
             // 
             qələmToolStripMenuItem.Name = "qələmToolStripMenuItem";
-            qələmToolStripMenuItem.Size = new Size(54, 20);
+            qələmToolStripMenuItem.Size = new Size(65, 24);
             qələmToolStripMenuItem.Text = "Qələm";
             qələmToolStripMenuItem.Click += qələmToolStripMenuItem_Click;
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem, qələmToolStripMenuItem, bizaGoraToolStripMenuItem });
+            menuStrip1.Font = new Font("Segoe UI", 11F);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { helpToolStripMenuItem, qələmToolStripMenuItem, findiqliyamToolStripMenuItem, bizaGoraToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(844, 24);
+            menuStrip1.Size = new Size(844, 28);
             menuStrip1.TabIndex = 1003;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // findiqliyamToolStripMenuItem
+            // 
+            findiqliyamToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { niyaToolStripMenuItem });
+            findiqliyamToolStripMenuItem.Font = new Font("Segoe UI", 11F);
+            findiqliyamToolStripMenuItem.Name = "findiqliyamToolStripMenuItem";
+            findiqliyamToolStripMenuItem.Size = new Size(98, 24);
+            findiqliyamToolStripMenuItem.Text = "Fındıqlıyam";
+            // 
+            // niyaToolStripMenuItem
+            // 
+            niyaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { UnconsistentImageSize, ImagesNotTriple });
+            niyaToolStripMenuItem.Name = "niyaToolStripMenuItem";
+            niyaToolStripMenuItem.Size = new Size(180, 24);
+            niyaToolStripMenuItem.Text = "Niyə?";
+            // 
+            // UnconsistentImageSize
+            // 
+            UnconsistentImageSize.Name = "UnconsistentImageSize";
+            UnconsistentImageSize.Size = new Size(305, 24);
+            UnconsistentImageSize.Text = "Əkıslərımın Boyları Bir Döül";
+            UnconsistentImageSize.Click += UnconsistentImageSize_Click;
+            // 
+            // ImagesNotTriple
+            // 
+            ImagesNotTriple.Name = "ImagesNotTriple";
+            ImagesNotTriple.Size = new Size(305, 24);
+            ImagesNotTriple.Text = "Hər Səs Üçün Üç Dənə Akıs Yoxdur";
+            ImagesNotTriple.Click += ImagesNotTriple_Click;
             // 
             // bizaGoraToolStripMenuItem
             // 
             bizaGoraToolStripMenuItem.Name = "bizaGoraToolStripMenuItem";
-            bizaGoraToolStripMenuItem.Size = new Size(68, 20);
+            bizaGoraToolStripMenuItem.Size = new Size(85, 24);
             bizaGoraToolStripMenuItem.Text = "Bizə Görə";
             bizaGoraToolStripMenuItem.Click += bizaGoraToolStripMenuItem_Click;
             // 
@@ -859,5 +893,9 @@
         private ToolStripMenuItem qələmToolStripMenuItem;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem bizaGoraToolStripMenuItem;
+        private ToolStripMenuItem findiqliyamToolStripMenuItem;
+        private ToolStripMenuItem niyaToolStripMenuItem;
+        private ToolStripMenuItem UnconsistentImageSize;
+        private ToolStripMenuItem ImagesNotTriple;
     }
 }
