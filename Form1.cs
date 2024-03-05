@@ -60,6 +60,9 @@ namespace ADBoyaSU
         public string[]? toOmitStr;
         public int[]? toOmitInt;
 
+        // Visually Nice
+        int desiredLength = 14; // desired length for the first column
+
         // ThisSquareValue
         int imagesOfAKind = 3;  // number of images that represent same sound
         List<Image> testLittleSquares = new List<Image>();
@@ -613,11 +616,19 @@ namespace ADBoyaSU
                 if (i != 0 && (m % imagesOfAKind != 0 || attadim)) // first row is header
                 {
                     // extract data from images
-                    string tfn = ThisFileName(fileNames[m]) + " ,";
+                    string tfn = ThisFileName(fileNames[m]);
 
-                    result_1[i] += tfn; // first cell is file name
+                    // making it a little bit nicer visually
+                    while (tfn.Length < desiredLength)
+                        tfn += " ";
+
+                    tfn += ",";
+
+                    // first cell is file name
+                    result_1[i] += tfn;
                     result_2[m + 1] += tfn;
                     result_3[m + 1] += tfn;
+
 
                     attadim = false;
                 }
