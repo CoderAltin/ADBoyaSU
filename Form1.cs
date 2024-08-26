@@ -15,7 +15,7 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
-        //
+        // Türkü Azərbaycan
         Thread calculatorThread;
 
 
@@ -1151,7 +1151,7 @@ namespace ADBoyaSU
             Form imNosely02 = new imNosely02();
             imNosely02.Show();
         }
-        #endregion
 
+#endregion
     }
 }

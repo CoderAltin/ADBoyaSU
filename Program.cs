@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace ADBoyaSU
 {
     internal static class Program
@@ -8,8 +10,10 @@ namespace ADBoyaSU
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            CultureInfo culture = new CultureInfo("az-latn-AZ");
+            Thread.CurrentThread.CurrentUICulture = culture;
+            Thread.CurrentThread.CurrentCulture = culture;
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
