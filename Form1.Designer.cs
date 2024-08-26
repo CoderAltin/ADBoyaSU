@@ -85,6 +85,7 @@
             dilLanguageToolStripMenuItem = new ToolStripMenuItem();
             Dil_Turku_AZ = new ToolStripMenuItem();
             Dil_English_US = new ToolStripMenuItem();
+            englishUSSeriouslyToolStripMenuItem = new ToolStripMenuItem();
             licenceToolStripMenuItem = new ToolStripMenuItem();
             yardımToolStripMenuItem = new ToolStripMenuItem();
             harHarHarToolStripMenuItem = new ToolStripMenuItem();
@@ -459,7 +460,7 @@
             // dilLanguageToolStripMenuItem
             // 
             resources.ApplyResources(dilLanguageToolStripMenuItem, "dilLanguageToolStripMenuItem");
-            dilLanguageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { Dil_Turku_AZ, Dil_English_US });
+            dilLanguageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { Dil_Turku_AZ, Dil_English_US, englishUSSeriouslyToolStripMenuItem });
             dilLanguageToolStripMenuItem.Name = "dilLanguageToolStripMenuItem";
             // 
             // Dil_Turku_AZ
@@ -473,6 +474,12 @@
             resources.ApplyResources(Dil_English_US, "Dil_English_US");
             Dil_English_US.Name = "Dil_English_US";
             Dil_English_US.Click += Dil_English_US_Click;
+            // 
+            // englishUSSeriouslyToolStripMenuItem
+            // 
+            resources.ApplyResources(englishUSSeriouslyToolStripMenuItem, "englishUSSeriouslyToolStripMenuItem");
+            englishUSSeriouslyToolStripMenuItem.Name = "englishUSSeriouslyToolStripMenuItem";
+            englishUSSeriouslyToolStripMenuItem.Click += englishUSSeriouslyToolStripMenuItem_Click;
             // 
             // licenceToolStripMenuItem
             // 
@@ -670,5 +677,6 @@
         private ToolStripMenuItem dilLanguageToolStripMenuItem;
         private ToolStripMenuItem Dil_Turku_AZ;
         private ToolStripMenuItem Dil_English_US;
+        private ToolStripMenuItem englishUSSeriouslyToolStripMenuItem;
     }
 }

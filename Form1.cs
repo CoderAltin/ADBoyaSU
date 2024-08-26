@@ -1165,6 +1165,11 @@ namespace ADBoyaSU
         {
             ChangeLanguage.ToTurkuAzerbaycan();
         }
+
+        private void englishUSSeriouslyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage.ToEnglishUK();
+        }
         #endregion
     }
 }

@@ -18,12 +18,12 @@ namespace MultiLanguageTest_01
             UpdateLangConfig("en-US");
         }
 
-        /*public static void ToEnglishUK()
+        public static void ToEnglishUK()
         {
             //MessageBox.Show("Changing language to \n\tEnglish");
 
             UpdateLangConfig("en-GB");
-        }*/
+        }
 
         public static void ToTurkuAzerbaycan()
         {
