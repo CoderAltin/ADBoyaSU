@@ -947,6 +947,8 @@ namespace ADBoyaSU
 
                         convertImageToGray.Enabled = false;
                         showSquaresCheckBox.Enabled = false;
+
+                        pictureBox1.Enabled = false;
                     });
                 }
                 else
@@ -980,6 +982,8 @@ namespace ADBoyaSU
 
                     convertImageToGray.Enabled = false;
                     showSquaresCheckBox.Enabled = false;
+
+                    pictureBox1.Enabled = false;
                 }
 
                 /*

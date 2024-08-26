@@ -138,6 +138,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Right;
+            pictureBox1.Image = Properties.Resources.gir_ozum_01;
             pictureBox1.Location = new Point(433, 135);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(380, 229);
