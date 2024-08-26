@@ -19,7 +19,6 @@ namespace ADBoyaSU
         // Türkü Azərbaycan
         Thread calculatorThread;
 
-
         public bool convertToGray = false;
         public bool showSquares = true;
         Image? workingImage;
