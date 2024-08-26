@@ -1,3 +1,4 @@
+using System.Configuration;
 using System.Globalization;
 
 namespace ADBoyaSU
@@ -10,9 +11,13 @@ namespace ADBoyaSU
         [STAThread]
         static void Main()
         {
-            CultureInfo culture = new CultureInfo("az-latn-AZ");
+            // reading language from configurationManager and applying it
+            string? lang = ConfigurationManager.AppSettings["language"] ?? "az-latn-AZ";
+            var culture = new System.Globalization.CultureInfo(lang);
+
             Thread.CurrentThread.CurrentUICulture = culture;
             Thread.CurrentThread.CurrentCulture = culture;
+
 
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
