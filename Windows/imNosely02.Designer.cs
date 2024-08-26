@@ -35,35 +35,22 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(159, 14);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new Size(467, 189);
-            label1.TabIndex = 0;
-            label1.Text = resources.GetString("label1.Text");
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // browsImages
             // 
-            browsImages.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            resources.ApplyResources(browsImages, "browsImages");
             browsImages.BackColor = Color.DeepSkyBlue;
             browsImages.FlatAppearance.BorderSize = 0;
-            browsImages.FlatStyle = FlatStyle.Flat;
-            browsImages.Font = new Font("Segoe UI", 12F);
-            browsImages.Location = new Point(660, 184);
             browsImages.Name = "browsImages";
-            browsImages.Size = new Size(112, 35);
-            browsImages.TabIndex = 3;
-            browsImages.Text = "Var Ol Kişı";
             browsImages.UseVisualStyleBackColor = false;
             browsImages.Click += browsImages_Click;
             // 
             // imNosely02
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 231);
             ControlBox = false;
             Controls.Add(browsImages);
             Controls.Add(label1);
@@ -72,8 +59,6 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             SizeGripStyle = SizeGripStyle.Hide;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Hər Səs Üçün Üç Dənə Akıs Yoxdur";
             TopMost = true;
             ResumeLayout(false);
             PerformLayout();
