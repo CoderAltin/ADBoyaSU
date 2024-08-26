@@ -13,7 +13,7 @@ namespace MultiLanguageTest_01
     {
         public static void ToEnglishUS()
         {
-            MessageBox.Show("Changing language to \n\tEnglish");
+            //MessageBox.Show("Changing language to \n\tEnglish");
 
             UpdateLangConfig("en-US");
         }
@@ -27,7 +27,7 @@ namespace MultiLanguageTest_01
 
         public static void ToTurkuAzerbaycan()
         {
-            MessageBox.Show("Changing language to \n\tTurku-Azerbaycan");
+            //MessageBox.Show("Changing language to \n\tTurku-Azerbaycan");
 
             UpdateLangConfig("az-latn-AZ");
         }

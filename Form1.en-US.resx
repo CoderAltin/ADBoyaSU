@@ -127,6 +127,189 @@
   <data name="browsImages.Text" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>OK, Done.</value>
+  </data>
+  <data name="exitButton.Text" xml:space="preserve">
+    <value>No, I'll Leave.</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Choices</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 40</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Starting Point:</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Number of Rows:</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 20</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Number of Columns:</value>
+  </data>
+  <data name="dontConsiderThese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 20</value>
+  </data>
+  <data name="dontConsiderThese.Text" xml:space="preserve">
+    <value>Don't Concider These:</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Save the Results Here:</value>
+  </data>
+  <data name="saveFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 460</value>
+  </data>
+  <data name="saveFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>682, 23</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="convertImageToGray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 19</value>
+  </data>
+  <data name="convertImageToGray.Text" xml:space="preserve">
+    <value>Black and White</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Squares Size:</value>
+  </data>
+  <data name="increaseRowNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="increaseRowNo.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="increaseColNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="increaseColNo.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="increaseSquareSize.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="increaseSquareSize.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="decreaseRowNo.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="decreaseColNo.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="decreaseSquareSize.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Distance between:</value>
+  </data>
+  <data name="decreaseDistBS.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="increaseDistBS.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="increaseDistBS.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="showSquaresCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 19</value>
+  </data>
+  <data name="showSquaresCheckBox.Text" xml:space="preserve">
+    <value>Show the Squares</value>
+  </data>
+  <data name="progressbarLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 20</value>
+  </data>
+  <data name="progressbarLabel.Text" xml:space="preserve">
+    <value>We're Doing Very Important Things...</value>
+  </data>
+  <data name="progressbarTotalImages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 509</value>
+  </data>
+  <data name="progressbarDoneImages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 509</value>
+  </data>
+  <data name="progressbarSlash.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 510</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 24</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="dilLanguageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dil / Language</value>
+  </data>
+  <data name="Dil_Turku_AZ.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 24</value>
+  </data>
+  <data name="Dil_Turku_AZ.Text" xml:space="preserve">
+    <value>Türkü - AZ</value>
+  </data>
+  <data name="Dil_English_US.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 24</value>
+  </data>
+  <data name="Dil_English_US.Text" xml:space="preserve">
+    <value>English - US</value>
+  </data>
+  <data name="licenceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 24</value>
+  </data>
+  <data name="licenceToolStripMenuItem.Text" xml:space="preserve">
+    <value>First Aid</value>
+  </data>
+  <data name="yardımToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 24</value>
+  </data>
+  <data name="yardımToolStripMenuItem.Text" xml:space="preserve">
+    <value>Second Aid</value>
+  </data>
+  <data name="harHarHarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 24</value>
+  </data>
+  <data name="qələmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 24</value>
+  </data>
+  <data name="qələmToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pen</value>
+  </data>
+  <data name="findiqliyamToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 24</value>
+  </data>
+  <data name="findiqliyamToolStripMenuItem.Text" xml:space="preserve">
+    <value>Have a Problem</value>
+  </data>
+  <data name="niyaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 24</value>
+  </data>
+  <data name="niyaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Why?</value>
+  </data>
+  <data name="UnconsistentImageSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>396, 24</value>
+  </data>
+  <data name="UnconsistentImageSize.Text" xml:space="preserve">
+    <value>I Have Images With Different Hights and Widths</value>
+  </data>
+  <data name="ImagesNotTriple.Size" type="System.Drawing.Size, System.Drawing">
+    <value>396, 24</value>
+  </data>
+  <data name="ImagesNotTriple.Text" xml:space="preserve">
+    <value>Don't have Three Result Images for each Test</value>
+  </data>
+  <data name="bizaGoraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 24</value>
+  </data>
+  <data name="bizaGoraToolStripMenuItem.Text" xml:space="preserve">
+    <value>About Us</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAEAIABoBAAAVgAAABgYAAABACAAiAkAAL4EAAAgIAAAAQAgAKgQAABGDgAAMDAAAAEA
