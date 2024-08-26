@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.CodeDom;
+using MultiLanguageTest_01;
 
 namespace ADBoyaSU
 {
@@ -1152,6 +1153,19 @@ namespace ADBoyaSU
             imNosely02.Show();
         }
 
-#endregion
+        #endregion
+
+        #region Language Settings
+
+        private void Dil_English_US_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage.ToEnglishUS();
+        }
+
+        private void Dil_Turku_AZ_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage.ToTurkuAzerbaycan();
+        }
+        #endregion
     }
 }

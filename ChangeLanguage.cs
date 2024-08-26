@@ -13,7 +13,7 @@ namespace MultiLanguageTest_01
     {
         public static void ToEnglishUS()
         {
-            //MessageBox.Show("Changing language to \n\tEnglish");
+            MessageBox.Show("Changing language to \n\tEnglish");
 
             UpdateLangConfig("en-US");
         }
@@ -27,7 +27,7 @@ namespace MultiLanguageTest_01
 
         public static void ToTurkuAzerbaycan()
         {
-            //MessageBox.Show("Changing language to \n\tTurku-Azerbaycan");
+            MessageBox.Show("Changing language to \n\tTurku-Azerbaycan");
 
             UpdateLangConfig("az-latn-AZ");
         }
@@ -40,7 +40,7 @@ namespace MultiLanguageTest_01
         {
             XmlDocument configFile = new XmlDocument();
 
-            string location = Directory.GetCurrentDirectory() + "\\MultiLanguageTest_01.dll.config";
+            string location = Directory.GetCurrentDirectory() + "\\ADBoyaSU.dll.config";
 
             configFile.Load(location);
 
@@ -51,7 +51,6 @@ namespace MultiLanguageTest_01
                     if (element.Name.Equals("appSettings"))
                         foreach (XmlNode node in element.ChildNodes)
                         {
-                            //if (node.Attributes["key"].Equals("language"))
                             if (node.Attributes[0].Value.Equals("language"))
                                 node.Attributes[1].Value = value;
                         }
@@ -59,7 +58,8 @@ namespace MultiLanguageTest_01
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong when trying to find the language you're looking for in config file");
+                MessageBox.Show("Something went wrong when trying to find the language you're looking for in config file\n" +
+                    "Possibly a null reference");
             }
 
             System.Configuration.ConfigurationManager.RefreshSection("appSettings");

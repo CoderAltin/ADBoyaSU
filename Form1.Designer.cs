@@ -83,7 +83,8 @@
             progressbarSlash = new Label();
             helpToolStripMenuItem = new ToolStripMenuItem();
             dilLanguageToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
+            Dil_Turku_AZ = new ToolStripMenuItem();
+            Dil_English_US = new ToolStripMenuItem();
             licenceToolStripMenuItem = new ToolStripMenuItem();
             yardımToolStripMenuItem = new ToolStripMenuItem();
             harHarHarToolStripMenuItem = new ToolStripMenuItem();
@@ -94,7 +95,6 @@
             UnconsistentImageSize = new ToolStripMenuItem();
             ImagesNotTriple = new ToolStripMenuItem();
             bizaGoraToolStripMenuItem = new ToolStripMenuItem();
-            englishUSToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picNumUpDown).BeginInit();
@@ -459,13 +459,20 @@
             // dilLanguageToolStripMenuItem
             // 
             resources.ApplyResources(dilLanguageToolStripMenuItem, "dilLanguageToolStripMenuItem");
-            dilLanguageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, englishUSToolStripMenuItem });
+            dilLanguageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { Dil_Turku_AZ, Dil_English_US });
             dilLanguageToolStripMenuItem.Name = "dilLanguageToolStripMenuItem";
             // 
-            // toolStripMenuItem1
+            // Dil_Turku_AZ
             // 
-            resources.ApplyResources(toolStripMenuItem1, "toolStripMenuItem1");
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(Dil_Turku_AZ, "Dil_Turku_AZ");
+            Dil_Turku_AZ.Name = "Dil_Turku_AZ";
+            Dil_Turku_AZ.Click += Dil_Turku_AZ_Click;
+            // 
+            // Dil_English_US
+            // 
+            resources.ApplyResources(Dil_English_US, "Dil_English_US");
+            Dil_English_US.Name = "Dil_English_US";
+            Dil_English_US.Click += Dil_English_US_Click;
             // 
             // licenceToolStripMenuItem
             // 
@@ -523,11 +530,6 @@
             resources.ApplyResources(bizaGoraToolStripMenuItem, "bizaGoraToolStripMenuItem");
             bizaGoraToolStripMenuItem.Name = "bizaGoraToolStripMenuItem";
             bizaGoraToolStripMenuItem.Click += bizaGoraToolStripMenuItem_Click;
-            // 
-            // englishUSToolStripMenuItem
-            // 
-            resources.ApplyResources(englishUSToolStripMenuItem, "englishUSToolStripMenuItem");
-            englishUSToolStripMenuItem.Name = "englishUSToolStripMenuItem";
             // 
             // Form1
             // 
@@ -666,7 +668,7 @@
         private ToolStripMenuItem UnconsistentImageSize;
         private ToolStripMenuItem ImagesNotTriple;
         private ToolStripMenuItem dilLanguageToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem englishUSToolStripMenuItem;
+        private ToolStripMenuItem Dil_Turku_AZ;
+        private ToolStripMenuItem Dil_English_US;
     }
 }
