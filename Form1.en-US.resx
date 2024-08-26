@@ -238,26 +238,14 @@
   <data name="progressbarSlash.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 510</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 24</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="dilLanguageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dil / Language</value>
-  </data>
-  <data name="Dil_Turku_AZ.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 24</value>
-  </data>
   <data name="Dil_Turku_AZ.Text" xml:space="preserve">
     <value>Türkü - AZ</value>
   </data>
-  <data name="Dil_English_US.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 24</value>
-  </data>
   <data name="Dil_English_US.Text" xml:space="preserve">
     <value>English - US</value>
+  </data>
+  <data name="dilLanguageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dil / Language</value>
   </data>
   <data name="licenceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 24</value>
@@ -274,23 +262,17 @@
   <data name="harHarHarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 24</value>
   </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 24</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="qələmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 24</value>
   </data>
   <data name="qələmToolStripMenuItem.Text" xml:space="preserve">
     <value>Pen</value>
-  </data>
-  <data name="findiqliyamToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 24</value>
-  </data>
-  <data name="findiqliyamToolStripMenuItem.Text" xml:space="preserve">
-    <value>Have a Problem</value>
-  </data>
-  <data name="niyaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
-  </data>
-  <data name="niyaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Why?</value>
   </data>
   <data name="UnconsistentImageSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>396, 24</value>
@@ -303,6 +285,18 @@
   </data>
   <data name="ImagesNotTriple.Text" xml:space="preserve">
     <value>Don't have Three Result Images for each Test</value>
+  </data>
+  <data name="niyaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 24</value>
+  </data>
+  <data name="niyaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Why?</value>
+  </data>
+  <data name="findiqliyamToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 24</value>
+  </data>
+  <data name="findiqliyamToolStripMenuItem.Text" xml:space="preserve">
+    <value>Have a Problem</value>
   </data>
   <data name="bizaGoraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 24</value>
