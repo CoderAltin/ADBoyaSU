@@ -23,6 +23,11 @@ namespace ADBoyaSU
 
         Thread calculatorThread;
 
+        // Getting current language
+        CultureInfo culture = new System.Globalization.CultureInfo(ConfigurationManager.AppSettings["language"]);
+        Messages_Turku_Azerbaycan messages;
+
+        // Don't remember what
         public bool convertToGray = false;
         public bool showSquares = true;
         Image? workingImage;
@@ -59,8 +64,8 @@ namespace ADBoyaSU
         public float dbSIncStep = 0.5f; // the step by which distanceBetweenSquares value in increased
 
         // Text Changed of Settings
-        string wrongInputSettings_message = "\tDüzgün Bir Sayı Yaz.";
-        string wrongInputSettings_caption = "Savadsız";
+        //string wrongInputSettings_message = "\tDüzgün Bir Sayı Yaz.";
+        //string wrongInputSettings_caption = "Savadsız";
 
         // Omit These
         public string[]? toOmitStr;
@@ -92,6 +97,7 @@ namespace ADBoyaSU
             noR = Convert.ToInt32(numOfRows.Text);
             noC = Convert.ToInt32(numOfColumns.Text);
 
+            messages = SetMessagesLanguage();
         }
 
         #region Image selection and display
@@ -1194,6 +1200,33 @@ namespace ADBoyaSU
         {
             ChangeLanguage.ToEnglishUK();
         }
+
+        public Messages_Turku_Azerbaycan SetMessagesLanguage()
+        {
+            Messages_Turku_Azerbaycan messages;
+
+            switch (culture.Name)
+            {
+                case "az-latn-AZ":
+                    messages = new Messages_Turku_Azerbaycan();
+                    break;
+
+                case "en-US":
+                    messages = new Messages_En_US();
+                    break;
+
+                case "en-GB":
+                    messages = new Messages_En_US_Seriously();
+                    break;
+
+                default:
+                    messages = new Messages_Turku_Azerbaycan();
+                    break;
+            }
+            return messages;
+        }
+
+
         #endregion
     }
 }
