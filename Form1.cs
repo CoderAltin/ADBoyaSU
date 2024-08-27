@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.CodeDom;
+using MultiLanguageTest_01;
 
 namespace ADBoyaSU
 {
@@ -15,9 +16,8 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
-        //
+        // Türkü Azərbaycan
         Thread calculatorThread;
-
 
         public bool convertToGray = false;
         public bool showSquares = true;
@@ -1146,6 +1146,25 @@ namespace ADBoyaSU
         {
             Form imNosely02 = new imNosely02();
             imNosely02.Show();
+        }
+
+        #endregion
+
+        #region Language Settings
+
+        private void Dil_English_US_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage.ToEnglishUS();
+        }
+
+        private void Dil_Turku_AZ_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage.ToTurkuAzerbaycan();
+        }
+
+        private void englishUSSeriouslyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage.ToEnglishUK();
         }
         #endregion
     }
