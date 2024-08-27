@@ -133,17 +133,235 @@
   <data name="englishUSSeriouslyToolStripMenuItem.Text" xml:space="preserve">
     <value>English - US (Seriously)</value>
   </data>
+  <data name="dilLanguageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
   <data name="dilLanguageToolStripMenuItem.Text" xml:space="preserve">
     <value>Dil / Language</value>
   </data>
   <data name="licenceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>176, 24</value>
   </data>
   <data name="yardımToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>176, 24</value>
   </data>
   <data name="harHarHarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>176, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="birzadSecilmiyip_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="birzadSecilmiyip_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 15</value>
+  </data>
+  <data name="birzadSecilmiyip_mes.Text" xml:space="preserve">
+    <value>Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...</value>
+  </data>
+  <data name="birzadSecilmiyip_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="birzadSecilmiyip_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="birzadSecilmiyip_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="birzadSecilmiyip_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 15</value>
+  </data>
+  <data name="birzadSecilmiyip_cap.Text" xml:space="preserve">
+    <value>Birzad Seçməmışez</value>
+  </data>
+  <data name="birzadSecilmiyip_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>825, 102</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 15</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.Text" xml:space="preserve">
+    <value>Sonucları Yazabilmədık... Niyə Görən</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>825, 117</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 15</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.Text" xml:space="preserve">
+    <value>Ax Boyunum...</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="qurtuldu_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="qurtuldu_mes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="qurtuldu_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="qurtuldu_mes.Text" xml:space="preserve">
+    <value>Qurtuldu.</value>
+  </data>
+  <data name="qurtuldu_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="qurtuldu_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="qurtuldu_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="qurtuldu_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 15</value>
+  </data>
+  <data name="qurtuldu_cap.Text" xml:space="preserve">
+    <value>İşiz Hara Çatdi?</value>
+  </data>
+  <data name="qurtuldu_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="haradaSaxliyak_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="haradaSaxliyak_mes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="haradaSaxliyak_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 15</value>
+  </data>
+  <data name="haradaSaxliyak_mes.Text" xml:space="preserve">
+    <value>Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç</value>
+  </data>
+  <data name="haradaSaxliyak_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="haradaSaxliyak_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="haradaSaxliyak_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="haradaSaxliyak_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 15</value>
+  </data>
+  <data name="haradaSaxliyak_cap.Text" xml:space="preserve">
+    <value>Harada Saxlıyak Bıları İndı Biz?</value>
+  </data>
+  <data name="haradaSaxliyak_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="yerSecmadin_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="yerSecmadin_mes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="yerSecmadin_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 15</value>
+  </data>
+  <data name="yerSecmadin_mes.Text" xml:space="preserve">
+    <value>Sən Bir Dolan Gənə Gəl Diyiren?</value>
+  </data>
+  <data name="yerSecmadin_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="yerSecmadin_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="yerSecmadin_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="yerSecmadin_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 15</value>
+  </data>
+  <data name="yerSecmadin_cap.Text" xml:space="preserve">
+    <value>Bir Yer Seçmədin</value>
+  </data>
+  <data name="yerSecmadin_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisSecdin_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pisSecdin_mes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pisSecdin_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 15</value>
+  </data>
+  <data name="pisSecdin_mes.Text" xml:space="preserve">
+    <value>Bı(lar) .png, .jpg yoxsa .gif döül(lər)</value>
+  </data>
+  <data name="pisSecdin_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisSecdin_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pisSecdin_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pisSecdin_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 15</value>
+  </data>
+  <data name="pisSecdin_cap.Text" xml:space="preserve">
+    <value>Pis Seçdin</value>
+  </data>
+  <data name="pisSecdin_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisYazilma_mes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pisYazilma_mes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pisYazilma_mes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 15</value>
+  </data>
+  <data name="pisYazilma_mes.Text" xml:space="preserve">
+    <value>Bı(lar) .png, .jpg yoxsa .gif döül(lər)</value>
+  </data>
+  <data name="pisYazilma_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisYazilma_cap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pisYazilma_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pisYazilma_cap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 15</value>
+  </data>
+  <data name="pisYazilma_cap.Text" xml:space="preserve">
+    <value>Pis Seçdin</value>
+  </data>
+  <data name="pisYazilma_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

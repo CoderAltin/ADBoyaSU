@@ -10,26 +10,26 @@ namespace ADBoyaSU
     public class Messages_Turku_Azerbaycan 
     {
 
-        new public string birzadSecilmiyip_mes = "Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...";
-        new public string birzadSecilmiyip_cap = "Birzad Seçməmışez";
+        public string birzadSecilmiyip_mes = "Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...";
+        public string birzadSecilmiyip_cap = "Birzad Seçməmışez";
 
-        new public string sonuclarYazilmadi_mes = "\tSonucları Yazabilmədık... Niyə Görən";
-        new public string sonuclarYazilmadi_cap = "Ax Boyunum...";
+        public string sonuclarYazilmadi_mes = "\tSonucları Yazabilmədık... Niyə Görən";
+        public string sonuclarYazilmadi_cap = "Ax Boyunum...";
 
-        new public string qurtuldu_mes = "\tQurtuldu.";
-        new public string qurtuldu_cap = "İşiz Hara Çatdi?";
+        public string qurtuldu_mes = "\tQurtuldu.";
+        public string qurtuldu_cap = "İşiz Hara Çatdi?";
 
-        new public string haradaSaxliyak_mes = "Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç";
-        new public string haradaSaxliyak_cap = "Harada Saxlıyak Bıları İndı Biz?";
+        public string haradaSaxliyak_mes = "Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç";
+        public string haradaSaxliyak_cap = "Harada Saxlıyak Bıları İndı Biz?";
 
-        new public string yerSecmadin_mes = "Sən Bir Dolan Gənə Gəl Diyiren?";
-        new public string yerSecmadin_cap = "Bir Yer Seçmədin";
+        public string yerSecmadin_mes = "Sən Bir Dolan Gənə Gəl Diyiren?";
+        public string yerSecmadin_cap = "Bir Yer Seçmədin";
 
-        new public string pisSecdin_mes = "Bı(lar) .png, .jpg yoxsa .gif döül(lər)";
-        new public string pisSecdin_cap = "Pis Seçdin";
+        public string pisSecdin_mes = "Bı(lar) .png, .jpg yoxsa .gif döül(lər)";
+        public string pisSecdin_cap = "Pis Seçdin";
 
-        new public string pisYazilma_mes = "\tDüzgün Bir Sayı Yaz.";
-        new public string pisYazilma_cap = "Savadsız";
+        public string pisYazilma_mes = "\tDüzgün Bir Sayı Yaz.";
+        public string pisYazilma_cap = "Savadsız";
 
         /*
                 public string birzadSecilmiyip_mes { get => "Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'..."; set { } }

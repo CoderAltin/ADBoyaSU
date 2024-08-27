@@ -316,6 +316,91 @@
   <data name="bizaGoraToolStripMenuItem.Text" xml:space="preserve">
     <value>About Us</value>
   </data>
+  <data name="birzadSecilmiyip_mes.Text" xml:space="preserve">
+    <value>There are no 'Image's to work on. You have to choose some images first.</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="birzadSecilmiyip_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="birzadSecilmiyip_cap.Text" xml:space="preserve">
+    <value>Didn't Choose Anything</value>
+  </data>
+  <data name="birzadSecilmiyip_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.Text" xml:space="preserve">
+    <value>Couldn't Write the Results... I Wonder Why.</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.Text" xml:space="preserve">
+    <value>My Neck Hurts</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="qurtuldu_mes.Text" xml:space="preserve">
+    <value>It's Done. Finished.</value>
+  </data>
+  <data name="qurtuldu_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="qurtuldu_cap.Text" xml:space="preserve">
+    <value>What's the Final Result?</value>
+  </data>
+  <data name="qurtuldu_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="haradaSaxliyak_mes.Text" xml:space="preserve">
+    <value>You Have to Choose A Place For Saving Results.</value>
+  </data>
+  <data name="haradaSaxliyak_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="haradaSaxliyak_cap.Text" xml:space="preserve">
+    <value>Where Would We Keep These?</value>
+  </data>
+  <data name="haradaSaxliyak_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="yerSecmadin_mes.Text" xml:space="preserve">
+    <value>You Always Could Come Back to Us Later You Know.</value>
+  </data>
+  <data name="yerSecmadin_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="yerSecmadin_cap.Text" xml:space="preserve">
+    <value>You Didn't Choose A Location</value>
+  </data>
+  <data name="yerSecmadin_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisSecdin_mes.Text" xml:space="preserve">
+    <value>These are not .png, .jpg or .gif.</value>
+  </data>
+  <data name="pisSecdin_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisSecdin_cap.Text" xml:space="preserve">
+    <value>Selection Went Sideways</value>
+  </data>
+  <data name="pisSecdin_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisYazilma_mes.Text" xml:space="preserve">
+    <value>Write a Correct Number Would You?</value>
+  </data>
+  <data name="pisYazilma_mes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pisYazilma_cap.Text" xml:space="preserve">
+    <value>How Could You Mess This Up?</value>
+  </data>
+  <data name="pisYazilma_cap.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAEAIABoBAAAVgAAABgYAAABACAAiAkAAL4EAAAgIAAAAQAgAKgQAABGDgAAMDAAAAEA

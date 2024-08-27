@@ -96,6 +96,20 @@
             UnconsistentImageSize = new ToolStripMenuItem();
             ImagesNotTriple = new ToolStripMenuItem();
             bizaGoraToolStripMenuItem = new ToolStripMenuItem();
+            birzadSecilmiyip_mes = new Label();
+            birzadSecilmiyip_cap = new Label();
+            sonuclarYazilmadi_mes = new Label();
+            sonuclarYazilmadi_cap = new Label();
+            qurtuldu_mes = new Label();
+            qurtuldu_cap = new Label();
+            haradaSaxliyak_mes = new Label();
+            haradaSaxliyak_cap = new Label();
+            yerSecmadin_mes = new Label();
+            yerSecmadin_cap = new Label();
+            pisSecdin_mes = new Label();
+            pisSecdin_cap = new Label();
+            pisYazilma_mes = new Label();
+            pisYazilma_cap = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)testPicBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picNumUpDown).BeginInit();
@@ -539,12 +553,96 @@
             bizaGoraToolStripMenuItem.Name = "bizaGoraToolStripMenuItem";
             bizaGoraToolStripMenuItem.Click += bizaGoraToolStripMenuItem_Click;
             // 
+            // birzadSecilmiyip_mes
+            // 
+            resources.ApplyResources(birzadSecilmiyip_mes, "birzadSecilmiyip_mes");
+            birzadSecilmiyip_mes.Name = "birzadSecilmiyip_mes";
+            // 
+            // birzadSecilmiyip_cap
+            // 
+            resources.ApplyResources(birzadSecilmiyip_cap, "birzadSecilmiyip_cap");
+            birzadSecilmiyip_cap.Name = "birzadSecilmiyip_cap";
+            // 
+            // sonuclarYazilmadi_mes
+            // 
+            resources.ApplyResources(sonuclarYazilmadi_mes, "sonuclarYazilmadi_mes");
+            sonuclarYazilmadi_mes.Name = "sonuclarYazilmadi_mes";
+            // 
+            // sonuclarYazilmadi_cap
+            // 
+            resources.ApplyResources(sonuclarYazilmadi_cap, "sonuclarYazilmadi_cap");
+            sonuclarYazilmadi_cap.Name = "sonuclarYazilmadi_cap";
+            // 
+            // qurtuldu_mes
+            // 
+            resources.ApplyResources(qurtuldu_mes, "qurtuldu_mes");
+            qurtuldu_mes.Name = "qurtuldu_mes";
+            // 
+            // qurtuldu_cap
+            // 
+            resources.ApplyResources(qurtuldu_cap, "qurtuldu_cap");
+            qurtuldu_cap.Name = "qurtuldu_cap";
+            // 
+            // haradaSaxliyak_mes
+            // 
+            resources.ApplyResources(haradaSaxliyak_mes, "haradaSaxliyak_mes");
+            haradaSaxliyak_mes.Name = "haradaSaxliyak_mes";
+            // 
+            // haradaSaxliyak_cap
+            // 
+            resources.ApplyResources(haradaSaxliyak_cap, "haradaSaxliyak_cap");
+            haradaSaxliyak_cap.Name = "haradaSaxliyak_cap";
+            // 
+            // yerSecmadin_mes
+            // 
+            resources.ApplyResources(yerSecmadin_mes, "yerSecmadin_mes");
+            yerSecmadin_mes.Name = "yerSecmadin_mes";
+            // 
+            // yerSecmadin_cap
+            // 
+            resources.ApplyResources(yerSecmadin_cap, "yerSecmadin_cap");
+            yerSecmadin_cap.Name = "yerSecmadin_cap";
+            // 
+            // pisSecdin_mes
+            // 
+            resources.ApplyResources(pisSecdin_mes, "pisSecdin_mes");
+            pisSecdin_mes.Name = "pisSecdin_mes";
+            // 
+            // pisSecdin_cap
+            // 
+            resources.ApplyResources(pisSecdin_cap, "pisSecdin_cap");
+            pisSecdin_cap.Name = "pisSecdin_cap";
+            // 
+            // pisYazilma_mes
+            // 
+            resources.ApplyResources(pisYazilma_mes, "pisYazilma_mes");
+            pisYazilma_mes.Name = "pisYazilma_mes";
+            // 
+            // pisYazilma_cap
+            // 
+            resources.ApplyResources(pisYazilma_cap, "pisYazilma_cap");
+            pisYazilma_cap.Name = "pisYazilma_cap";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AllowDrop = true;
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
+            Controls.Add(pisYazilma_cap);
+            Controls.Add(pisSecdin_cap);
+            Controls.Add(yerSecmadin_cap);
+            Controls.Add(haradaSaxliyak_cap);
+            Controls.Add(qurtuldu_cap);
+            Controls.Add(sonuclarYazilmadi_cap);
+            Controls.Add(pisYazilma_mes);
+            Controls.Add(pisSecdin_mes);
+            Controls.Add(yerSecmadin_mes);
+            Controls.Add(haradaSaxliyak_mes);
+            Controls.Add(qurtuldu_mes);
+            Controls.Add(sonuclarYazilmadi_mes);
+            Controls.Add(birzadSecilmiyip_cap);
+            Controls.Add(birzadSecilmiyip_mes);
             Controls.Add(progressbarDoneImages);
             Controls.Add(progressbarSlash);
             Controls.Add(progressbarTotalImages);
@@ -679,5 +777,19 @@
         private ToolStripMenuItem Dil_Turku_AZ;
         private ToolStripMenuItem Dil_English_US;
         private ToolStripMenuItem englishUSSeriouslyToolStripMenuItem;
+        private Label birzadSecilmiyip_mes;
+        private Label birzadSecilmiyip_cap;
+        private Label sonuclarYazilmadi_mes;
+        private Label sonuclarYazilmadi_cap;
+        private Label qurtuldu_mes;
+        private Label qurtuldu_cap;
+        private Label haradaSaxliyak_mes;
+        private Label haradaSaxliyak_cap;
+        private Label yerSecmadin_mes;
+        private Label yerSecmadin_cap;
+        private Label pisSecdin_mes;
+        private Label pisSecdin_cap;
+        private Label pisYazilma_mes;
+        private Label pisYazilma_cap;
     }
 }
