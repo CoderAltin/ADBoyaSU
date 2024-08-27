@@ -97,7 +97,8 @@ namespace ADBoyaSU
             noR = Convert.ToInt32(numOfRows.Text);
             noC = Convert.ToInt32(numOfColumns.Text);
 
-            messages = SetMessagesLanguage();
+            SetMessagesLanguage();
+            //var messages1 = SetMessagesLanguage();
         }
 
         #region Image selection and display
@@ -1201,29 +1202,43 @@ namespace ADBoyaSU
             ChangeLanguage.ToEnglishUK();
         }
 
-        public Messages_Turku_Azerbaycan SetMessagesLanguage()
+        public void SetMessagesLanguage()
         {
-            Messages_Turku_Azerbaycan messages;
+            //var messages;
 
-            switch (culture.Name)
+            if (culture.Name == "az-latn-AZ")
+            {
+                Messages_Turku_Azerbaycan messages = new Messages_Turku_Azerbaycan();
+            }
+            else if (culture.Name == "en-US")
+            {
+                Messages_En_US messages = new Messages_En_US();
+            }
+            else if (culture.Name == "en-GB")
+            {
+                Messages_En_US_Seriously messages = new Messages_En_US_Seriously();
+            }
+
+            /*switch (culture.Name)
             {
                 case "az-latn-AZ":
-                    messages = new Messages_Turku_Azerbaycan();
+                    var messages = new Messages_Turku_Azerbaycan();
                     break;
 
                 case "en-US":
-                    messages = new Messages_En_US();
+                    var messages = new Messages_En_US();
                     break;
 
                 case "en-GB":
-                    messages = new Messages_En_US_Seriously();
+                    var messages = new Messages_En_US_Seriously();
                     break;
 
                 default:
                     messages = new Messages_Turku_Azerbaycan();
                     break;
-            }
-            return messages;
+            }*/
+
+            //return messages;
         }
 
 
