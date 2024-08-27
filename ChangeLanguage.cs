@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Configuration;
 
-namespace MultiLanguageTest_01
+namespace ADBoyaSU
 {
     public static class ChangeLanguage
     {
