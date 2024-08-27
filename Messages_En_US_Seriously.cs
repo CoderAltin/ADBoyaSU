@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ADBoyaSU
 {
-    public class Messages_En_US_Seriously : Messages_Empty
+    public class Messages_En_US_Seriously : Messages_Turku_Azerbaycan
     {
         new public string  birzadSecilmiyip_mes =  "Are You Serious? There are no 'Image's to work on. You have to choose some images first.";
         new public string birzadSecilmiyip_cap = "Seriously Didn't Choose Anything";

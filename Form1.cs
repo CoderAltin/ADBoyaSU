@@ -26,6 +26,7 @@ namespace ADBoyaSU
         // Getting current language
         CultureInfo culture = new System.Globalization.CultureInfo(ConfigurationManager.AppSettings["language"]);
         Messages_Turku_Azerbaycan messages;
+        
 
         // Don't remember what
         public bool convertToGray = false;
@@ -97,7 +98,7 @@ namespace ADBoyaSU
             noR = Convert.ToInt32(numOfRows.Text);
             noC = Convert.ToInt32(numOfColumns.Text);
 
-            SetMessagesLanguage();
+            //SetMessagesLanguage();
             //var messages1 = SetMessagesLanguage();
         }
 
