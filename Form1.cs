@@ -23,10 +23,6 @@ namespace ADBoyaSU
 
         Thread calculatorThread;
 
-        // Getting current language
-        CultureInfo culture = new System.Globalization.CultureInfo(ConfigurationManager.AppSettings["language"]);
-        Messages_Turku_Azerbaycan messages;
-        
 
         // Don't remember what
         public bool convertToGray = false;
@@ -98,8 +94,6 @@ namespace ADBoyaSU
             noR = Convert.ToInt32(numOfRows.Text);
             noC = Convert.ToInt32(numOfColumns.Text);
 
-            //SetMessagesLanguage();
-            //var messages1 = SetMessagesLanguage();
         }
 
         #region Image selection and display
@@ -1201,45 +1195,6 @@ namespace ADBoyaSU
         private void englishUSSeriouslyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeLanguage.ToEnglishUK();
-        }
-
-        public void SetMessagesLanguage()
-        {
-            //var messages;
-
-            if (culture.Name == "az-latn-AZ")
-            {
-                Messages_Turku_Azerbaycan messages = new Messages_Turku_Azerbaycan();
-            }
-            else if (culture.Name == "en-US")
-            {
-                Messages_En_US messages = new Messages_En_US();
-            }
-            else if (culture.Name == "en-GB")
-            {
-                Messages_En_US_Seriously messages = new Messages_En_US_Seriously();
-            }
-
-            /*switch (culture.Name)
-            {
-                case "az-latn-AZ":
-                    var messages = new Messages_Turku_Azerbaycan();
-                    break;
-
-                case "en-US":
-                    var messages = new Messages_En_US();
-                    break;
-
-                case "en-GB":
-                    var messages = new Messages_En_US_Seriously();
-                    break;
-
-                default:
-                    messages = new Messages_Turku_Azerbaycan();
-                    break;
-            }*/
-
-            //return messages;
         }
 
 
