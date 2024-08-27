@@ -767,15 +767,7 @@ namespace ADBoyaSU
                 MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
             }
 
-
             MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
-
-
-            // Open the created files
-            Process.Start("notepad.exe", saveAddress_1);
-            Process.Start("notepad.exe", saveAddress_2);
-            Process.Start("notepad.exe", saveAddress_3);
-
 
             EnableControls(1);
         }
@@ -1156,6 +1148,5 @@ namespace ADBoyaSU
             imNosely02.Show();
         }
         #endregion
-
     }
 }
