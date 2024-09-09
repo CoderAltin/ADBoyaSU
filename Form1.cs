@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.CodeDom;
 using MultiLanguageTest_01;
+using System.Resources;
+using System.Reflection;
 
 namespace ADBoyaSU
 {
@@ -17,6 +19,8 @@ namespace ADBoyaSU
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
         // Türkü Azərbaycan
+        ResourceManager rm = new ResourceManager("ADBoyaSU.Form1", Assembly.GetExecutingAssembly());
+
         Thread calculatorThread;
 
         public bool convertToGray = false;
@@ -141,7 +145,8 @@ namespace ADBoyaSU
                 ScrollButtonsConditioner();
 
 
-                MessageBox.Show("Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...", "Birzad Seçməmışez");
+                //MessageBox.Show("Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...", "Birzad Seçməmışez");
+                MessageBox.Show(rm.GetString("birzadSecilmiyip_mes"),rm.GetString("birzadSecilmiyip_cap"));
 
             }
 
@@ -339,7 +344,8 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -355,7 +361,8 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -370,7 +377,8 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -386,7 +394,8 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -402,7 +411,8 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -418,7 +428,8 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -720,7 +731,7 @@ namespace ADBoyaSU
                 // Progress bar
                 if (this.InvokeRequired)
                 {
-                    this.BeginInvoke((MethodInvoker)delegate ()
+                    this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate ()
                     {
                         if ((100 * (m + 1) / fileNames.Count()) < 100)
                         {
@@ -764,10 +775,12 @@ namespace ADBoyaSU
             }
             catch (Exception)
             {
-                MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
+                //MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
+                MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes"),rm.GetString("sonuclarYazilmadi_cap"));
             }
 
-            MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
+            //MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
+            MessageBox.Show(rm.GetString("qurtuldu_mes"),rm.GetString("qurtuldu_cap"));
 
             EnableControls(1);
         }
@@ -787,7 +800,8 @@ namespace ADBoyaSU
                 calculatorThread.Start();
             }
             else
-                MessageBox.Show("Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç", "Harada Saxlıyak Bıları İndı Biz?");
+                //MessageBox.Show("Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç", "Harada Saxlıyak Bıları İndı Biz?");
+                MessageBox.Show(rm.GetString("haradaSaxliyak_mes"),rm.GetString("haradaSaxliyak_cap"));
 
         }
 
@@ -908,7 +922,7 @@ namespace ADBoyaSU
             {
                 if (this.InvokeRequired)
                 {
-                    this.BeginInvoke((MethodInvoker)delegate ()
+                    this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate ()
                     {
                         startPositionX.Enabled = false;
                         startPositionY.Enabled = false;
@@ -994,7 +1008,7 @@ namespace ADBoyaSU
                 {
                     if (this.InvokeRequired)
                     {
-                        this.BeginInvoke((MethodInvoker)delegate ()
+                        this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate ()
                         {
                             item.Enabled = true;
                         });
@@ -1045,7 +1059,8 @@ namespace ADBoyaSU
                 saveFilePath.Text = saveFileDialog.FileName;
             }
             else
-                MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?", "Bir Yer Seçmədin");
+                //MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?", "Bir Yer Seçmədin");
+                MessageBox.Show(rm.GetString("yerSecmadin_mes"),rm.GetString("yerSecmadin_cap"));
         }
 
         private void saveFilePath_TextChanged(object sender, EventArgs e)
@@ -1124,7 +1139,8 @@ namespace ADBoyaSU
             fileNames = tempDragedFiles.ToArray();
 
             if (dragedFiles == null || dragedFiles.Count() == 0)
-                MessageBox.Show("Bı(lar) .png, .jpg yoxsa .gif döül(lər)", "Pis Seçdin");
+                //MessageBox.Show("Bı(lar) .png, .jpg yoxsa .gif döül(lər)", "Pis Seçdin");
+                MessageBox.Show(rm.GetString("pisSecdin_mes"),rm.GetString("pisSecdin_cap"));
 
             WeHaveImagesNow(tempDragedFiles.ToArray());
 
