@@ -765,4 +765,46 @@
   <data name="niyaToolStripMenuItem.Text" xml:space="preserve">
     <value>I really do care.</value>
   </data>
+  <data name="birzadSecilmiyip_cap" xml:space="preserve">
+    <value>Seriously Didn't Choose Anything</value>
+  </data>
+  <data name="birzadSecilmiyip_mes" xml:space="preserve">
+    <value>Are You Serious? There are no 'Image's to work on. You have to choose some images first.</value>
+  </data>
+  <data name="haradaSaxliyak_cap" xml:space="preserve">
+    <value>Where Would We Keep These? I'm Very Serious.</value>
+  </data>
+  <data name="haradaSaxliyak_mes" xml:space="preserve">
+    <value>You Have to Choose A Serious Place For Saving Results.</value>
+  </data>
+  <data name="pisSecdin_cap" xml:space="preserve">
+    <value>Selection Seriously Went Sideways</value>
+  </data>
+  <data name="pisSecdin_mes" xml:space="preserve">
+    <value>These are not .png, .jpg or .gif. Be Serious For A Moment, Will Ya?</value>
+  </data>
+  <data name="pisYazilma_cap" xml:space="preserve">
+    <value>Seriously How Could You Mess This Serious Thing Up?</value>
+  </data>
+  <data name="pisYazilma_mes" xml:space="preserve">
+    <value>     You Must Be Non-Seriousing Me...\n Write a Correct Number, Would You?</value>
+  </data>
+  <data name="qurtuldu_cap" xml:space="preserve">
+    <value>Seriously? What's the Final Result?</value>
+  </data>
+  <data name="qurtuldu_mes" xml:space="preserve">
+    <value>     We Are Seriously Done.It's A Job Finished.</value>
+  </data>
+  <data name="sonuclarYazilmadi_cap" xml:space="preserve">
+    <value>My Serious Hurts</value>
+  </data>
+  <data name="sonuclarYazilmadi_mes" xml:space="preserve">
+    <value>     Seriously Couldn't Write the Results... I Wonder A Serious Why.</value>
+  </data>
+  <data name="yerSecmadin_cap" xml:space="preserve">
+    <value>You Can't be Serious... You Didn't Choose A Location</value>
+  </data>
+  <data name="yerSecmadin_mes" xml:space="preserve">
+    <value>Seriously Though, You Could Always Come Back to Us Later You Know.</value>
+  </data>
 </root>
