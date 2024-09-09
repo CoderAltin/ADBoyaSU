@@ -346,6 +346,8 @@ namespace ADBoyaSU
                 {
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+
+                    startPositionX.Text = "10";
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -363,6 +365,8 @@ namespace ADBoyaSU
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+
+                    startPositionY.Text = "10";
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -379,6 +383,8 @@ namespace ADBoyaSU
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+
+                    numOfRows.Text = "8";
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -396,6 +402,8 @@ namespace ADBoyaSU
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+
+                    numOfColumns.Text = "8";
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -413,6 +421,8 @@ namespace ADBoyaSU
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+
+                    squareSize.Text = "10";
                 }
 
             ShowMeMyImage(openFilePath.Text);
@@ -430,6 +440,8 @@ namespace ADBoyaSU
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
+
+                    distanceBetweenSqrs.Text = "2";
                 }
 
             ShowMeMyImage(openFilePath.Text);
