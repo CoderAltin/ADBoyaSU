@@ -90,8 +90,8 @@ namespace ADBoyaSU
         public Form1()
         {
             InitializeComponent();
-            noR = Convert.ToInt32(numOfRows.Text);
-            noC = Convert.ToInt32(numOfColumns.Text);
+            noR = Convert.ToInt32(numOfRows.Text, CultureInfo.InvariantCulture);
+            noC = Convert.ToInt32(numOfColumns.Text, CultureInfo.InvariantCulture);
 
         }
 
@@ -341,7 +341,7 @@ namespace ADBoyaSU
             if (startPositionX.Text.Trim() != "")
                 try
                 {
-                    spX = Convert.ToSingle(startPositionX.Text);
+                    spX = Convert.ToSingle(startPositionX.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -360,7 +360,7 @@ namespace ADBoyaSU
             if (startPositionY.Text.Trim() != "")
                 try
                 {
-                    spY = Convert.ToSingle(startPositionY.Text);
+                    spY = Convert.ToSingle(startPositionY.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -378,7 +378,7 @@ namespace ADBoyaSU
             if (numOfRows.Text.Trim() != "")
                 try
                 {
-                    noR = Convert.ToInt32(numOfRows.Text);
+                    noR = Convert.ToInt32(numOfRows.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -397,7 +397,7 @@ namespace ADBoyaSU
             if (numOfColumns.Text.Trim() != "")
                 try
                 {
-                    noC = Convert.ToInt32(numOfColumns.Text);
+                    noC = Convert.ToInt32(numOfColumns.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -416,7 +416,7 @@ namespace ADBoyaSU
             if (squareSize.Text.Trim() != "")
                 try
                 {
-                    soS = Convert.ToSingle(squareSize.Text);
+                    soS = Convert.ToSingle(squareSize.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -435,7 +435,7 @@ namespace ADBoyaSU
             if (distanceBetweenSqrs.Text.Trim() != "")
                 try
                 {
-                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text);
+                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text,CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -497,7 +497,7 @@ namespace ADBoyaSU
 
         public void EditTextBoxValue(TextBox textBox, float value)
         {
-            var temp = Convert.ToSingle(textBox.Text);
+            var temp = Convert.ToSingle(textBox.Text,CultureInfo.InvariantCulture);
             temp += value;
             textBox.Text = temp.ToString(CultureInfo.InvariantCulture);
         }
@@ -567,7 +567,7 @@ namespace ADBoyaSU
             for (int i = 0; i < toOmitStr.Length; i++)
                 try
                 {
-                    toOmitInt[i] = Convert.ToInt32(toOmitStr[i]);
+                    toOmitInt[i] = Convert.ToInt32(toOmitStr[i], CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
@@ -671,7 +671,7 @@ namespace ADBoyaSU
                     attadim = true;
                 }
 
-
+                // Setting values for each image
                 for (int j = 0; j < noR; j++) // each row
                 {
                     for (int k = 0; k < noC; k++) // each column
@@ -926,7 +926,7 @@ namespace ADBoyaSU
 
         #region workflow Conducting (enabling and disabling controls)
         /// <summary>
-        /// enables or disable a group of controls
+        /// enables or disable a group of controls. 1-enable, 0-disable
         /// </summary>
         /// <param name="state">state. 0 -> disable, 1 -> enable</param>
         public void EnableControls(int state)
@@ -1035,10 +1035,13 @@ namespace ADBoyaSU
 
         #endregion
 
+        #region Exit
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion
 
         #region Saving
         /* No using this anymore
