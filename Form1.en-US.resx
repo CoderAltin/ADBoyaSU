@@ -789,7 +789,7 @@
     <value>How Could You Mess This Up?</value>
   </data>
   <data name="pisYazilma_mes" xml:space="preserve">
-    <value>     Write a Correct Number Would You?</value>
+    <value>     Please Write a Correct Number.</value>
   </data>
   <data name="qurtuldu_cap" xml:space="preserve">
     <value>What's the Final Result?</value>
