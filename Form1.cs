@@ -7,7 +7,7 @@ using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.CodeDom;
-using MultiLanguageTest_01;
+//using MultiLanguageTest_01;
 using System.Resources;
 using System.Reflection;
 
