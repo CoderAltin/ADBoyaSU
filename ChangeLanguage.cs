@@ -38,15 +38,12 @@ namespace ADBoyaSU
         /// <param name="value">desired language</param>
         static void UpdateLangConfig(string value)
         {
-            // getting config file
             XmlDocument configFile = new XmlDocument();
 
             string location = Directory.GetCurrentDirectory() + "\\ADBoyaSU.dll.config";
 
             configFile.Load(location);
 
-
-            // trying to change language to what we want
             try
             {
                 foreach (XmlElement element in configFile.DocumentElement)

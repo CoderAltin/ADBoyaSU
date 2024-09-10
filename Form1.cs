@@ -23,8 +23,6 @@ namespace ADBoyaSU
 
         Thread calculatorThread;
 
-
-        // Don't remember what
         public bool convertToGray = false;
         public bool showSquares = true;
         Image? workingImage;
@@ -61,8 +59,8 @@ namespace ADBoyaSU
         public float dbSIncStep = 0.5f; // the step by which distanceBetweenSquares value in increased
 
         // Text Changed of Settings
-        //string wrongInputSettings_message = "\tDüzgün Bir Sayı Yaz.";
-        //string wrongInputSettings_caption = "Savadsız";
+        string wrongInputSettings_message = "\tDüzgün Bir Sayı Yaz.";
+        string wrongInputSettings_caption = "Savadsız";
 
         // Omit These
         public string[]? toOmitStr;
@@ -1196,8 +1194,6 @@ namespace ADBoyaSU
         {
             ChangeLanguage.ToEnglishUK();
         }
-
-
         #endregion
     }
 }
