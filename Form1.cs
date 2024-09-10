@@ -10,6 +10,7 @@ using System.CodeDom;
 //using MultiLanguageTest_01;
 using System.Resources;
 using System.Reflection;
+using System.Globalization;
 
 namespace ADBoyaSU
 {
@@ -453,43 +454,43 @@ namespace ADBoyaSU
         private void startPositionX_Leave(object sender, EventArgs e)
         {
             if (startPositionX.Text.Trim() == "")
-                startPositionX.Text = spX.ToString();
+                startPositionX.Text = spX.ToString(CultureInfo.InvariantCulture);
         }
 
         private void startPositionY_Leave(object sender, EventArgs e)
         {
             if (startPositionY.Text.Trim() == "")
-                startPositionY.Text = spY.ToString();
+                startPositionY.Text = spY.ToString(CultureInfo.InvariantCulture);
         }
 
         private void numOfRows_Leave(object sender, EventArgs e)
         {
             if (numOfRows.Text.Trim() == "")
-                numOfRows.Text = noR.ToString();
+                numOfRows.Text = noR.ToString(CultureInfo.InvariantCulture);
         }
 
         private void numOfColumns_Leave(object sender, EventArgs e)
         {
             if (numOfColumns.Text.Trim() == "")
-                numOfColumns.Text = noC.ToString();
+                numOfColumns.Text = noC.ToString(CultureInfo.InvariantCulture);
         }
 
         private void squareSize_Leave(object sender, EventArgs e)
         {
             if (squareSize.Text.Trim() == "")
-                squareSize.Text = soS.ToString();
+                squareSize.Text = soS.ToString(CultureInfo.InvariantCulture);
         }
 
         private void distanceBetweenSqrs_Leave(object sender, EventArgs e)
         {
             if (distanceBetweenSqrs.Text.Trim() == "")
-                distanceBetweenSqrs.Text = dbS.ToString();
+                distanceBetweenSqrs.Text = dbS.ToString(CultureInfo.InvariantCulture);
         }
 
         private void omitThese_Leave(object sender, EventArgs e)
         {
             if (omitThese.Text.Trim() == "")
-                omitThese.Text = 0.ToString();
+                omitThese.Text = 0.ToString(CultureInfo.InvariantCulture);
         }
 
         #endregion
@@ -498,7 +499,7 @@ namespace ADBoyaSU
         {
             var temp = Convert.ToSingle(textBox.Text);
             temp += value;
-            textBox.Text = temp.ToString();
+            textBox.Text = temp.ToString(CultureInfo.InvariantCulture);
         }
 
         #region Increase/Decrease Buttons
@@ -693,7 +694,7 @@ namespace ADBoyaSU
                         else if (attadim && i != 0)   // time for average calculation!
                         {
                             float temp = values[i - 1, l] + values[i - 2, l] + values[i - 3, l];
-                            result_1[i] += (temp / imagesOfAKind).ToString("0.00") + ",";
+                            result_1[i] += (temp / imagesOfAKind).ToString("0.00",CultureInfo.InvariantCulture) + ",";
 
                             sumOfThisRow += (temp / imagesOfAKind);
                             numOfDataInThisRow++;
@@ -711,7 +712,7 @@ namespace ADBoyaSU
 
                     if (i != 0 && !attadim) // creating second file
                     {
-                        string temp = $"{n},{sumImageRow}," + ((float)sumImageRow * 100 / n).ToString("00.00");
+                        string temp = $"{n},{sumImageRow}," + ((float)sumImageRow * 100 / n).ToString("00.00", CultureInfo.InvariantCulture);
 
                         while (temp.Length < 10) // making it visually nice!
                             temp += " ";
@@ -723,7 +724,7 @@ namespace ADBoyaSU
 
                     if (attadim && i != 0)  // average of all data in one row
                     {
-                        result_1[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString("0.00") + "  ,";
+                        result_1[i] += "  " + (sumOfThisRow / numOfDataInThisRow).ToString("0.00", CultureInfo.InvariantCulture) + "  ,";
                         sumOfThisRow = 0;
                         numOfDataInThisRow = 0;
                     }// average of all data in one row
