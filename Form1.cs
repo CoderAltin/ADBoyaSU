@@ -693,9 +693,9 @@ namespace ADBoyaSU
                         else if (attadim && i != 0)   // time for average calculation!
                         {
                             float temp = values[i - 1, l] + values[i - 2, l] + values[i - 3, l];
-                            result_1[i] += (100 * temp / imagesOfAKind).ToString("0.00") + ",";
+                            result_1[i] += (temp / imagesOfAKind).ToString("0.00") + ",";
 
-                            sumOfThisRow += (temp / imagesOfAKind) * 100;
+                            sumOfThisRow += (temp / imagesOfAKind);
                             numOfDataInThisRow++;
                         } // Averages
                         else // storing actual square data both for displaying(result[i]) and calculations(Values[i,l])
