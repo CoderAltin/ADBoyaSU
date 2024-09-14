@@ -146,7 +146,6 @@ namespace ADBoyaSU
                 ScrollButtonsConditioner();
 
 
-                //MessageBox.Show("Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...", "Birzad Seçməmışez");
                 MessageBox.Show(rm.GetString("birzadSecilmiyip_mes"),rm.GetString("birzadSecilmiyip_cap"));
 
             }
@@ -345,7 +344,6 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
 
                     startPositionX.Text = "10";
@@ -365,7 +363,6 @@ namespace ADBoyaSU
                 catch (Exception)
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
-                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     startPositionY.Text = "10";
                 }
@@ -383,7 +380,6 @@ namespace ADBoyaSU
                 catch (Exception)
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
-                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     numOfRows.Text = "8";
                 }
@@ -402,7 +398,6 @@ namespace ADBoyaSU
                 catch (Exception)
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
-                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     numOfColumns.Text = "8";
                 }
@@ -421,7 +416,6 @@ namespace ADBoyaSU
                 catch (Exception)
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
-                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     squareSize.Text = "10";
                 }
@@ -440,7 +434,6 @@ namespace ADBoyaSU
                 catch (Exception)
                 {
                     MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
-                    //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     distanceBetweenSqrs.Text = "2";
                 }
@@ -788,11 +781,9 @@ namespace ADBoyaSU
             }
             catch (Exception)
             {
-                //MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
                 MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes"),rm.GetString("sonuclarYazilmadi_cap"));
             }
 
-            //MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
             MessageBox.Show(rm.GetString("qurtuldu_mes"),rm.GetString("qurtuldu_cap"));
 
             EnableControls(1);
@@ -813,7 +804,6 @@ namespace ADBoyaSU
                 calculatorThread.Start();
             }
             else
-                //MessageBox.Show("Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç", "Harada Saxlıyak Bıları İndı Biz?");
                 MessageBox.Show(rm.GetString("haradaSaxliyak_mes"),rm.GetString("haradaSaxliyak_cap"));
 
         }
@@ -1041,24 +1031,6 @@ namespace ADBoyaSU
         }
 
         #region Saving
-        /* No using this anymore
-        public void Save(string[] data_1, string[] data_2)
-        {
-            try
-            {
-                File.WriteAllLines(saveAddress_1, data_1);
-                File.WriteAllLines(saveAddress_2, data_2);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
-            }
-
-            //MessageBox.Show("\tYazdık Sonucları.", "Oldu!...");
-
-        }
-        */
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -1072,7 +1044,6 @@ namespace ADBoyaSU
                 saveFilePath.Text = saveFileDialog.FileName;
             }
             else
-                //MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?", "Bir Yer Seçmədin");
                 MessageBox.Show(rm.GetString("yerSecmadin_mes"),rm.GetString("yerSecmadin_cap"));
         }
 
@@ -1152,7 +1123,6 @@ namespace ADBoyaSU
             fileNames = tempDragedFiles.ToArray();
 
             if (dragedFiles == null || dragedFiles.Count() == 0)
-                //MessageBox.Show("Bı(lar) .png, .jpg yoxsa .gif döül(lər)", "Pis Seçdin");
                 MessageBox.Show(rm.GetString("pisSecdin_mes"),rm.GetString("pisSecdin_cap"));
 
             WeHaveImagesNow(tempDragedFiles.ToArray());
