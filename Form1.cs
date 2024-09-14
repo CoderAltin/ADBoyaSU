@@ -619,6 +619,8 @@ namespace ADBoyaSU
             int imagesCount = fileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
 
+            int[,,] vri = new int[imagesCount, 8, 8]; // Value Representation of Images. array of images as 0's and 1's.
+
             string[] result_1 = new string[rowCount]; // 1'st table with averages and stuff
             string[] result_2 = new string[rowCount]; // 2'nd table which is kind of a summary
             string[] result_3 = new string[imagesCount + 1]; // 3'rd table just a raw set of data
@@ -705,6 +707,7 @@ namespace ADBoyaSU
                             result_1[i] += values[i, l].ToString() + ",";
                             result_3[m + 1] += values[i, l].ToString() + ",";
                             sumImageRow += (int)values[i, l];
+                            vri[m, j, k] = (int)values[i, l];
                             n++;
                         }   // Data From Images
                     }
@@ -733,13 +736,29 @@ namespace ADBoyaSU
 
                     if (!attadim && i != 0)  // 3'rd table
                         result_3[m + 1] += " ,";
-
                 }
 
 
                 l = 0;
                 if (!attadim)
                     m++;
+
+                // Calculate Contact Values
+                if(attadim && i != 0)
+                {
+
+                    // get rn for image 1 of a sound
+                    // get rn for image 2 of a sound
+                    // get rn for image 3 of a sound
+                    // get Rn by averaging all rn's
+
+                    // get cc for image 1 of a sound
+                    // get cc for image 2 of a sound
+                    // get cc for image 3 of a sound
+                    // get CC by averaging all cc's
+
+                    //MessageBox.Show("bir sas qurtuldu");
+                }
 
                 // Progress bar
                 if (this.InvokeRequired)
