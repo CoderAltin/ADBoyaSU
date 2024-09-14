@@ -739,10 +739,6 @@ namespace ADBoyaSU
                 }
 
 
-                l = 0;
-                if (!attadim)
-                    m++;
-
                 // Calculate Contact Values
                 if(attadim && i != 0)
                 {
@@ -757,8 +753,16 @@ namespace ADBoyaSU
                     // get cc for image 3 of a sound
                     // get CC by averaging all cc's
 
+                    //var thisSoundResults = ContactValuesCalculations.ThisSoundResults(vri[m,,],vri[m - 1, ,],vri[m - 2],,])
+
                     //MessageBox.Show("bir sas qurtuldu");
                 }
+
+
+                l = 0;
+                if (!attadim)
+                    m++;
+
 
                 // Progress bar
                 if (this.InvokeRequired)
