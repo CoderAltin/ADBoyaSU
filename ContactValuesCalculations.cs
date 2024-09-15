@@ -83,7 +83,7 @@ namespace ADBoyaSU
             float[] a2rn = Rn(a2); // row averages for only the second image
             float[] a2cn = Cn(a2); // column averages for only the second image
             // Rn's and Cn's for a3
-            float[] a3rn = Rn(a1); // row averages for only the third image
+            float[] a3rn = Rn(a3); // row averages for only the third image
             float[] a3cn = Cn(a3); // column averages for only the third image
 
             // averages of Rn's and Cn's for all of images
@@ -100,12 +100,12 @@ namespace ADBoyaSU
             }
 
 
-            // results[1] => CA 
-            results[1] = CA(RN);
-            // results[2] => CP
-            results[2] = CP(RN);
-            // results[3] => CC
-            results[3] = CC(CN);
+            // results[0] => CA 
+            results[0] = CA(RN);
+            // results[1] => CP
+            results[1] = CP(RN);
+            // results[2] => CC
+            results[2] = CC(CN);
 
 
             return results;
@@ -211,31 +211,6 @@ namespace ADBoyaSU
         }
 
 
-        /// <summary>
-        /// Calculate averages for values in columns
-        /// </summary>
-        /// <param name="a">a 2D array of values representing an images</param>
-        /// <returns></returns>
-        public static float[] Cn(int[,] a)
-        {
-            float[] result = new float[a.GetLength(1) / 2];
-            float temp = 0;
-
-            for (int i = 0; i < a.GetLength(1) / 2; i++) // Columns
-            {
-                for (int j = 0; j < a.GetLength(0); j++) // Rows
-                {
-                    temp += a[j, i] + a[j, a.GetLength(1) - 1 - i];
-                }
-
-                if (i == 0)
-                    result[i] = temp / 14;
-                else
-                    result[i] = temp / 16;
-            }
-
-            return result;
-        }
 
         /// <summary>
         /// Calculates row values average for an image
@@ -258,10 +233,39 @@ namespace ADBoyaSU
                     result[i] = temp / 6;
                 else
                     result[i] = temp / 8;
+
+                temp = 0;
             }
 
             return result;
         }
 
+        /// <summary>
+        /// Calculate averages for values in columns
+        /// </summary>
+        /// <param name="a">a 2D array of values representing an images</param>
+        /// <returns></returns>
+        public static float[] Cn(int[,] a)
+        {
+            float[] result = new float[a.GetLength(1) / 2];
+            float temp = 0;
+
+            for (int i = 0; i < a.GetLength(1) / 2; i++) // Columns
+            {
+                for (int j = 0; j < a.GetLength(0); j++) // Rows
+                {
+                    temp += a[j, i] + a[j, a.GetLength(1) - 1 - i];
+                }
+
+                if (i == 0)
+                    result[i] = temp / 14;
+                else
+                    result[i] = temp / 16;
+
+                temp = 0;
+            }
+
+            return result;
+        }
     }
 }

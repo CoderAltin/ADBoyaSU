@@ -80,6 +80,7 @@ namespace ADBoyaSU
         public string saveAddress_1 = "";
         public string saveAddress_2 = "";
         public string saveAddress_3 = "";
+        public string saveAddress_4 = "";
 
         // Drag and drop
         Color form1Color, menuStrip1Color;
@@ -619,14 +620,15 @@ namespace ADBoyaSU
             int imagesCount = fileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
 
-            //int[,,] vri = new int[imagesCount, 8, 8]; // Value Representation of Images. array of images as 0's and 1's.
-            int[][,] vri = new int[imagesCount][,]; // Value Representation of Images. array of images as 0's and 1's.
+            int[][,] VRI = new int[imagesCount][,]; // Value Representation of Images. array of images as 0's and 1's.
             for (int i = 0; i < imagesCount; i++)
-                vri[i] = new int[8, 8];
+                VRI[i] = new int[8, 8];
+            int p = 0; // just a simple counter
 
             string[] result_1 = new string[rowCount]; // 1'st table with averages and stuff
             string[] result_2 = new string[rowCount]; // 2'nd table which is kind of a summary
             string[] result_3 = new string[imagesCount + 1]; // 3'rd table just a raw set of data
+            string[] result_4 = new string[(int)imagesCount / imagesOfAKind + 2]; // 4'th table showing Contact Values
 
             float[,] values = new float[rowCount + 2, noR * noC + noR + 2];
 
@@ -710,7 +712,7 @@ namespace ADBoyaSU
                             result_1[i] += values[i, l].ToString() + ",";
                             result_3[m + 1] += values[i, l].ToString() + ",";
                             sumImageRow += (int)values[i, l];
-                            vri[m][j, k] = (int)values[i, l];
+                            VRI[m][j, k] = (int)values[i, l];
                             n++;
                         }   // Data From Images
                     }
@@ -745,21 +747,39 @@ namespace ADBoyaSU
                 // Calculate Contact Values
                 if (attadim && i != 0)
                 {
+                    result_4[p] += ThisFileName(fileNames[m - 3]);
 
-                    // get rn for image 1 of a sound
-                    // get rn for image 2 of a sound
-                    // get rn for image 3 of a sound
-                    // get Rn by averaging all rn's
+                    var thisSoundResults = ContactValuesCalculations.ThisSoundResults(VRI[m - 3], VRI[m - 2], VRI[m - 1]);
 
-                    // get cc for image 1 of a sound
-                    // get cc for image 2 of a sound
-                    // get cc for image 3 of a sound
-                    // get CC by averaging all cc's
+                    result_4[p] += 
+                        $" ,CA = {thisSoundResults[0]}" +
+                        $" ,CP = {thisSoundResults[1]}" +
+                        $" ,CC = {thisSoundResults[2]}";
 
-                    //var thisSoundResults = ContactValuesCalculations.ThisSoundResults(vri[m,,],vri[m - 1, ,],vri[m - 2],,])
-                    //var thisSoundResults = ContactValuesCalculations.ThisSoundResults(vri[m], vri[m - 1], vri[m - 2]);
+                    /* For Manual control
+                     * results represent images: çəm (1).PNG, çəm (2).PNG, çəm (3).PNG
+                     
+                    float R1 = 1;
+                    float R2 = 1;
+                    float R3 = 0.792f;
+                    float R4 = 0.416f;
+                    float R5 = 0.416f;
+                    float R6 = 0.333f;
+                    float R7 = 0.416f;
+                    float R8 = 0.5f;
 
-                    MessageBox.Show("bir sas qurtuldu");
+                    float C1 = 0.953f;
+                    float C2 = 0.792f;
+                    float C3 = 0.375f;
+                    float C4 = 0.3125f;
+
+                    float testCA = ContactValuesCalculations.CA(R1, R2, R3, R4, R5, R6, R7, R8);
+                    float testCP = ContactValuesCalculations.CP(R1, R2, R3, R4, R5, R6, R7, R8);
+                    float testCC = ContactValuesCalculations.CC(C1, C2, C3, C4);
+
+                    MessageBox.Show($"testCA = {testCA}\ntestCP = {testCP}\ntestCC = {testCC}\n{result_4[p]}");*/
+
+                    p++;
                 }
 
 
@@ -812,6 +832,7 @@ namespace ADBoyaSU
                 File.WriteAllLines(saveAddress_1, result_1);
                 File.WriteAllLines(saveAddress_2, result_2);
                 File.WriteAllLines(saveAddress_3, result_3);
+                File.WriteAllLines(saveAddress_4, result_4);
             }
             catch (Exception)
             {
@@ -1113,6 +1134,7 @@ namespace ADBoyaSU
             string temp = saveFilePath.Text.Split('\\').Last().Split('.').First();
             saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_ikiminci");
             saveAddress_3 = saveFilePath.Text.Replace(temp, temp + "_yavan");
+            saveAddress_4 = saveFilePath.Text.Replace(temp, temp + "_Doxunus_Dayarlari");
         }
         #endregion
 
