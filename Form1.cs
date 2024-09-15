@@ -147,7 +147,7 @@ namespace ADBoyaSU
 
 
                 //MessageBox.Show("Üstündə İşləmək Üçün 'İmage' Yox Bacı, 'İmage'...", "Birzad Seçməmışez");
-                MessageBox.Show(rm.GetString("birzadSecilmiyip_mes"),rm.GetString("birzadSecilmiyip_cap"));
+                MessageBox.Show(rm.GetString("birzadSecilmiyip_mes"), rm.GetString("birzadSecilmiyip_cap"));
 
             }
 
@@ -346,7 +346,7 @@ namespace ADBoyaSU
                 catch (Exception)
                 {
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     startPositionX.Text = "10";
                 }
@@ -364,7 +364,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     startPositionY.Text = "10";
@@ -382,7 +382,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     numOfRows.Text = "8";
@@ -401,7 +401,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     numOfColumns.Text = "8";
@@ -420,7 +420,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     squareSize.Text = "10";
@@ -435,11 +435,11 @@ namespace ADBoyaSU
             if (distanceBetweenSqrs.Text.Trim() != "")
                 try
                 {
-                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text,CultureInfo.InvariantCulture);
+                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
                     //MessageBox.Show(wrongInputSettings_message, wrongInputSettings_caption);
 
                     distanceBetweenSqrs.Text = "2";
@@ -497,7 +497,7 @@ namespace ADBoyaSU
 
         public void EditTextBoxValue(TextBox textBox, float value)
         {
-            var temp = Convert.ToSingle(textBox.Text,CultureInfo.InvariantCulture);
+            var temp = Convert.ToSingle(textBox.Text, CultureInfo.InvariantCulture);
             temp += value;
             textBox.Text = temp.ToString(CultureInfo.InvariantCulture);
         }
@@ -619,7 +619,10 @@ namespace ADBoyaSU
             int imagesCount = fileNames.Length;
             int rowCount = (int)(imagesCount / imagesOfAKind + imagesCount + 1);
 
-            int[,,] vri = new int[imagesCount, 8, 8]; // Value Representation of Images. array of images as 0's and 1's.
+            //int[,,] vri = new int[imagesCount, 8, 8]; // Value Representation of Images. array of images as 0's and 1's.
+            int[][,] vri = new int[imagesCount][,]; // Value Representation of Images. array of images as 0's and 1's.
+            for (int i = 0; i < imagesCount; i++)
+                vri[i] = new int[8, 8];
 
             string[] result_1 = new string[rowCount]; // 1'st table with averages and stuff
             string[] result_2 = new string[rowCount]; // 2'nd table which is kind of a summary
@@ -696,7 +699,7 @@ namespace ADBoyaSU
                         else if (attadim && i != 0)   // time for average calculation!
                         {
                             float temp = values[i - 1, l] + values[i - 2, l] + values[i - 3, l];
-                            result_1[i] += (temp / imagesOfAKind).ToString("0.00",CultureInfo.InvariantCulture) + ",";
+                            result_1[i] += (temp / imagesOfAKind).ToString("0.00", CultureInfo.InvariantCulture) + ",";
 
                             sumOfThisRow += (temp / imagesOfAKind);
                             numOfDataInThisRow++;
@@ -707,7 +710,7 @@ namespace ADBoyaSU
                             result_1[i] += values[i, l].ToString() + ",";
                             result_3[m + 1] += values[i, l].ToString() + ",";
                             sumImageRow += (int)values[i, l];
-                            vri[m, j, k] = (int)values[i, l];
+                            vri[m][j, k] = (int)values[i, l];
                             n++;
                         }   // Data From Images
                     }
@@ -740,7 +743,7 @@ namespace ADBoyaSU
 
 
                 // Calculate Contact Values
-                if(attadim && i != 0)
+                if (attadim && i != 0)
                 {
 
                     // get rn for image 1 of a sound
@@ -754,8 +757,9 @@ namespace ADBoyaSU
                     // get CC by averaging all cc's
 
                     //var thisSoundResults = ContactValuesCalculations.ThisSoundResults(vri[m,,],vri[m - 1, ,],vri[m - 2],,])
+                    //var thisSoundResults = ContactValuesCalculations.ThisSoundResults(vri[m], vri[m - 1], vri[m - 2]);
 
-                    //MessageBox.Show("bir sas qurtuldu");
+                    MessageBox.Show("bir sas qurtuldu");
                 }
 
 
@@ -812,11 +816,11 @@ namespace ADBoyaSU
             catch (Exception)
             {
                 //MessageBox.Show("\tSonucları Yazabilmədık... Niyə Görən", "Ax Boyunum...");
-                MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes"),rm.GetString("sonuclarYazilmadi_cap"));
+                MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes"), rm.GetString("sonuclarYazilmadi_cap"));
             }
 
             //MessageBox.Show("\tQurtuldu.", "İşiz Hara Çatdi?");
-            MessageBox.Show(rm.GetString("qurtuldu_mes"),rm.GetString("qurtuldu_cap"));
+            MessageBox.Show(rm.GetString("qurtuldu_mes"), rm.GetString("qurtuldu_cap"));
 
             EnableControls(1);
         }
@@ -837,7 +841,7 @@ namespace ADBoyaSU
             }
             else
                 //MessageBox.Show("Birincısı, Sonucları Saxlamaq Üçün Bir Yer Seç", "Harada Saxlıyak Bıları İndı Biz?");
-                MessageBox.Show(rm.GetString("haradaSaxliyak_mes"),rm.GetString("haradaSaxliyak_cap"));
+                MessageBox.Show(rm.GetString("haradaSaxliyak_mes"), rm.GetString("haradaSaxliyak_cap"));
 
         }
 
@@ -1099,7 +1103,7 @@ namespace ADBoyaSU
             }
             else
                 //MessageBox.Show("Sən Bir Dolan Gənə Gəl Diyiren?", "Bir Yer Seçmədin");
-                MessageBox.Show(rm.GetString("yerSecmadin_mes"),rm.GetString("yerSecmadin_cap"));
+                MessageBox.Show(rm.GetString("yerSecmadin_mes"), rm.GetString("yerSecmadin_cap"));
         }
 
         private void saveFilePath_TextChanged(object sender, EventArgs e)
@@ -1179,7 +1183,7 @@ namespace ADBoyaSU
 
             if (dragedFiles == null || dragedFiles.Count() == 0)
                 //MessageBox.Show("Bı(lar) .png, .jpg yoxsa .gif döül(lər)", "Pis Seçdin");
-                MessageBox.Show(rm.GetString("pisSecdin_mes"),rm.GetString("pisSecdin_cap"));
+                MessageBox.Show(rm.GetString("pisSecdin_mes"), rm.GetString("pisSecdin_cap"));
 
             WeHaveImagesNow(tempDragedFiles.ToArray());
 
