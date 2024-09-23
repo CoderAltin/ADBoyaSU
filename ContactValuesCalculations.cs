@@ -18,7 +18,19 @@ namespace ADBoyaSU
         static int F = 6561;
         static int G = 59049;
         static int H = 531441;
-        static int I = 4782969;*/
+        static int I_CA = 3587227;
+        static int I_CP = 4782969;
+
+        static int CA_Denominator = 4185098;
+        static int CP_Denominator = 5380840;
+
+        static int L = 1;
+        static int M = 17;
+        static int N = 289;
+        static int O = 4913;
+
+        static int CC_Denominator = 5220;*/
+
 
         /// <summary>
         /// Calculate CA, CP and CC values for one sound, represented by three images
@@ -64,7 +76,6 @@ namespace ADBoyaSU
 
             return contactAnteriority;
         }
-
         /// <summary>
         /// Calculate CA, CP and CC values for one sound, represented by three images
         /// </summary>
@@ -100,19 +111,16 @@ namespace ADBoyaSU
             }
 
 
-            // results[0] => CA 
             results[0] = CA(RN);
-            // results[1] => CP
             results[1] = CP(RN);
-            // results[2] => CC
             results[2] = CC(CN);
 
 
             return results;
         }
 
-        // Change the percision (float, double, long) if you like later.
 
+        // Change the percision (float, double, long) if you like later.
         // Contact Anteriority
         /// <summary>
         /// Calculate Contact Anteriority based on provided averages
