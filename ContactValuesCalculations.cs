@@ -35,25 +35,25 @@ namespace ADBoyaSU
         /// <summary>
         /// Calculate CA, CP and CC values for one sound, represented by three images
         /// </summary>
-        /// <param name="a1">a 2D array of values representing first image of the sound</param>
-        /// <param name="a2">a 2D array of values representing second image of the sound</param>
-        /// <param name="a3">a 2D array of values representing third image of the sound</param>
+        /// <param name="image1">a 2D array of values representing first image of the sound</param>
+        /// <param name="image2">a 2D array of values representing second image of the sound</param>
+        /// <param name="image3">a 2D array of values representing third image of the sound</param>
         /// <param name="contactPosteriority">Contact Posteriority</param>
         /// <param name="contactCentrality">Contact Centrality</param>
         /// <returns>Conact Anteriority of CA</returns>
-        public static float ThisSoundResults(int[,] a1, int[,] a2, int[,] a3,out float contactPosteriority, out float contactCentrality)
+        public static float ThisSoundResults(int[,] image1, int[,] image2, int[,] image3,out float contactPosteriority, out float contactCentrality)
         {
             float contactAnteriority = 0;
 
             // Rn's and Cn's for a1
-            float[] a1rn = Rn(a1); // row averages for only the first image
-            float[] a1cn = Cn(a1); // column averages for only the first image
+            float[] a1rn = Rn(image1); // row averages for only the first image
+            float[] a1cn = Cn(image1); // column averages for only the first image
             // Rn's and Cn's for a2
-            float[] a2rn = Rn(a2); // row averages for only the second image
-            float[] a2cn = Cn(a2); // column averages for only the second image
+            float[] a2rn = Rn(image2); // row averages for only the second image
+            float[] a2cn = Cn(image2); // column averages for only the second image
             // Rn's and Cn's for a3
-            float[] a3rn = Rn(a1); // row averages for only the third image
-            float[] a3cn = Cn(a3); // column averages for only the third image
+            float[] a3rn = Rn(image1); // row averages for only the third image
+            float[] a3cn = Cn(image3); // column averages for only the third image
 
             // averages of Rn's and Cn's for all of images
             float[] RN = new float[a1rn.GetLength(0)];
@@ -79,23 +79,23 @@ namespace ADBoyaSU
         /// <summary>
         /// Calculate CA, CP and CC values for one sound, represented by three images
         /// </summary>
-        /// <param name="a1">a 2D array of values representing first image of the sound</param>
-        /// <param name="a2">a 2D array of values representing second image of the sound</param>
-        /// <param name="a3">a 2D array of values representing third image of the sound</param>
+        /// <param name="image1">a 2D array of values representing first image of the sound</param>
+        /// <param name="image2">a 2D array of values representing second image of the sound</param>
+        /// <param name="image3">a 2D array of values representing third image of the sound</param>
         /// <returns></returns>
-        public static float[] ThisSoundResults(int[,] a1, int[,] a2, int[,] a3)
+        public static float[] ThisSoundResults(int[,] image1, int[,] image2, int[,] image3)
         {
             float[] results = new float[3];
 
             // Rn's and Cn's for a1
-            float[] a1rn = Rn(a1); // row averages for only the first image
-            float[] a1cn = Cn(a1); // column averages for only the first image
+            float[] a1rn = Rn(image1); // row averages for only the first image
+            float[] a1cn = Cn(image1); // column averages for only the first image
             // Rn's and Cn's for a2
-            float[] a2rn = Rn(a2); // row averages for only the second image
-            float[] a2cn = Cn(a2); // column averages for only the second image
+            float[] a2rn = Rn(image2); // row averages for only the second image
+            float[] a2cn = Cn(image2); // column averages for only the second image
             // Rn's and Cn's for a3
-            float[] a3rn = Rn(a3); // row averages for only the third image
-            float[] a3cn = Cn(a3); // column averages for only the third image
+            float[] a3rn = Rn(image3); // row averages for only the third image
+            float[] a3cn = Cn(image3); // column averages for only the third image
 
             // averages of Rn's and Cn's for all of images
             float[] RN = new float[a1rn.GetLength(0)];

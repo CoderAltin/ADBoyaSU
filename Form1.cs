@@ -7,7 +7,6 @@ using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.CodeDom;
-//using MultiLanguageTest_01;
 using System.Resources;
 using System.Reflection;
 using System.Globalization;
@@ -744,7 +743,7 @@ namespace ADBoyaSU
                 }
 
 
-                // Calculate Contact Values
+                // Calculate Contact Values CA, CP, CC
                 if (attadim && i != 0)
                 {
                     result_4[p] += ThisFileName(fileNames[m - 3]);
