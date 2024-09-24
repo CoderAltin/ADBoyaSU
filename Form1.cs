@@ -19,7 +19,7 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
-        // üçün
+        // Ərşan
         // Türkü Azərbaycan
         ResourceManager rm = new ResourceManager("ADBoyaSU.Form1", Assembly.GetExecutingAssembly());
 
@@ -624,6 +624,8 @@ namespace ADBoyaSU
             string[] result_3 = new string[imagesCount + 1]; // 3'rd table just a raw set of data
             string[] result_4 = new string[(int)imagesCount / imagesOfAKind + 2]; // 4'th table showing Contact Values
 
+            string[] sonucText;
+            
             float[,] values = new float[rowCount + 2, noR * noC + noR + 2];
 
             #region Creating headers for second file/table
@@ -741,7 +743,8 @@ namespace ADBoyaSU
                 // Calculate Contact Values CA, CP, CC
                 if (attadim && i != 0)
                 {
-                    result_4[p] += ThisFileName(fileNames[m - 3]);
+                    string tfn = ThisFileName(fileNames[m - 3]);
+                    result_4[p] += tfn;
 
                     var thisSoundResults = ContactValuesCalculations.ThisSoundResults(VRI[m - 3], VRI[m - 2], VRI[m - 1]);
 
@@ -749,6 +752,10 @@ namespace ADBoyaSU
                         $" ,CA = {thisSoundResults[0]}" +
                         $" ,CP = {thisSoundResults[1]}" +
                         $" ,CC = {thisSoundResults[2]}";
+
+
+                    // Sonuc Text files Creation
+                    SonuclarFiles.AddThisToSonucText(tfn, thisSoundResults[0], thisSoundResults[1], thisSoundResults[2]);
 
                     /* For Manual control
                      * results represent images: çəm (1).PNG, çəm (2).PNG, çəm (3).PNG
@@ -827,6 +834,9 @@ namespace ADBoyaSU
                 File.WriteAllLines(saveAddress_2, result_2);
                 File.WriteAllLines(saveAddress_3, result_3);
                 File.WriteAllLines(saveAddress_4, result_4);
+
+                //File.WriteAllLines(saveFilePath.Text, SonuclarFiles.GetSonucText());
+                File.WriteAllText(saveFilePath.Text, SonuclarFiles.GetSonucText());
             }
             catch (Exception e)
             {
@@ -1106,7 +1116,7 @@ namespace ADBoyaSU
             string saveFileFullName = saveFilePath.Text.Split('\\').Last();
 
             // Creating a directory for saving text files (files that are made for migration to Excel)
-            string directoryName = fileName + "_Excel Üçün";
+            string directoryName = fileName + " _Excel Üçün";
             Directory.CreateDirectory(saveFilePath.Text.Replace(saveFileFullName, directoryName));
 
             string pathForTexts = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + saveFileFullName);
