@@ -10,6 +10,7 @@ using System.CodeDom;
 using System.Resources;
 using System.Reflection;
 using System.Globalization;
+//using System.IO;
 
 namespace ADBoyaSU
 {
@@ -18,6 +19,7 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
+        // üçün
         // Türkü Azərbaycan
         ResourceManager rm = new ResourceManager("ADBoyaSU.Form1", Assembly.GetExecutingAssembly());
 
@@ -146,7 +148,7 @@ namespace ADBoyaSU
                 ScrollButtonsConditioner();
 
 
-                MessageBox.Show(rm.GetString("birzadSecilmiyip_mes"),rm.GetString("birzadSecilmiyip_cap"));
+                MessageBox.Show(rm.GetString("birzadSecilmiyip_mes"), rm.GetString("birzadSecilmiyip_cap"));
 
             }
 
@@ -344,7 +346,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     startPositionX.Text = "10";
                 }
@@ -362,7 +364,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     startPositionY.Text = "10";
                 }
@@ -379,7 +381,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     numOfRows.Text = "8";
                 }
@@ -397,7 +399,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     numOfColumns.Text = "8";
                 }
@@ -415,7 +417,7 @@ namespace ADBoyaSU
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     squareSize.Text = "10";
                 }
@@ -429,11 +431,11 @@ namespace ADBoyaSU
             if (distanceBetweenSqrs.Text.Trim() != "")
                 try
                 {
-                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text,CultureInfo.InvariantCulture);
+                    dbS = Convert.ToSingle(distanceBetweenSqrs.Text, CultureInfo.InvariantCulture);
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(rm.GetString("pisYazilma_mes"),rm.GetString("pisYazilma_cap"));
+                    MessageBox.Show(rm.GetString("pisYazilma_mes"), rm.GetString("pisYazilma_cap"));
 
                     distanceBetweenSqrs.Text = "2";
                 }
@@ -490,7 +492,7 @@ namespace ADBoyaSU
 
         public void EditTextBoxValue(TextBox textBox, float value)
         {
-            var temp = Convert.ToSingle(textBox.Text,CultureInfo.InvariantCulture);
+            var temp = Convert.ToSingle(textBox.Text, CultureInfo.InvariantCulture);
             temp += value;
             textBox.Text = temp.ToString(CultureInfo.InvariantCulture);
         }
@@ -743,7 +745,7 @@ namespace ADBoyaSU
 
                     var thisSoundResults = ContactValuesCalculations.ThisSoundResults(VRI[m - 3], VRI[m - 2], VRI[m - 1]);
 
-                    result_4[p] += 
+                    result_4[p] +=
                         $" ,CA = {thisSoundResults[0]}" +
                         $" ,CP = {thisSoundResults[1]}" +
                         $" ,CC = {thisSoundResults[2]}";
@@ -826,12 +828,12 @@ namespace ADBoyaSU
                 File.WriteAllLines(saveAddress_3, result_3);
                 File.WriteAllLines(saveAddress_4, result_4);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes"),rm.GetString("sonuclarYazilmadi_cap"));
+                MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes") + "\n\n\n" + e, rm.GetString("sonuclarYazilmadi_cap"));
             }
 
-            MessageBox.Show(rm.GetString("qurtuldu_mes"),rm.GetString("qurtuldu_cap"));
+            MessageBox.Show(rm.GetString("qurtuldu_mes"), rm.GetString("qurtuldu_cap"));
 
             EnableControls(1);
         }
@@ -851,7 +853,7 @@ namespace ADBoyaSU
                 calculatorThread.Start();
             }
             else
-                MessageBox.Show(rm.GetString("haradaSaxliyak_mes"),rm.GetString("haradaSaxliyak_cap"));
+                MessageBox.Show(rm.GetString("haradaSaxliyak_mes"), rm.GetString("haradaSaxliyak_cap"));
 
         }
 
@@ -1094,17 +1096,35 @@ namespace ADBoyaSU
                 saveFilePath.Text = saveFileDialog.FileName;
             }
             else
-                MessageBox.Show(rm.GetString("yerSecmadin_mes"),rm.GetString("yerSecmadin_cap"));
+                MessageBox.Show(rm.GetString("yerSecmadin_mes"), rm.GetString("yerSecmadin_cap"));
         }
 
         private void saveFilePath_TextChanged(object sender, EventArgs e)
         {
+            string saveFileName = saveFilePath.Text.Split('\\').Last();
+
+            // Creating a directory for saving text files (files that are made for migration to Excel)
+            Directory.CreateDirectory(saveFilePath.Text.Replace(saveFileName, "Excel Üçün"));
+
+            string pathForTexts = saveFilePath.Text.Replace(saveFileName, "Excel Üçün\\" + saveFileName); ;
+            string pathForSonucs;
+
+
+            /* Old Output files
+            
             saveAddress_1 = saveFilePath.Text;
 
             string temp = saveFilePath.Text.Split('\\').Last().Split('.').First();
             saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_ikiminci");
             saveAddress_3 = saveFilePath.Text.Replace(temp, temp + "_yavan");
-            saveAddress_4 = saveFilePath.Text.Replace(temp, temp + "_Doxunus_Dayarlari");
+            saveAddress_4 = saveFilePath.Text.Replace(temp, temp + "_Doxunus_Dayarlari");*/
+
+            saveAddress_1 = pathForTexts;
+
+            string temp = pathForTexts.Split('\\').Last().Split('.').First();
+            saveAddress_2 = pathForTexts.Replace(temp, temp + "_ikiminci");
+            saveAddress_3 = pathForTexts.Replace(temp, temp + "_yavan");
+            saveAddress_4 = pathForTexts.Replace(temp, temp + "_Doxunus_Dayarlari");
         }
         #endregion
 
@@ -1174,7 +1194,7 @@ namespace ADBoyaSU
             fileNames = tempDragedFiles.ToArray();
 
             if (dragedFiles == null || dragedFiles.Count() == 0)
-                MessageBox.Show(rm.GetString("pisSecdin_mes"),rm.GetString("pisSecdin_cap"));
+                MessageBox.Show(rm.GetString("pisSecdin_mes"), rm.GetString("pisSecdin_cap"));
 
             WeHaveImagesNow(tempDragedFiles.ToArray());
 
