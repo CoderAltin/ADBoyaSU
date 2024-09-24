@@ -1101,30 +1101,27 @@ namespace ADBoyaSU
 
         private void saveFilePath_TextChanged(object sender, EventArgs e)
         {
-            string saveFileName = saveFilePath.Text.Split('\\').Last();
+            // The name user specified when choosing a place for saves.
+            string fileName = saveFilePath.Text.Split('\\').Last().Split('.').First();
+            string saveFileFullName = saveFilePath.Text.Split('\\').Last();
 
             // Creating a directory for saving text files (files that are made for migration to Excel)
-            Directory.CreateDirectory(saveFilePath.Text.Replace(saveFileName, "Excel Üçün"));
+            string directoryName = fileName + "_Excel Üçün";
+            Directory.CreateDirectory(saveFilePath.Text.Replace(saveFileFullName, directoryName));
 
-            string pathForTexts = saveFilePath.Text.Replace(saveFileName, "Excel Üçün\\" + saveFileName); ;
-            string pathForSonucs;
+            string pathForTexts = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + saveFileFullName);
 
-
-            /* Old Output files
+            saveAddress_1 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + saveFileFullName);
+            saveAddress_2 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + fileName + "_ikiminci.txt");
+            saveAddress_3 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + fileName + "_yavan.txt");
+            saveAddress_4 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + fileName + "_Doxunus_Dayarlari.txt");
             
-            saveAddress_1 = saveFilePath.Text;
-
-            string temp = saveFilePath.Text.Split('\\').Last().Split('.').First();
-            saveAddress_2 = saveFilePath.Text.Replace(temp, temp + "_ikiminci");
-            saveAddress_3 = saveFilePath.Text.Replace(temp, temp + "_yavan");
-            saveAddress_4 = saveFilePath.Text.Replace(temp, temp + "_Doxunus_Dayarlari");*/
-
+            /* Old Save Paths
             saveAddress_1 = pathForTexts;
-
             string temp = pathForTexts.Split('\\').Last().Split('.').First();
             saveAddress_2 = pathForTexts.Replace(temp, temp + "_ikiminci");
             saveAddress_3 = pathForTexts.Replace(temp, temp + "_yavan");
-            saveAddress_4 = pathForTexts.Replace(temp, temp + "_Doxunus_Dayarlari");
+            saveAddress_4 = pathForTexts.Replace(temp, temp + "_Doxunus_Dayarlari");*/
         }
         #endregion
 
