@@ -29,20 +29,59 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sonuclar_PopUp));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             Ad = new DataGridViewTextBoxColumn();
             Akiz1 = new DataGridViewImageColumn();
             Akiz2 = new DataGridViewImageColumn();
             Akiz3 = new DataGridViewImageColumn();
             Sonuclar = new DataGridViewTextBoxColumn();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            dataGridView2 = new DataGridView();
+            tabPage3 = new TabPage();
+            groupBox1 = new GroupBox();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            pictureBox1 = new PictureBox();
+            label6 = new Label();
+            pictureBox2 = new PictureBox();
+            label5 = new Label();
+            pictureBox3 = new PictureBox();
+            label4 = new Label();
+            label1 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            groupBox2 = new GroupBox();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            pictureBox4 = new PictureBox();
+            label13 = new Label();
+            pictureBox5 = new PictureBox();
+            label14 = new Label();
+            pictureBox6 = new PictureBox();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            tabPage3.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -51,43 +90,8 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ad, Akiz1, Akiz2, Akiz3, Sonuclar });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 3);
+            resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(762, 392);
-            dataGridView1.TabIndex = 0;
-            // 
-            // tabControl1
-            // 
-            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(12, 12);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(776, 426);
-            tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(768, 398);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(768, 398);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // Ad
             // 
@@ -95,35 +99,31 @@
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             Ad.DefaultCellStyle = dataGridViewCellStyle1;
-            Ad.HeaderText = "Ad";
+            resources.ApplyResources(Ad, "Ad");
             Ad.Name = "Ad";
             Ad.ReadOnly = true;
-            Ad.Width = 21;
             // 
             // Akiz1
             // 
             Akiz1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            Akiz1.HeaderText = "Akis 1";
+            resources.ApplyResources(Akiz1, "Akiz1");
             Akiz1.Image = Properties.Resources.gir_ozum_01;
             Akiz1.Name = "Akiz1";
             Akiz1.Resizable = DataGridViewTriState.False;
-            Akiz1.Width = 21;
             // 
             // Akiz2
             // 
             Akiz2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            Akiz2.HeaderText = "Akis 2";
+            resources.ApplyResources(Akiz2, "Akiz2");
             Akiz2.Image = Properties.Resources.gir_ozum_01;
             Akiz2.Name = "Akiz2";
-            Akiz2.Width = 21;
             // 
             // Akiz3
             // 
             Akiz3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            Akiz3.HeaderText = "Akis 3";
+            resources.ApplyResources(Akiz3, "Akiz3");
             Akiz3.Image = Properties.Resources.gir_ozum_01;
             Akiz3.Name = "Akiz3";
-            Akiz3.Width = 21;
             // 
             // Sonuclar
             // 
@@ -133,24 +133,238 @@
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             Sonuclar.DefaultCellStyle = dataGridViewCellStyle2;
-            Sonuclar.HeaderText = "Sonuclar";
+            resources.ApplyResources(Sonuclar, "Sonuclar");
             Sonuclar.Name = "Sonuclar";
             Sonuclar.ReadOnly = true;
-            Sonuclar.Width = 21;
+            // 
+            // tabControl1
+            // 
+            resources.ApplyResources(tabControl1, "tabControl1");
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(dataGridView1);
+            resources.ApplyResources(tabPage1, "tabPage1");
+            tabPage1.Name = "tabPage1";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(dataGridView2);
+            resources.ApplyResources(tabPage2, "tabPage2");
+            tabPage2.Name = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(dataGridView2, "dataGridView2");
+            dataGridView2.Name = "dataGridView2";
+            // 
+            // tabPage3
+            // 
+            resources.ApplyResources(tabPage3, "tabPage3");
+            tabPage3.BackColor = SystemColors.Control;
+            tabPage3.Controls.Add(groupBox2);
+            tabPage3.Controls.Add(groupBox1);
+            tabPage3.Name = "tabPage3";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(pictureBox2);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(pictureBox3);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            resources.ApplyResources(groupBox1, "groupBox1");
+            groupBox1.Name = "groupBox1";
+            groupBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(label9, "label9");
+            label9.Name = "label9";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(label8, "label8");
+            label8.Name = "label8";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(label7, "label7");
+            label7.Name = "label7";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.gir_ozum_01;
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(label6, "label6");
+            label6.Name = "label6";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.gir_ozum_01;
+            resources.ApplyResources(pictureBox2, "pictureBox2");
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.gir_ozum_01;
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            resources.ApplyResources(label4, "label4");
+            label4.Name = "label4";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label10);
+            groupBox2.Controls.Add(label11);
+            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(pictureBox4);
+            groupBox2.Controls.Add(label13);
+            groupBox2.Controls.Add(pictureBox5);
+            groupBox2.Controls.Add(label14);
+            groupBox2.Controls.Add(pictureBox6);
+            groupBox2.Controls.Add(label15);
+            groupBox2.Controls.Add(label16);
+            groupBox2.Controls.Add(label17);
+            groupBox2.Controls.Add(label18);
+            resources.ApplyResources(groupBox2, "groupBox2");
+            groupBox2.Name = "groupBox2";
+            groupBox2.TabStop = false;
+            // 
+            // label10
+            // 
+            resources.ApplyResources(label10, "label10");
+            label10.Name = "label10";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(label11, "label11");
+            label11.Name = "label11";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(label12, "label12");
+            label12.Name = "label12";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.gir_ozum_01;
+            resources.ApplyResources(pictureBox4, "pictureBox4");
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.TabStop = false;
+            // 
+            // label13
+            // 
+            resources.ApplyResources(label13, "label13");
+            label13.Name = "label13";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.gir_ozum_01;
+            resources.ApplyResources(pictureBox5, "pictureBox5");
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.TabStop = false;
+            // 
+            // label14
+            // 
+            resources.ApplyResources(label14, "label14");
+            label14.Name = "label14";
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.gir_ozum_01;
+            resources.ApplyResources(pictureBox6, "pictureBox6");
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.TabStop = false;
+            // 
+            // label15
+            // 
+            resources.ApplyResources(label15, "label15");
+            label15.Name = "label15";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(label16, "label16");
+            label16.Name = "label16";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(label17, "label17");
+            label17.Name = "label17";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(label18, "label18");
+            label18.Name = "label18";
             // 
             // Sonuclar_PopUp
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Sonuclar_PopUp";
-            Text = "Sonuclar_PopUp";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            tabPage3.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -165,5 +379,33 @@
         private DataGridViewImageColumn Akiz2;
         private DataGridViewImageColumn Akiz3;
         private DataGridViewTextBoxColumn Sonuclar;
+        private DataGridView dataGridView2;
+        private TabPage tabPage3;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private GroupBox groupBox1;
+        private Label label7;
+        private Label label9;
+        private Label label8;
+        private GroupBox groupBox2;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private PictureBox pictureBox4;
+        private Label label13;
+        private PictureBox pictureBox5;
+        private Label label14;
+        private PictureBox pictureBox6;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
     }
 }
