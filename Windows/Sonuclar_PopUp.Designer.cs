@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sonuclar_PopUp));
             dataGridView1 = new DataGridView();
             tabControl1 = new TabControl();
@@ -89,43 +91,52 @@
             // 
             // Ad
             // 
-            Ad.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Ad.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            Ad.DefaultCellStyle = dataGridViewCellStyle1;
             Ad.HeaderText = "Ad";
             Ad.Name = "Ad";
             Ad.ReadOnly = true;
-            Ad.Width = 150;
+            Ad.Width = 21;
             // 
             // Akiz1
             // 
-            Akiz1.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Akiz1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             Akiz1.HeaderText = "Akis 1";
             Akiz1.Image = Properties.Resources.gir_ozum_01;
             Akiz1.Name = "Akiz1";
             Akiz1.Resizable = DataGridViewTriState.False;
-            Akiz1.Width = 300;
+            Akiz1.Width = 21;
             // 
             // Akiz2
             // 
-            Akiz2.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Akiz2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             Akiz2.HeaderText = "Akis 2";
             Akiz2.Image = Properties.Resources.gir_ozum_01;
             Akiz2.Name = "Akiz2";
-            Akiz2.Width = 300;
+            Akiz2.Width = 21;
             // 
             // Akiz3
             // 
-            Akiz3.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Akiz3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             Akiz3.HeaderText = "Akis 3";
             Akiz3.Image = Properties.Resources.gir_ozum_01;
             Akiz3.Name = "Akiz3";
-            Akiz3.Width = 300;
+            Akiz3.Width = 21;
             // 
             // Sonuclar
             // 
+            Sonuclar.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            Sonuclar.DefaultCellStyle = dataGridViewCellStyle2;
             Sonuclar.HeaderText = "Sonuclar";
             Sonuclar.Name = "Sonuclar";
             Sonuclar.ReadOnly = true;
-            Sonuclar.Width = 78;
+            Sonuclar.Width = 21;
             // 
             // Sonuclar_PopUp
             // 
