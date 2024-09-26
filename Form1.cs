@@ -10,6 +10,7 @@ using System.CodeDom;
 using System.Resources;
 using System.Reflection;
 using System.Globalization;
+using ADBoyaSU.Windows;
 //using System.IO;
 
 namespace ADBoyaSU
@@ -94,6 +95,12 @@ namespace ADBoyaSU
             InitializeComponent();
             noR = Convert.ToInt32(numOfRows.Text, CultureInfo.InvariantCulture);
             noC = Convert.ToInt32(numOfColumns.Text, CultureInfo.InvariantCulture);
+
+
+            // **** Just temporarily **** //
+            // Sonuclar PopUp
+            Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
+            sonuclar.ShowDialog();
 
         }
 
@@ -843,7 +850,15 @@ namespace ADBoyaSU
                 MessageBox.Show(rm.GetString("sonuclarYazilmadi_mes") + "\n\n\n" + e, rm.GetString("sonuclarYazilmadi_cap"));
             }
 
+
+            // It's all over
             MessageBox.Show(rm.GetString("qurtuldu_mes"), rm.GetString("qurtuldu_cap"));
+            
+
+            // Sonuclar PopUp
+            Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
+            sonuclar.ShowDialog();
+
 
             EnableControls(1);
         }
