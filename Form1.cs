@@ -864,11 +864,14 @@ namespace ADBoyaSU
             // It's all over
             MessageBox.Show(rm.GetString("qurtuldu_mes"), rm.GetString("qurtuldu_cap"));
 
+            // Show me the results
+            Process.Start("Notepad.exe", saveFilePath.Text);
 
             // Sonuclar PopUp
             //Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
             //sonuclar.ShowDialog();
             sonuclar_PopUp.ShowDialog();
+
 
 
             EnableControls(1);
