@@ -1091,7 +1091,7 @@
     <value>2</value>
   </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 51</value>
+    <value>16, 54</value>
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
     <value>782, 1</value>
@@ -1101,9 +1101,6 @@
   </data>
   <data name="label20.Text" xml:space="preserve">
     <value>___________________________________________________________________________________________________________________________________________________________</value>
-  </data>
-  <data name="label20.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;label20.Name" xml:space="preserve">
     <value>label20</value>
