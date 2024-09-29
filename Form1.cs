@@ -852,8 +852,13 @@ namespace ADBoyaSU
                 File.WriteAllLines(saveAddress_3, result_3);
                 File.WriteAllLines(saveAddress_4, result_4);
 
+
                 //File.WriteAllLines(saveFilePath.Text, SonuclarFiles.GetSonucText());
+                //File.WriteAllText(saveFilePath.Text, SonuclarFiles.GetSonucText());
+                
                 File.WriteAllText(saveFilePath.Text, SonuclarFiles.GetSonucText());
+
+                SonuclarFiles.ClearStrings();
             }
             catch (Exception e)
             {

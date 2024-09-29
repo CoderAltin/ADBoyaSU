@@ -12,6 +12,8 @@ namespace ADBoyaSU
     {
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
+
+
         static string sonucText = "\tAd      |     CA     |     CP     |     CC     |\n" +
                             "----------------+------------+------------+------------+\n";
         static string rowSeparator = "----------------+------------+------------+------------+\n";
@@ -29,8 +31,8 @@ namespace ADBoyaSU
             "Yaxçı Bax 3: Bırada birzad yox. ama sən gənə Yaxçı Bax 1'ə Yaxçı Bax\n" +
 
             "Yaxçı Bax 4: Yaxçı Bax 3'ə Yaxçı Bax\n\n" +
-            
-            
+
+
             " -- + -------------------- + -- \n\n" +
 
 
@@ -43,11 +45,11 @@ namespace ADBoyaSU
             "Pro Tip 2: Pay Attention.\n" +
 
             "Pro Tip 3: There's nothing here. But you still Pay Attention to Pro Tip 1 anyways.\n" +
-            
+
             "Pro Tip 4: Pay Attention to Pro Tip 3.\n";
 
 
-        
+
         public static string GetSonucText()
         {
             sonucText += "\n\n\n\n" +
@@ -91,6 +93,13 @@ namespace ADBoyaSU
                 s = s.Substring(0, length);
 
             return s;
+        }
+
+
+        public static void ClearStrings()
+        {
+            sonucText = "\tAd      |     CA     |     CP     |     CC     |\n" +
+                            "----------------+------------+------------+------------+\n"; ;
         }
     }
 }
