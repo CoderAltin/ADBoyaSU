@@ -23,7 +23,7 @@ namespace ADBoyaSU.Windows
             PopulateSomeData();
         }
 
-        public void AddThisToSonucWind(string image1Address, string image2Address, string image3Address, float CA, float CC, float CP)
+        public void AddThisToSonucWind(string image1Address, string image2Address, string image3Address, float[] results)
         {
             string[] addresses = new string[3];
             addresses[0] = image1Address;
@@ -35,6 +35,8 @@ namespace ADBoyaSU.Windows
             names[1] = image2Address.Split('\\').Last().Split('.').First();
             names[2] = image3Address.Split('\\').Last().Split('.').First();
 
+            string[] rns = { "CA", "CP", "CC" }; // result names
+
             /*string name1 = image1Address.Split('\\').Last().Split('.').First();
             string name2 = image2Address.Split('\\').Last().Split('.').First();
             string name3 = image3Address.Split('\\').Last().Split('.').First();*/
@@ -43,11 +45,17 @@ namespace ADBoyaSU.Windows
             int distFromBorder = 6;
 
             PictureBox[] pictureBoxes = new PictureBox[3];
-            Size pbSize = new Size(150, 150);
             Point pbStartLocation = new Point(48, 22);
+            Size pbSize = new Size(150, 150);
 
             Label[] pictureLables = new Label[3];
             Point plStartLocation = new Point(0, pbStartLocation.Y + pbSize.Height + (int)distFromBorder / 2);
+
+            Label[] resultNames = new Label[3];
+            Point rnStartLocation = new Point(pbStartLocation.X + 3 * pbSize.Width + 3 * distFromBorder + distFromBorder, 40);
+
+            Label[] resultValues = new Label[3];
+            Point rvStartLocation = new Point(575, rnStartLocation.Y);
 
 
 
@@ -56,16 +64,16 @@ namespace ADBoyaSU.Windows
             GroupBox groupBox = new GroupBox();
             groupBox.Size = groupBoxSize;
             groupBox.Location = new Point(distFromBorder, i * (groupBoxSize.Height + distFromBorder) + distFromBorder);
-            //groupBox.Text = name1;
             groupBox.Text = names[0];
+            //groupBox.Text = name1;
 
             // Create PictureBoxes and image names
             for (int j = 0; j < 3; j++)
             {
-                int locX = pbStartLocation.X + j * (pbSize.Width + distFromBorder);
+                int picLocX = pbStartLocation.X + j * (pbSize.Width + distFromBorder);
                 pictureBoxes[j] = new PictureBox();
                 pictureBoxes[j].Name = $"picturebox{j}";
-                pictureBoxes[j].Location = new Point(locX, pbStartLocation.Y);
+                pictureBoxes[j].Location = new Point(picLocX, pbStartLocation.Y);
                 pictureBoxes[j].Size = pbSize;
                 pictureBoxes[j].SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBoxes[j].Image = Image.FromFile(addresses[j]);
@@ -73,13 +81,30 @@ namespace ADBoyaSU.Windows
 
                 pictureLables[j] = new Label();
                 pictureLables[j].Name = $"pictureLbel{j}";
-                pictureLables[j].Location = new Point(locX, pbStartLocation.Y + pbSize.Height + 3);
+                pictureLables[j].Location = new Point(picLocX, pbStartLocation.Y + pbSize.Height + 3);
                 pictureLables[j].Text = names[j];
+
+
+                resultNames[j] = new Label();
+                int resLocY = rnStartLocation.Y + j * (resultNames[j].Size.Height + 2 * distFromBorder);
+                resultNames[j].Font = new Font("Segoe UI", 15);
+                resultNames[j].Name = $"resultName{j}";
+                resultNames[j].Location = new Point(rnStartLocation.X, resLocY);
+                resultNames[j].Text = rns[j];
+
+
+                resultValues[j] = new Label();
+                resultValues[j].Font = new Font("Segoe UI", 15);
+                resultValues[j].Name = $"resultValue{j}";
+                resultValues[j].Location = new Point(rnStartLocation.X, resLocY);
+                resultValues[j].Text = results[j].ToString();
 
 
                 // add control to Groupbox
                 groupBox.Controls.Add(pictureBoxes[j]);
                 groupBox.Controls.Add(pictureLables[j]);
+                groupBox.Controls.Add(resultNames[j]);
+                groupBox.Controls.Add(resultValues[j]);
             }
 
             /*pictureBoxes[0].Image = Image.FromFile(image1Address);

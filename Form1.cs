@@ -765,10 +765,14 @@ namespace ADBoyaSU
 
                     // Sonuc Text files Creation
                     SonuclarFiles.AddThisToSonucText(tfn, thisSoundResults[0], thisSoundResults[1], thisSoundResults[2]);
-                   
+
+                    //sonuclar_PopUp.AddThisToSonucWind(
+                    //    fileNames[m - 3], fileNames[m - 2], fileNames[m - 1],
+                    //    thisSoundResults[0], thisSoundResults[1], thisSoundResults[2]);
+
                     sonuclar_PopUp.AddThisToSonucWind(
                         fileNames[m - 3], fileNames[m - 2], fileNames[m - 1],
-                        thisSoundResults[0], thisSoundResults[1], thisSoundResults[2]);
+                        thisSoundResults);
 
                     /* For Manual control
                      * results represent images: çəm (1).PNG, çəm (2).PNG, çəm (3).PNG
