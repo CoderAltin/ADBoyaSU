@@ -352,6 +352,7 @@
             // 
             // label20
             // 
+            label20.BorderStyle = BorderStyle.FixedSingle;
             resources.ApplyResources(label20, "label20");
             label20.Name = "label20";
             // 

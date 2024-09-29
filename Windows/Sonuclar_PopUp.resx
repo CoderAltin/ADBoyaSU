@@ -172,7 +172,7 @@
     <value>3, 3</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>779, 277</value>
+    <value>779, 56</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -200,7 +200,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>785, 283</value>
+    <value>785, 62</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -248,7 +248,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>785, 283</value>
+    <value>785, 62</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -643,6 +643,9 @@
   <data name="groupBox2.Text" xml:space="preserve">
     <value>tsek</value>
   </data>
+  <data name="groupBox2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
     <value>groupBox2</value>
   </data>
@@ -875,7 +878,7 @@
     <value>Segoe UI, 15pt</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>516, 40</value>
+    <value>515, 40</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 28</value>
@@ -1013,7 +1016,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>785, 283</value>
+    <value>785, 62</value>
   </data>
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1034,13 +1037,16 @@
     <value>2</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 127</value>
+    <value>795, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>793, 311</value>
+    <value>793, 90</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="tabControl1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
     <value>tabControl1</value>
@@ -1061,7 +1067,7 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 19</value>
+    <value>16, 24</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
     <value>626, 21</value>
@@ -1084,20 +1090,20 @@
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label20.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 44</value>
+    <value>16, 51</value>
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>782, 15</value>
+    <value>782, 1</value>
   </data>
   <data name="label20.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label20.Text" xml:space="preserve">
     <value>___________________________________________________________________________________________________________________________________________________________</value>
+  </data>
+  <data name="label20.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label20.Name" xml:space="preserve">
     <value>label20</value>
@@ -1115,10 +1121,10 @@
     <value>True</value>
   </data>
   <data name="SonuclarPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 68</value>
+    <value>12, 55</value>
   </data>
   <data name="SonuclarPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>793, 53</value>
+    <value>793, 383</value>
   </data>
   <data name="SonuclarPanel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>

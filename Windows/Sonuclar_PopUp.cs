@@ -20,7 +20,7 @@ namespace ADBoyaSU.Windows
         {
             InitializeComponent();
 
-            PopulateSomeData();
+            //PopulateSomeData();
         }
 
         public void AddThisToSonucWind(string image1Address, string image2Address, string image3Address, float[] results)
@@ -37,9 +37,6 @@ namespace ADBoyaSU.Windows
 
             string[] rns = { "CA", "CP", "CC" }; // result names
 
-            /*string name1 = image1Address.Split('\\').Last().Split('.').First();
-            string name2 = image2Address.Split('\\').Last().Split('.').First();
-            string name3 = image3Address.Split('\\').Last().Split('.').First();*/
 
             Size groupBoxSize = new Size(760, 200);
             int distFromBorder = 6;
@@ -53,26 +50,28 @@ namespace ADBoyaSU.Windows
 
             Label[] resultNames = new Label[3];
             Point rnStartLocation = new Point(pbStartLocation.X + 3 * pbSize.Width + 3 * distFromBorder + distFromBorder, 40);
+            Size rnSize = new Size(37, 28);
 
             Label[] resultValues = new Label[3];
-            Point rvStartLocation = new Point(575, rnStartLocation.Y);
+            Point rvStartLocation = new Point(rnStartLocation.X + rnSize.Width + 3*distFromBorder, rnStartLocation.Y);
 
 
 
             // *** create different component of window *** //
+
             // Create GroupBox
             GroupBox groupBox = new GroupBox();
             groupBox.Size = groupBoxSize;
             groupBox.Location = new Point(distFromBorder, i * (groupBoxSize.Height + distFromBorder) + distFromBorder);
             groupBox.Text = names[0];
-            //groupBox.Text = name1;
 
-            // Create PictureBoxes and image names
+
+            // Create PictureBoxes, image names, result names and result values
             for (int j = 0; j < 3; j++)
             {
                 int picLocX = pbStartLocation.X + j * (pbSize.Width + distFromBorder);
                 pictureBoxes[j] = new PictureBox();
-                pictureBoxes[j].Name = $"picturebox{j}";
+                //pictureBoxes[j].Name = $"picturebox{j}";
                 pictureBoxes[j].Location = new Point(picLocX, pbStartLocation.Y);
                 pictureBoxes[j].Size = pbSize;
                 pictureBoxes[j].SizeMode = PictureBoxSizeMode.Zoom;
@@ -80,7 +79,7 @@ namespace ADBoyaSU.Windows
 
 
                 pictureLables[j] = new Label();
-                pictureLables[j].Name = $"pictureLbel{j}";
+                //pictureLables[j].Name = $"pictureLbel{j}";
                 pictureLables[j].Location = new Point(picLocX, pbStartLocation.Y + pbSize.Height + 3);
                 pictureLables[j].Text = names[j];
 
@@ -88,15 +87,17 @@ namespace ADBoyaSU.Windows
                 resultNames[j] = new Label();
                 int resLocY = rnStartLocation.Y + j * (resultNames[j].Size.Height + 2 * distFromBorder);
                 resultNames[j].Font = new Font("Segoe UI", 15);
-                resultNames[j].Name = $"resultName{j}";
+                resultNames[j].Size = rnSize;
+                //resultNames[j].Name = $"resultName{j}";
                 resultNames[j].Location = new Point(rnStartLocation.X, resLocY);
                 resultNames[j].Text = rns[j];
 
 
                 resultValues[j] = new Label();
                 resultValues[j].Font = new Font("Segoe UI", 15);
-                resultValues[j].Name = $"resultValue{j}";
-                resultValues[j].Location = new Point(rnStartLocation.X, resLocY);
+                resultValues[j].Size = new Size(142, 38);
+                //resultValues[j].Name = $"resultValue{j}";
+                resultValues[j].Location = new Point(rvStartLocation.X, resLocY);
                 resultValues[j].Text = results[j].ToString();
 
 
@@ -107,15 +108,11 @@ namespace ADBoyaSU.Windows
                 groupBox.Controls.Add(resultValues[j]);
             }
 
-            /*pictureBoxes[0].Image = Image.FromFile(image1Address);
-            pictureBoxes[1].Image = Image.FromFile(image2Address);
-            pictureBoxes[2].Image = Image.FromFile(image3Address);*/
 
 
             // Add created control to the window
-            tabPage3.Controls.Add(groupBox);
-            //SonuclarPanel.Controls.Add(groupBox);
-
+            //tabPage3.Controls.Add(groupBox);
+            SonuclarPanel.Controls.Add(groupBox);
 
             i++; // n'th file (used for positioning controls)
         }

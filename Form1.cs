@@ -882,7 +882,7 @@ namespace ADBoyaSU
                 ProgressbarVisiblitiy(1);
 
                 // Sonuclar PopUp
-                //sonuclar_PopUp.ClearThis();
+                sonuclar_PopUp.ClearThis();
                 sonuclar_PopUp.i = 0;
 
                 // *** Working on the main thread *** //
