@@ -69,6 +69,8 @@
             label3 = new Label();
             label2 = new Label();
             label19 = new Label();
+            label20 = new Label();
+            SonuclarPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -348,11 +350,23 @@
             resources.ApplyResources(label19, "label19");
             label19.Name = "label19";
             // 
+            // label20
+            // 
+            resources.ApplyResources(label20, "label20");
+            label20.Name = "label20";
+            // 
+            // SonuclarPanel
+            // 
+            resources.ApplyResources(SonuclarPanel, "SonuclarPanel");
+            SonuclarPanel.Name = "SonuclarPanel";
+            // 
             // Sonuclar_PopUp
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
+            Controls.Add(SonuclarPanel);
+            Controls.Add(label20);
             Controls.Add(label19);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -418,5 +432,7 @@
         private Label label17;
         private Label label18;
         private Label label19;
+        private Label label20;
+        private Panel SonuclarPanel;
     }
 }
