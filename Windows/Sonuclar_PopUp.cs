@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +24,7 @@ namespace ADBoyaSU.Windows
         private void PopulateSomeData()
         {
             //
+            // Tab Page 1
             // Data Grid View
             //
             Image image1 = Image.FromFile(@"G:\B\University\Undergraduate n Sftwrs n Ppr\Programming\C#\Projects\Sonaz\dadaslar\Revision 02- Parlax C inan Parlax C Ornaklari\initial-ts\tsek (1).jpg");
@@ -45,11 +48,27 @@ namespace ADBoyaSU.Windows
 
 
             //
+            // Tab Page 3
             // Images
             //
             pictureBox1.Image = image1;
             pictureBox2.Image = image2;
             pictureBox3.Image = image3;
+
+            int groupBoxCount = 3;
+            GroupBox[] groupBoxes = new GroupBox[groupBoxCount];
+            
+            for (int i = 0; i < groupBoxCount; i++)
+            {
+                groupBoxes[i] = new GroupBox();
+                Name = $"groupBox{i + 2}";
+
+                groupBoxes[i].Text = $"Test GroupBox {i}";
+                groupBoxes[i].Size = new Size(756, 202);
+                groupBoxes[i].Location = new Point(6, 202 * (2 + i) + 6 * (3 + i));
+
+                tabPage3.Controls.Add(groupBoxes[i]);
+            }
         }
     }
 }
