@@ -89,6 +89,8 @@ namespace ADBoyaSU
         string[] dragedFiles;
         List<string> tempDragedFiles = new List<string>();
 
+        // Sonuclar pop-up window
+        Sonuclar_PopUp sonuclar_PopUp = new Sonuclar_PopUp();
 
         public Form1()
         {
@@ -632,7 +634,7 @@ namespace ADBoyaSU
             string[] result_4 = new string[(int)imagesCount / imagesOfAKind + 2]; // 4'th table showing Contact Values
 
             string[] sonucText;
-            
+
             float[,] values = new float[rowCount + 2, noR * noC + noR + 2];
 
             #region Creating headers for second file/table
@@ -763,6 +765,10 @@ namespace ADBoyaSU
 
                     // Sonuc Text files Creation
                     SonuclarFiles.AddThisToSonucText(tfn, thisSoundResults[0], thisSoundResults[1], thisSoundResults[2]);
+                   
+                    sonuclar_PopUp.AddThisToSonucWind(
+                        fileNames[m - 3], fileNames[m - 2], fileNames[m - 1],
+                        thisSoundResults[0], thisSoundResults[1], thisSoundResults[3]);
 
                     /* For Manual control
                      * results represent images: çəm (1).PNG, çəm (2).PNG, çəm (3).PNG
@@ -853,11 +859,12 @@ namespace ADBoyaSU
 
             // It's all over
             MessageBox.Show(rm.GetString("qurtuldu_mes"), rm.GetString("qurtuldu_cap"));
-            
+
 
             // Sonuclar PopUp
-            Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
-            sonuclar.ShowDialog();
+            //Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
+            //sonuclar.ShowDialog();
+            sonuclar_PopUp.ShowDialog();
 
 
             EnableControls(1);
@@ -1140,7 +1147,7 @@ namespace ADBoyaSU
             saveAddress_2 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + fileName + "_ikiminci.txt");
             saveAddress_3 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + fileName + "_yavan.txt");
             saveAddress_4 = saveFilePath.Text.Replace(saveFileFullName, directoryName + "\\" + fileName + "_Doxunus_Dayarlari.txt");
-            
+
             /* Old Save Paths
             saveAddress_1 = pathForTexts;
             string temp = pathForTexts.Split('\\').Last().Split('.').First();

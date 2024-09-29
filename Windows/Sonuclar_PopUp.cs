@@ -14,11 +14,21 @@ namespace ADBoyaSU.Windows
 {
     public partial class Sonuclar_PopUp : Form
     {
+        int i = 0;
         public Sonuclar_PopUp()
         {
             InitializeComponent();
 
             PopulateSomeData();
+        }
+
+        public void AddThisToSonucWind(string image1Name, string image2Name, string image3Name, float CA, float CC, float CP)
+        {
+            // create different component of window
+
+            // Add created control to the window
+            
+            i++; // n'th file (used for positioning controls)
         }
 
         private void PopulateSomeData()
@@ -57,7 +67,7 @@ namespace ADBoyaSU.Windows
 
             int groupBoxCount = 3;
             GroupBox[] groupBoxes = new GroupBox[groupBoxCount];
-            
+
             for (int i = 0; i < groupBoxCount; i++)
             {
                 groupBoxes[i] = new GroupBox();
@@ -66,6 +76,7 @@ namespace ADBoyaSU.Windows
                 groupBoxes[i].Text = $"Test GroupBox {i}";
                 groupBoxes[i].Size = new Size(756, 202);
                 groupBoxes[i].Location = new Point(6, 202 * (2 + i) + 6 * (3 + i));
+
 
                 tabPage3.Controls.Add(groupBoxes[i]);
             }
