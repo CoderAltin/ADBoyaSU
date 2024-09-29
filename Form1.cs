@@ -101,8 +101,8 @@ namespace ADBoyaSU
 
             // **** Just temporarily **** //
             // Sonuclar PopUp
-            Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
-            sonuclar.ShowDialog();
+            //Sonuclar_PopUp sonuclar = new Sonuclar_PopUp();
+            //sonuclar.ShowDialog();
 
         }
 
@@ -768,7 +768,7 @@ namespace ADBoyaSU
                    
                     sonuclar_PopUp.AddThisToSonucWind(
                         fileNames[m - 3], fileNames[m - 2], fileNames[m - 1],
-                        thisSoundResults[0], thisSoundResults[1], thisSoundResults[3]);
+                        thisSoundResults[0], thisSoundResults[1], thisSoundResults[2]);
 
                     /* For Manual control
                      * results represent images: çəm (1).PNG, çəm (2).PNG, çəm (3).PNG
@@ -876,6 +876,10 @@ namespace ADBoyaSU
             if (saveAddress_1.Trim() != "")
             {
                 ProgressbarVisiblitiy(1);
+
+                // Sonuclar PopUp
+                sonuclar_PopUp.ClearThis();
+                sonuclar_PopUp.i = 0;
 
                 // *** Working on the main thread *** //
                 //StartCounting();

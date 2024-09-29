@@ -68,6 +68,7 @@
             label1 = new Label();
             label3 = new Label();
             label2 = new Label();
+            label19 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -342,11 +343,17 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
+            // label19
+            // 
+            resources.ApplyResources(label19, "label19");
+            label19.Name = "label19";
+            // 
             // Sonuclar_PopUp
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
+            Controls.Add(label19);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -368,6 +375,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -409,5 +417,6 @@
         private Label label16;
         private Label label17;
         private Label label18;
+        private Label label19;
     }
 }
