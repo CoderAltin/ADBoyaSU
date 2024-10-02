@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Security;
+using System.Reflection;
+using System.Resources;
 using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +17,14 @@ namespace ADBoyaSU.Windows
 {
     public partial class Sonuclar_PopUp : Form
     {
+        ResourceManager rm = new ResourceManager("ADBoyaSU.Form1", Assembly.GetExecutingAssembly());
+
         public int i = 0;
         public Sonuclar_PopUp()
         {
             InitializeComponent();
+
+            formDescription.Text = rm.GetString("Sonuclar_PopUp_Desc");
 
             //PopulateSomeData();
         }
@@ -53,7 +59,7 @@ namespace ADBoyaSU.Windows
             Size rnSize = new Size(37, 28);
 
             Label[] resultValues = new Label[3];
-            Point rvStartLocation = new Point(rnStartLocation.X + rnSize.Width + 3*distFromBorder, rnStartLocation.Y);
+            Point rvStartLocation = new Point(rnStartLocation.X + rnSize.Width + 3 * distFromBorder, rnStartLocation.Y);
 
 
 
@@ -85,18 +91,18 @@ namespace ADBoyaSU.Windows
 
 
                 resultNames[j] = new Label();
+                //resultNames[j].Name = $"resultName{j}";
                 int resLocY = rnStartLocation.Y + j * (resultNames[j].Size.Height + 2 * distFromBorder);
                 resultNames[j].Font = new Font("Segoe UI", 15);
                 resultNames[j].Size = rnSize;
-                //resultNames[j].Name = $"resultName{j}";
                 resultNames[j].Location = new Point(rnStartLocation.X, resLocY);
                 resultNames[j].Text = rns[j];
 
 
                 resultValues[j] = new Label();
+                //resultValues[j].Name = $"resultValue{j}";
                 resultValues[j].Font = new Font("Segoe UI", 15);
                 resultValues[j].Size = new Size(142, 38);
-                //resultValues[j].Name = $"resultValue{j}";
                 resultValues[j].Location = new Point(rvStartLocation.X, resLocY);
                 resultValues[j].Text = results[j].ToString();
 
@@ -111,10 +117,15 @@ namespace ADBoyaSU.Windows
 
 
             // Add created control to the window
+            
+            // To the tabs
             //tabPage3.Controls.Add(groupBox);
+
+            // To Main Window
             SonuclarPanel.Controls.Add(groupBox);
 
-            i++; // n'th file (used for positioning controls)
+
+            i++; // i'th set added (used for positioning controls)
         }
 
         public void ClearThis()
@@ -123,6 +134,7 @@ namespace ADBoyaSU.Windows
             SonuclarPanel.Controls.Clear();
         }
 
+        // populate tabs with some dummy data
         private void PopulateSomeData()
         {
             //

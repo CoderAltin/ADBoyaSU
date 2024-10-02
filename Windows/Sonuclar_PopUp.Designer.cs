@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sonuclar_PopUp));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             Ad = new DataGridViewTextBoxColumn();
             Akiz1 = new DataGridViewImageColumn();
@@ -68,7 +68,7 @@
             label1 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label19 = new Label();
+            formDescription = new Label();
             label20 = new Label();
             SonuclarPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -99,9 +99,9 @@
             // Ad
             // 
             Ad.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            Ad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            Ad.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(Ad, "Ad");
             Ad.Name = "Ad";
             Ad.ReadOnly = true;
@@ -131,11 +131,11 @@
             // Sonuclar
             // 
             Sonuclar.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            Sonuclar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            Sonuclar.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(Sonuclar, "Sonuclar");
             Sonuclar.Name = "Sonuclar";
             Sonuclar.ReadOnly = true;
@@ -345,10 +345,10 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
-            // label19
+            // formDescription
             // 
-            resources.ApplyResources(label19, "label19");
-            label19.Name = "label19";
+            resources.ApplyResources(formDescription, "formDescription");
+            formDescription.Name = "formDescription";
             // 
             // label20
             // 
@@ -368,7 +368,7 @@
             BackColor = SystemColors.Control;
             Controls.Add(SonuclarPanel);
             Controls.Add(label20);
-            Controls.Add(label19);
+            Controls.Add(formDescription);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -432,7 +432,7 @@
         private Label label16;
         private Label label17;
         private Label label18;
-        private Label label19;
+        private Label formDescription;
         private Label label20;
         private Panel SonuclarPanel;
     }

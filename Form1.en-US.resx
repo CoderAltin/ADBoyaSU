@@ -894,4 +894,7 @@
   <data name="yerSecmadin_mes" xml:space="preserve">
     <value>You Always Could Come Back to Us Later You Know.</value>
   </data>
+  <data name="Sonuclar_PopUp_Desc" xml:space="preserve">
+    <value>The final results are stored in the location that you've chosen. these are only for demonstration purposes.</value>
+  </data>
 </root>

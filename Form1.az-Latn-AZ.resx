@@ -164,7 +164,7 @@
   <data name="birzadSecilmiyip_cap.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="birzadSecilmiyip_cap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -855,5 +855,8 @@
   </data>
   <data name="yerSecmadin_mes" xml:space="preserve">
     <value>Sən Bir Dolan Gənə Gəl Diyiren?</value>
+  </data>
+  <data name="Sonuclar_PopUp_Desc" xml:space="preserve">
+    <value>Sonuclar bir 'Table' kimin, saxlamak didiğiz yerdə saxlanıp. Bırada gördükləriz, təkcə görsətmək üçündür.</value>
   </data>
 </root>

@@ -20,6 +20,7 @@ namespace ADBoyaSU
         // Azərbaycan Hərflərı:
         // Ü İ Ö Ğ I Ə Ç Ş
         // ü i ö ğ ı ə ç ş
+        // Sonuclar bir 'Table' kimın saxlamak didiğiz yerdə saxlanıp. Bırada gördükləriz, təkcə görsətmək üçündür.
         // Ərşan
         // Türkü Azərbaycan
         ResourceManager rm = new ResourceManager("ADBoyaSU.Form1", Assembly.GetExecutingAssembly());
