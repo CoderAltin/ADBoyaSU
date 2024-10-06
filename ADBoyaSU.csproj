@@ -8,6 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>ADBoyaSU.Program</StartupObject>
     <ApplicationIcon>gir-ozum-01 64x64.ico</ApplicationIcon>
+    <FileVersion>1.4.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
