@@ -1,1 +1,4 @@
-﻿# ADBoyaSU (Altin'ın Düzəltdığı Boya Sayma Uyğulaması)
+﻿# ADBoyaSU 
+ Altin'ın Düzəltdığı Boya Sayma Uyğulaması
+
+ 
